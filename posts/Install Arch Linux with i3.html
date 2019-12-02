@@ -30,12 +30,38 @@
         }
 
         hr {
+            clear:both;
             color: black;
         }
     </style>
 </head>
 <body>
-<script src="https://gist.github.com/bennybackslash/636b4c40ea15e3a129bf6c0609cf2c2c.js"></script>
+<h1>Arch Linux Install with i3</h1>
+<p>Bible:</p>
+<p><a href="https://wiki.archlinux.org/index.php/installation_guide">https://wiki.archlinux.org/index.php/installation_guide</a></p>
+<p>GRUB Reference:</p>
+<p><a href="https://wiki.archlinux.org/index.php/GRUB">https://wiki.archlinux.org/index.php/GRUB</a></p>
+<p>Virtualbox Reference:</p>
+<p><a href="https://wiki.archlinux.org/index.php/VirtualBox">https://wiki.archlinux.org/index.php/VirtualBox</a></p>
+<p>Decent Arch Install Guides:</p>
+<p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
+<p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
+<p>run this before pacstrap:</p>
+<pre><code>    pacman-key --init
+    pacman-key --populate archlinux
+    pacman-key --refresh-keys
+</code></pre>
+
+<p>pacstrap include:</p>
+<p>base linux linux-firmware vim xorg-server xorg-xinit i3 dmenu (needed?) grub efibootmgr sudo netctl wpa_supplicant dhcpcd dialog ttf-dejavu</p>
+<p>if forget something, can arch-chroot into system</p>
+<p>need --removable on grub cfg for EFI Boot on VBox</p>
+<p>i3 needs ttf-dejavu font package</p>
+<p>add 'exec i3' to ~/.xinitrc</p>
+<pre><code>    pacman -S package --overwrite='*'
+</code></pre>
+
+<p>this installs and overwrites all files, be careful, but this solved sudoers problem</p>
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function ()
