@@ -25,10 +25,16 @@
         }
 
         // var lastPos = 0;
-        $(document).load(function () {
-        var hash = window.location.hash.replace('#', '');
-        if (hash != '') $(window.location.hash)[0].click();
-        });
+        $(window).on('load', function(){        
+    if( location.hash && location.hash.length ) {
+       var hash = decodeURIComponent(location.hash.substr(1));
+       $(hash)[0].click();
+    }       
+});
+        // $(document).load(function () {
+        // var hash = window.location.hash.replace('#', '');
+        // if (hash != '') $(window.location.hash)[0].click();
+        // });
 
         $(document).ready(function () {
             // your on click function here
