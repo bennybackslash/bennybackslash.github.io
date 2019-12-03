@@ -36,6 +36,11 @@
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
         });
+        $('#content').bind('contentchanged', function() {
+            $.get(document.getElementById("imageId").src, function (my_var) {
+                document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+            }, 'html');
+        });
         
     </script>
 
