@@ -26,7 +26,7 @@
 
         $(document).ready(function () {
             // your on click function here
-            $('a').click(function () {
+            $("links a").click(function () {
                 $('.content').load(encodeURIComponent($(this).attr('href')));
                 $('.content').css("background", "white");
                 //     $.get(document.getElementById("imageId").src, function (my_var) {
@@ -43,11 +43,11 @@
         // });
         var lastPos = 0;
 
-        $('#links a').click(function () {
+        $("#links a").click(function () {
             location.hash = $(this).attr('id');
         });
 
-        $('#header a').click(function () {
+        $("#header a").click(function () {
             lastPos = $(window).scrollTop();
             location.hash = '';
         });
