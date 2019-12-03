@@ -31,6 +31,9 @@
                 $('.content').css("background", "white");
                 return false;
             });
+            $.get(document.getElementById("imageId").src, function (my_var) {
+                document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+            }, 'html');
         });
     </script>
 
@@ -114,20 +117,16 @@
         }
 
         .links {
-            /*background-color: #131513;*/
             float: left;
             width: 25%;
-        }
-
-        .header {
-            /*background-color: #131513;*/
         }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <a href="https://bennybackslash.github.io/"><img src="https://bennybackslash.github.io/images/logo.gif"></a>
+        <a href="https://bennybackslash.github.io/"><img id=imageId
+                src="https://bennybackslash.github.io/images/logo.gif"></a>
         <input type="text" id="searchbox" onkeyup="search()" placeholder="search posts" size="10" spellcheck="false">
         <hr>
     </div>
