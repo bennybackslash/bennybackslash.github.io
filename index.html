@@ -43,7 +43,7 @@
         });
 
         $(window).bind('hashchange', function (event) {
-            $('a[id=\"'+hash.location+'\"]').get(0).click()
+            $(hash.location).get(0).click()
             var hash = location.hash.replace('#', '');
 
             if (hash == '') $(window).scrollTop(lastPos);
