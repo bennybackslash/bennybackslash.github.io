@@ -28,8 +28,11 @@
         $(window).on('load', function(){        
     if( location.hash && location.hash.length ) {
        var hash = decodeURIComponent(location.hash.substr(1));
-       alert('#'+hash+' a');
-       $('#'+hash+' a').trigger('click');
+    //    alert('#'+hash+' a');
+       $('#'+hash+' a').trigger('click', function(){
+        $('.content').load(encodeURIComponent($(this).attr('href')));
+                $('.content').css("background", "white");
+            });
     }       
 });
         // $(document).load(function () {
@@ -46,7 +49,6 @@
                 //     document.getElementById("imageId").src = "data:image/png;base64," + my_var;
                 // }, 'html');
                 location.hash = $(this).attr('id');
-                alert(location.hash);
                 return false;
             });
             $("div.header a").click(function () {
