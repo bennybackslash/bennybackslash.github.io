@@ -43,7 +43,9 @@
         });
 
         $(window).bind('hashchange', function (event) {
+            $(hash)[0].click();
             var hash = location.hash.replace('#', '');
+
             if (hash == '') $(window).scrollTop(lastPos);
             // alert(hash);
         });
