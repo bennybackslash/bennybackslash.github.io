@@ -30,9 +30,9 @@
                 $('.content').load(encodeURIComponent($(this).attr('href')));
                 $('.content').css("background", "white");
                 $(this).attr('href', "new_url");
-            //     $.get(document.getElementById("imageId").src, function (my_var) {
-            //     document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-            // }, 'html');
+                //     $.get(document.getElementById("imageId").src, function (my_var) {
+                //     document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+                // }, 'html');
                 return false;
             });
             $.get(document.getElementById("logo").src, function (my_var) {
@@ -40,9 +40,24 @@
             }, 'html');
         });
         // $('#content').bind('contentchanged', function() {
-            
+
         // });
-        
+        var lastPos = 0;
+
+        $('links a').click(function () {
+            location.hash = $(this).attr('id');
+        });
+
+        $('header a').click(function () {
+            lastPos = $(window).scrollTop();
+            location.hash = '';
+        });
+
+        $(window).bind('hashchange', function (event) {
+            var hash = location.hash.replace('#', '');
+            if (hash == '') $(window).scrollTop(lastPos);
+            // alert(hash);
+        });
     </script>
 
     <style>
@@ -55,9 +70,11 @@
         .header img {
             float: left;
         }
-        p{
+
+        p {
             clear: both;
         }
+
         hr {
             clear: both;
             height: 2;
@@ -130,7 +147,6 @@
             float: left;
             width: 25%;
         }
-
     </style>
 </head>
 
@@ -145,8 +161,8 @@
         <!--<iframe name="gist" style="width:100%; height:100%;" frameborder="0"></iframe>-->
     </div>
     <div class="links">
-        <ul id="posts" style="list-style-type:none;margin:0;padding:0;"><li><a href="/posts/Welcome.html" >Welcome</a></li>
-<li><a href="/posts/Install Arch Linux with i3.html" >Install Arch Linux with i3</a></li>
+        <ul id="posts" style="list-style-type:none;margin:0;padding:0;"><li><a id="Welcome" href="/posts/Welcome.html" >Welcome</a></li>
+<li><a id="Install Arch Linux with i3" href="/posts/Install Arch Linux with i3.html" >Install Arch Linux with i3</a></li>
 </ul>
 </div>
 </body>
