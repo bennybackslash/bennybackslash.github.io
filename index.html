@@ -43,11 +43,11 @@
         // });
         var lastPos = 0;
 
-        $('links a').click(function () {
+        $('#links a').click(function () {
             location.hash = $(this).attr('id');
         });
 
-        $('header a').click(function () {
+        $('#header a').click(function () {
             lastPos = $(window).scrollTop();
             location.hash = '';
         });
