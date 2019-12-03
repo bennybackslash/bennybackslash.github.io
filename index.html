@@ -29,10 +29,12 @@
     if( location.hash && location.hash.length ) {
        var hash = decodeURIComponent(location.hash.substr(1));
     //    alert('#'+hash+' a');
-       $('#'+hash+' a').trigger('click', function(){
-        $('.content').load(encodeURIComponent($(this).attr('href')));
-                $('.content').css("background", "white");
-            });
+       $('#'+hash)[0].click();
+    // ('click', function(){
+    //     $('.content').load(encodeURIComponent($(this).attr('href')));
+    //             $('.content').css("background", "white");
+    //         });
+
     }       
 });
         // $(document).load(function () {
