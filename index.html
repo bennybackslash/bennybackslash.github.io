@@ -24,7 +24,11 @@
             }
         }
 
-        var lastPos = 0;
+        // var lastPos = 0;
+        $(document).load(function () {
+        var hash = location.hash.replace('#', '');
+        if (hash != '') $(location.hash)[0].click();
+        });
 
         $(document).ready(function () {
             // your on click function here
@@ -42,13 +46,13 @@
             location.hash = '';
         });
 
-        $(window).bind('hashchange', function (event) {
-            $('\''+location.hash+'\'')[0].click();
-            var hash = location.hash.replace('#', '');
+        // $(window).bind('hashchange', function (event) {
+        //     $('\''+location.hash+'\'')[0].click();
+        //     var hash = location.hash.replace('#', '');
 
-            if (hash == '') $(window).scrollTop(lastPos);
-            // alert(hash);
-        });
+        //     if (hash == '') $(window).scrollTop(lastPos);
+        //     // alert(hash);
+        // });
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
