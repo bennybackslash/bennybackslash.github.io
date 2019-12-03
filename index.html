@@ -28,8 +28,8 @@
         $(window).on('load', function(){        
     if( location.hash && location.hash.length ) {
        var hash = decodeURIComponent(location.hash.substr(1));
-       alert(hash);
-       $('\'#'+hash+' a\'')[0].click();
+       alert('\'#'+hash+' a\'');
+       $('\'#'+hash+' a\'').trigger('click');
     }       
 });
         // $(document).load(function () {
