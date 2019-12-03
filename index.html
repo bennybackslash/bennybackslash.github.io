@@ -29,7 +29,7 @@
     if( location.hash && location.hash.length ) {
        var hash = decodeURIComponent(location.hash.substr(1));
        alert(hash);
-       $('\''+hash+' a\'')[0].click();
+       $('\'#'+hash+' a\'')[0].click();
     }       
 });
         // $(document).load(function () {
