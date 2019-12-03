@@ -26,8 +26,8 @@
 
         // var lastPos = 0;
         $(document).load(function () {
-        var hash = location.hash.replace('#', '');
-        if (hash != '') $(location.hash)[0].click();
+        var hash = window.location.hash.replace('#', '');
+        if (hash != '') $(window.location.hash)[0].click();
         });
 
         $(document).ready(function () {
