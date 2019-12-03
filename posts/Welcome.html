@@ -6,7 +6,7 @@
         $(document).ready(function () {
             $.get(document.getElementById("imageId").src, function (my_var) {
                 document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-                document.getElementById("imageId").css("clear","right");
+                document.getElementById("imageId").css("overflow","hidden");
             }, 'html');
         });
         
