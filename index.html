@@ -74,6 +74,7 @@
             location.hash = '';
         });
         if( location.hash && location.hash.length ) {
+                alert('#'+decodeURIComponent(location.hash.substr(1)));
                 $('.content').load(encodeURIComponent($('#'+decodeURIComponent(location.hash.substr(1)))[0].attr('href')));
                 $('.content').css("background", "white");
                 //var hash = decodeURIComponent(location.hash.substr(1));
