@@ -32,7 +32,7 @@
             //alert(initialLoad);
             if (initialLoad)
             {
-                var hash = decodeURIComponent(location.hash.substr(1)).replace(/+/g," ");
+                var hash = decodeURIComponent(location.hash.substr(1)).split('+').join(' ');
                 alert(hash);
                 if(hash)
                 {
@@ -50,7 +50,7 @@
                     //alert(encodeURIComponent($(this).attr('href')));
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
-                    location.hash = $(this).attr('id').replace(/ /g,"+");
+                    location.hash = $(this).attr('id').split(' ').join('+');
                     alert(location.hash);
                 return false;
             });
