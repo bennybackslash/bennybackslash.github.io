@@ -61,6 +61,7 @@
             // your on click function here
             
             $("div.links a").click(function () {
+                alert(this);
                 //$('.content').load(encodeURIComponent($(this).attr('href')));
                 //$('.content').css("background", "white");
                 //     $.get(document.getElementById("imageId").src, function (my_var) {
@@ -75,7 +76,7 @@
         });
         if( location.hash && location.hash.length ) {
                 alert('#'+decodeURIComponent(location.hash.substr(1)));
-                $('.content').load(encodeURIComponent($('#'+decodeURIComponent(location.hash.substr(1)))[0].attr('href')));
+                $('.content').load(encodeURIComponent($('#'+decodeURIComponent(location.hash.substr(1))).attr('href')));
                 $('.content').css("background", "white");
                 //var hash = decodeURIComponent(location.hash.substr(1));
                 //$('#'+hash)[0].click();
