@@ -35,7 +35,11 @@
                 var hash = decodeURIComponent(location.hash.substr(1));
                 if(hash)
                 {
-                    $('#' + hash)[0].click();
+                    $('#' + hash)[0].click(function () {
+                    $('.content').load(encodeURIComponent($(this).attr('href')));
+                    $('.content').css("background", "white");
+                    location.hash = $(this).attr('id');
+                return false;});
                 }
                 initialLoad=false;
             }
