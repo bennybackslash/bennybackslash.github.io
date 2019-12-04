@@ -41,7 +41,7 @@
                     //alert(encodeURIComponent($('#' + hash).attr('href')));
                     //$('#' + hash)[0].click(function () {
                         //'#' +
-                        alert($(hash).attr('href'));
+                        alert($(hash)[0].attr('href'));
                         alert(encodeURIComponent($(hash).attr('href')));
                     $('.content').load(encodeURIComponent($(hash).attr('href')));
                     $('.content').css("background", "white");
