@@ -24,24 +24,25 @@
             }
         }
 
-        var initalLoad = true;
+        
+        var initialLoad = true;
 
         $(document).ready(function () {
             // your on click function here
-            $("div.links a").click(function () {
-                if (initalLoad) {
-                    if (location.hash && location.hash.length) {
-                        var hash = decodeURIComponent(location.hash.substr(1));
-                        $('.content').load(encodeURIComponent($('#' + hash).attr('href')));
-                        $('.content').css("background", "white");
-                    }
-                    initalLoad = false;
+            
+            if (initialLoad)
+            {
+                var hash = decodeURIComponent(location.hash.substr(1));
+                if(hash)
+                {
+                    $('#' + hash)[0].click();
                 }
-                else {
+                initialLoad=false;
+            }
+            $("div.links a").click(function () {
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
                     location.hash = $(this).attr('id');
-                }
                 return false;
             });
 
