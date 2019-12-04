@@ -29,11 +29,11 @@
 
         $(document).ready(function () {
             // your on click function here
-            alert(initialLoad);
+            //alert(initialLoad);
             if (initialLoad)
             {
                 var hash = decodeURIComponent(location.hash.substr(1));
-                alert(hash);
+                //alert(hash);
                 if(hash)
                 {
                     //alert($('#' + hash).attr('href'));
@@ -41,8 +41,7 @@
                     $('#' + hash)[0].click(function () {
                     $('.content').load(encodeURIComponent($('#' + hash).attr('href')));
                     $('.content').css("background", "white");
-                    location.hash = $(this).attr('id');
-                return false;});
+                    return false;});
                 }
                 initialLoad=false;
             }
