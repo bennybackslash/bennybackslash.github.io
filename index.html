@@ -61,10 +61,13 @@
         
         $(document).ready(function () {
             // your on click function here
+            alert(initalLoad);
             if(initalLoad)
             {
+                alert(location.hash);
                 if( location.hash && location.hash.length ) {
                     var hash = decodeURIComponent(location.hash.substr(1));
+                    alert(hash);
                     $('.content').load(encodeURIComponent($('#'+hash).attr('href')));
                     $('.content').css("background", "white");
                 }
