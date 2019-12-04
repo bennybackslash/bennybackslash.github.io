@@ -24,8 +24,6 @@
             }
         }
 
-        jQuery(document.links) .filter(function() { return this.hostname != window.location.hostname; }) .attr('target', '_blank');
-
         var initialLoad = true;
 
         $(document).ready(function () {
@@ -48,8 +46,6 @@
                 return false;
             });
             
-            jQuery(document.links) .filter(function() { return this.hostname != window.location.hostname; }) .attr('target', '_blank');
-
             $("div.header a").click(function () {
                 location.hash = '';
             });
