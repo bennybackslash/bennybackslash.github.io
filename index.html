@@ -28,35 +28,22 @@
         var initialLoad = true;
 
         $(document).ready(function () {
-            // your on click function here
-            //alert(initialLoad);
+
             if (initialLoad)
             {
-                //decodeURIComponent(
                 var hash = location.hash.split('+').join(' ');
-                //alert(location);
+
                 if(hash)
                 {
-                    alert(encodeURIComponent('/posts/'+ hash));
-                    //alert(encodeURIComponent($('#' + hash).attr('href')));
-                    //$('#' + hash)[0].click(function () {
-                        //'#' +
-                        //alert($(hash).attr('href'));
-                        //alert(encodeURIComponent($(hash).attr('href')));
-                    $('.content').load(encodeURIComponent($(location).attr('href')));
+                    $('.content').load(encodeURIComponent('/posts/'+ hash));
                     $('.content').css("background", "white");
-                    //return false;
-                //});
                 }
                 initialLoad=false;
             }
             $("div.links a").click(function () {
-                    alert(this);
-                    alert(encodeURIComponent($(this).attr('href')));
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
                     location.hash = $(this).attr('id').split(' ').join('+');
-                    alert(location.hash);
                 return false;
             });
 
