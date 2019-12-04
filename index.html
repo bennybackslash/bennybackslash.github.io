@@ -32,14 +32,14 @@
             //alert(initialLoad);
             if (initialLoad)
             {
-                var hash = decodeURIComponent(location.hash.substr(1));
-                //alert(hash);
+                var hash = decodeURIComponent(location.hash.substr(1)).replace(/+/g," ");
+                alert(hash);
                 if(hash)
                 {
                     //alert($('#' + hash).attr('href'));
                     //alert(encodeURIComponent($('#' + hash).attr('href')));
                     //$('#' + hash)[0].click(function () {
-                    $('.content').load(encodeURIComponent($('#' + hash).replace(/+/g," ").attr('href')));
+                    $('.content').load(encodeURIComponent($('#' + hash).attr('href')));
                     $('.content').css("background", "white");
                     //return false;
                 //});
