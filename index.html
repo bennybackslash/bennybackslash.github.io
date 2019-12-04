@@ -36,7 +36,8 @@
                 alert(hash);
                 if(hash)
                 {
-                    alert($('#' + hash).attr('href'));
+                    //alert($('#' + hash).attr('href'));
+                    alert(encodeURIComponent($('#' + hash).attr('href')));
                     $('#' + hash)[0].click(function () {
                     $('.content').load(encodeURIComponent($('#' + hash).attr('href')));
                     $('.content').css("background", "white");
@@ -46,6 +47,7 @@
                 initialLoad=false;
             }
             $("div.links a").click(function () {
+                    alert(encodeURIComponent($(this).attr('href')));
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
                     location.hash = $(this).attr('id');
