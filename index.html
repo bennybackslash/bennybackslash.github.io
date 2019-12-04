@@ -34,10 +34,10 @@
             {
                 //decodeURIComponent(
                 var hash = location.hash.split('+').join(' ');
-                alert(location);
+                //alert(location);
                 if(hash)
                 {
-                    alert($(hash).attr('href'));
+                    alert(encodeURIComponent($('/posts/'+ hash)));
                     //alert(encodeURIComponent($('#' + hash).attr('href')));
                     //$('#' + hash)[0].click(function () {
                         //'#' +
