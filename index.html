@@ -57,13 +57,25 @@
 //             var hash = decodeURIComponent(location.hash.substr(1));
 //                 $('#'+hash)[0].click();
 // }
+        var initalLoad = true;
+        
         $(document).ready(function () {
             // your on click function here
-            
+            if(initalLoad)
+            {
+                if( location.hash && location.hash.length ) {
+                    var hash = decodeURIComponent(location.hash.substr(1));
+                    $('.content').load(encodeURIComponent($('#'+hash).attr('href')));
+                    $('.content').css("background", "white");
+                }
+                initalLoad=false;
+            }
+            else
+            {
             $("div.links a").click(function () {
-                alert(this);
-                //$('.content').load(encodeURIComponent($(this).attr('href')));
-                //$('.content').css("background", "white");
+                //alert(this);
+                $('.content').load(encodeURIComponent($(this).attr('href')));
+                $('.content').css("background", "white");
                 //     $.get(document.getElementById("imageId").src, function (my_var) {
                 //     document.getElementById("imageId").src = "data:image/png;base64," + my_var;
                 // }, 'html');
@@ -74,13 +86,12 @@
             // lastPos = $(window).scrollTop();
             location.hash = '';
         });
-        if( location.hash && location.hash.length ) {
-                alert('#'+decodeURIComponent(location.hash.substr(1)));
-                $('.content').load(encodeURIComponent($('#'+decodeURIComponent(location.hash.substr(1))).attr('href')));
-                $('.content').css("background", "white");
-                //var hash = decodeURIComponent(location.hash.substr(1));
-                //$('#'+hash)[0].click();
-            }
+        // if( location.hash && location.hash.length ) {
+        //         alert('#'+decodeURIComponent(location.hash.substr(1)));
+                
+        //         //var hash = decodeURIComponent(location.hash.substr(1));
+        //         //$('#'+hash)[0].click();
+        //     }
 
         // $(window).bind('hashchange', function (event) {
         //     $('\''+location.hash+'\'')[0].click();
@@ -92,6 +103,8 @@
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
+
+            }
         });
         
     </script>
