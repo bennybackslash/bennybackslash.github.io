@@ -24,94 +24,36 @@
             }
         }
 
-//         // var lastPos = 0;
-//         $(window).on('load', function(){        
-//     if( location.hash && location.hash.length ) {
-//        var hash = decodeURIComponent(location.hash.substr(1));
-//     //    alert('#'+hash+' a');
-//        $('#'+hash)[0].click();
-//        $('.content').load(encodeURIComponent($('#'+hash)[0].attr('href')));
-//        $('.content').css("background", "white");
-//     // ('click', function(){
-//     //     $('.content').load(encodeURIComponent($(this).attr('href')));
-//     //             $('.content').css("background", "white");
-//     //         });
-
-//     }       
-// });
-        // $(document).load(function () {
-        // var hash = window.location.hash.replace('#', '');
-        // if (hash != '') $(window.location.hash)[0].click();
-        // });
-        // $(window).on('load', function(){ 
-        // if( location.hash && location.hash.length ) {
-        //         var hash = decodeURIComponent(location.hash.substr(1));
-        //         $('#'+hash)[0].click(function()
-        //         {
-        //             location.reload();
-        //             return false;
-        //         });
-        //     }
-        // });
-//         function clickHash(){
-//             var hash = decodeURIComponent(location.hash.substr(1));
-//                 $('#'+hash)[0].click();
-// }
         var initalLoad = true;
-        
+
         $(document).ready(function () {
             // your on click function here
             $("div.links a").click(function () {
-                return false;
-            });
-            alert(initalLoad);
-            if(initalLoad)
-            {
-                alert(location.hash);
-                if( location.hash && location.hash.length ) {
-                    var hash = decodeURIComponent(location.hash.substr(1));
-                    alert(hash);
-                    $('.content').load(encodeURIComponent($('#'+hash).attr('href')));
-                    $('.content').css("background", "white");
+                if (initalLoad) {
+                    if (location.hash && location.hash.length) {
+                        var hash = decodeURIComponent(location.hash.substr(1));
+                        $('.content').load(encodeURIComponent($('#' + hash).attr('href')));
+                        $('.content').css("background", "white");
+                    }
+                    initalLoad = false;
                 }
-                initalLoad=false;
-            }
-            else
-            {
-            $("div.links a").click(function () {
-                //alert(this);
-                $('.content').load(encodeURIComponent($(this).attr('href')));
-                $('.content').css("background", "white");
-                //     $.get(document.getElementById("imageId").src, function (my_var) {
-                //     document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-                // }, 'html');
-                location.hash = $(this).attr('id');
+                else {
+                    $('.content').load(encodeURIComponent($(this).attr('href')));
+                    $('.content').css("background", "white");
+                    location.hash = $(this).attr('id');
+                }
                 return false;
             });
+
             $("div.header a").click(function () {
-            // lastPos = $(window).scrollTop();
-            location.hash = '';
-        });
-        // if( location.hash && location.hash.length ) {
-        //         alert('#'+decodeURIComponent(location.hash.substr(1)));
-                
-        //         //var hash = decodeURIComponent(location.hash.substr(1));
-        //         //$('#'+hash)[0].click();
-        //     }
+                location.hash = '';
+            });
 
-        // $(window).bind('hashchange', function (event) {
-        //     $('\''+location.hash+'\'')[0].click();
-        //     var hash = location.hash.replace('#', '');
-
-        //     if (hash == '') $(window).scrollTop(lastPos);
-        //     // alert(hash);
-        // });
-            }
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
         });
-        
+
     </script>
 
     <style>
