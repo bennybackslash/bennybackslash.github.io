@@ -46,6 +46,13 @@
                     location.hash = $(this).attr('id').split(' ').join('+');
                 return false;
             });
+            
+            $("content.links a").click(function () {
+                    $('.content').load(encodeURIComponent($(this).attr('href')));
+                    $('.content').css("background", "white");
+                    //location.hash = $(this).attr('id').split(' ').join('+');
+                return false;
+            });
 
             $("div.header a").click(function () {
                 location.hash = '';
