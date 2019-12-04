@@ -41,7 +41,7 @@
                     //alert(encodeURIComponent($('#' + hash).attr('href')));
                     //$('#' + hash)[0].click(function () {
                         //'#' +
-                        alert($(hash)[0].attr('href'));
+                        alert($(hash).attr('href'));
                         alert(encodeURIComponent($(hash).attr('href')));
                     $('.content').load(encodeURIComponent($(hash).attr('href')));
                     $('.content').css("background", "white");
@@ -51,6 +51,7 @@
                 initialLoad=false;
             }
             $("div.links a").click(function () {
+                    alert(this);
                     alert(encodeURIComponent($(this).attr('href')));
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
