@@ -24,7 +24,8 @@
             }
         }
 
-        
+        jQuery(document.links) .filter(function() { return this.hostname != window.location.hostname; }) .attr('target', '_blank');
+
         var initialLoad = true;
 
         $(document).ready(function () {
