@@ -35,10 +35,7 @@
 
                 if(hash)
                 {
-                    //alert(hash);
-                    //alert(encodeURIComponent(hash));
-                    //'https://bennybackslash.github.io/posts/'+
-                    $('.content').load(encodeURIComponent('/posts/' + hash + '.html'));
+                    $('.content').load(encodeURIComponent('/posts/' + hash.substr(1) + '.html'));
                     $('.content').css("background", "white");
                 }
                 initialLoad=false;
