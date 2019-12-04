@@ -50,7 +50,7 @@
                     //alert(encodeURIComponent($(this).attr('href')));
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
-                    location.hash = $(this).attr('id').replace(" ", "+");
+                    location.hash = $(this).attr('id').replace(/ /g,"+");
                     alert(location.hash);
                 return false;
             });
