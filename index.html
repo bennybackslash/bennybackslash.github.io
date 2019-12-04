@@ -47,10 +47,9 @@
                 return false;
             });
             
-            $("content.links a").click(function () {
+            $("div.content a").click(function () {
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
-                    //location.hash = $(this).attr('id').split(' ').join('+');
                 return false;
             });
 
