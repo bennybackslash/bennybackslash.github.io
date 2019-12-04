@@ -29,7 +29,9 @@
     if( location.hash && location.hash.length ) {
        var hash = decodeURIComponent(location.hash.substr(1));
     //    alert('#'+hash+' a');
-       $('#'+hash)[0].click();
+       //$('#'+hash)[0].click();
+       $('.content').load(encodeURIComponent($('#'+hash)[0].attr('href')));
+       $('.content').css("background", "white");
     // ('click', function(){
     //     $('.content').load(encodeURIComponent($(this).attr('href')));
     //             $('.content').css("background", "white");
