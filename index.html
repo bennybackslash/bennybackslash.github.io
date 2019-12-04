@@ -29,12 +29,14 @@
 
         $(document).ready(function () {
             // your on click function here
-            
+            alert(initialLoad);
             if (initialLoad)
             {
                 var hash = decodeURIComponent(location.hash.substr(1));
+                alert(hash);
                 if(hash)
                 {
+                    alert(this);
                     $('#' + hash)[0].click(function () {
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
