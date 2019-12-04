@@ -38,10 +38,11 @@
                 {
                     //alert($('#' + hash).attr('href'));
                     alert(encodeURIComponent($('#' + hash).attr('href')));
-                    $('#' + hash)[0].click(function () {
+                    //$('#' + hash)[0].click(function () {
                     $('.content').load(encodeURIComponent($('#' + hash).attr('href')));
                     $('.content').css("background", "white");
-                    return false;});
+                    //return false;
+                //});
                 }
                 initialLoad=false;
             }
