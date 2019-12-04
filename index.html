@@ -47,7 +47,7 @@
                 return false;
             });
             
-            $("div.content a").click(function () {
+            $("div.content p>a").click(function () {
                     $('.content').load(encodeURIComponent($(this).attr('href')));
                     $('.content').css("background", "white");
                 return false;
