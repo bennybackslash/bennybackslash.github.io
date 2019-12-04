@@ -32,7 +32,7 @@
             //alert(initialLoad);
             if (initialLoad)
             {
-                var hash = decodeURIComponent(location.hash.substr(1)).split('+').join(' ');
+                var hash = decodeURIComponent(location.hash.substr(1).split('+').join(' '));
                 alert(hash);
                 if(hash)
                 {
