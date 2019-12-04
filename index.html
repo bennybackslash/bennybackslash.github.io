@@ -24,21 +24,21 @@
             }
         }
 
-        // var lastPos = 0;
-        $(window).on('load', function(){        
-    if( location.hash && location.hash.length ) {
-       var hash = decodeURIComponent(location.hash.substr(1));
-    //    alert('#'+hash+' a');
-       //$('#'+hash)[0].click();
-       $('.content').load(encodeURIComponent($('#'+hash)[0].attr('href')));
-       $('.content').css("background", "white");
-    // ('click', function(){
-    //     $('.content').load(encodeURIComponent($(this).attr('href')));
-    //             $('.content').css("background", "white");
-    //         });
+//         // var lastPos = 0;
+//         $(window).on('load', function(){        
+//     if( location.hash && location.hash.length ) {
+//        var hash = decodeURIComponent(location.hash.substr(1));
+//     //    alert('#'+hash+' a');
+//        $('#'+hash)[0].click();
+//        $('.content').load(encodeURIComponent($('#'+hash)[0].attr('href')));
+//        $('.content').css("background", "white");
+//     // ('click', function(){
+//     //     $('.content').load(encodeURIComponent($(this).attr('href')));
+//     //             $('.content').css("background", "white");
+//     //         });
 
-    }       
-});
+//     }       
+// });
         // $(document).load(function () {
         // var hash = window.location.hash.replace('#', '');
         // if (hash != '') $(window.location.hash)[0].click();
@@ -46,6 +46,10 @@
 
         $(document).ready(function () {
             // your on click function here
+            if( location.hash && location.hash.length ) {
+                var hash = decodeURIComponent(location.hash.substr(1));
+                $('#'+hash)[0].click();
+            }
             $("div.links a").click(function () {
                 $('.content').load(encodeURIComponent($(this).attr('href')));
                 $('.content').css("background", "white");
