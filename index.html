@@ -34,16 +34,16 @@
             {
                 //decodeURIComponent(
                 var hash = location.hash.split('+').join(' ');
-                alert(hash);
+                alert(location);
                 if(hash)
                 {
-                    //alert($('#' + hash).attr('href'));
+                    alert($('#' + hash).attr('href'));
                     //alert(encodeURIComponent($('#' + hash).attr('href')));
                     //$('#' + hash)[0].click(function () {
                         //'#' +
-                        alert($(hash).attr('href'));
-                        alert(encodeURIComponent($(hash).attr('href')));
-                    $('.content').load(encodeURIComponent($(hash).attr('href')));
+                        //alert($(hash).attr('href'));
+                        //alert(encodeURIComponent($(hash).attr('href')));
+                    $('.content').load(encodeURIComponent($(location).attr('href')));
                     $('.content').css("background", "white");
                     //return false;
                 //});
