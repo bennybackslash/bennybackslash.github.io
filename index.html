@@ -42,6 +42,7 @@
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = $(this).text(); //attr('id');
+                    window.history.pushState({href: href}, '', href);
                 return false;
             });
             
