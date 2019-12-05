@@ -33,7 +33,7 @@
                 var hash = location.hash;
                 if(hash)
                 {
-                    $('.content').load(encodeURIComponent('/posts/' + hash.substr(1) + '.html'));
+                    $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                     $('.content').css("background", "white");
                 }
                 initialLoad=false;
@@ -42,7 +42,7 @@
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
-                    //window.history.pushState({href: href}, '', href);
+                    window.history.pushState({href: href}, '', href);
                 return false;
             });
             
