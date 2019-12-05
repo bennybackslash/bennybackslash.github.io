@@ -61,7 +61,7 @@
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
-                    window.history.pushState(null, null, location.hash);
+                    //window.history.pushState(null, null, location.hash);
                     current = location.hash;
                     return false;
             });
