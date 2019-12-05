@@ -35,14 +35,14 @@
                 //alert(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                 if(hash)
                 {
-                    $('.content').load('/posts/' + hash.substr(1) + '.html');
+                    $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                     $('.content').css("background", "white");
                 }
                 initialLoad=false;
             }
             $("div.links a").click(function () {
                     //alert($(this).attr('href'));
-                    $('.content').load($(this).attr('href'));
+                    $('.content').load(encodeURIComponent('/posts/')+$(this).attr('href').substr(7));
                     $('.content').css("background", "white");
                     location.hash = $(this).attr('id');//.split(' ').join('+');
                 return false;
