@@ -29,42 +29,43 @@
 
         $(document).ready(function () {
 
-            $(window).on('popstate', function() {
-                if(current!=location.hash)
-                {
+            $('input[type="text"]').keyup(function (e) {
+                if (e.keyCode == 27) {
+                    $(this).val('');
+                }
+            });
+
+            $(window).on('popstate', function () {
+                if (current != location.hash) {
                     var hash = location.hash;
-                    if(hash)
-                    {
+                    if (hash) {
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         $('.content').css("background", "white");
                         current = location.hash;
                     }
-                    else
-                    {
+                    else {
                         $('.content').empty();
                         current = location.hash;
                     }
                 }
             });
-            if (initialLoad)
-            {
+            if (initialLoad) {
                 var hash = location.hash;
-                if(hash)
-                {
+                if (hash) {
                     $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                     $('.content').css("background", "white");
                 }
-                initialLoad=false;
+                initialLoad = false;
             }
             $("div.links a").click(function () {
-                    $('.content').load($(this).attr('href'));
-                    $('.content').css("background", "white");
-                    location.hash = encodeURIComponent($(this).text()); //attr('id');
-                    //window.history.pushState(null, null, location.hash);
-                    current = location.hash;
-                    return false;
+                $('.content').load($(this).attr('href'));
+                $('.content').css("background", "white");
+                location.hash = encodeURIComponent($(this).text()); //attr('id');
+                //window.history.pushState(null, null, location.hash);
+                current = location.hash;
+                return false;
             });
-            
+
             $("div.header a").click(function () {
                 location.hash = '';
             });
