@@ -30,8 +30,10 @@
         $(document).ready(function () {
 
             $(window).on('popstate', function() {
-                alert(current);
-                alert(location.hash);
+                if(current!=location.hash)
+                {
+                    initialLoad=true;
+                }
             });
             if (initialLoad)
             {
