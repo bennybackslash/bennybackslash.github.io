@@ -41,8 +41,8 @@
                 initialLoad=false;
             }
             $("div.links a").click(function () {
-                    //alert($(this).attr('href'));
-                    $('.content').load(encodeURIComponent('/posts/')+$(this).attr('href').substr(7));
+                    alert($(this).attr('href').substr(7));
+                    $('.content').load(encodeURIComponent('posts/')+$(this).attr('href').substr(7));
                     $('.content').css("background", "white");
                     location.hash = $(this).attr('id');//.split(' ').join('+');
                 return false;
