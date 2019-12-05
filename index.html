@@ -39,11 +39,10 @@
                 initialLoad=false;
             }
             $("div.links a").click(function () {
-                    //alert($(this).attr('href'));
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
-                    window.history.pushState({href: href}, '', href);
+                    window.history.pushState({href: href}, '', location);
                 return false;
             });
             
