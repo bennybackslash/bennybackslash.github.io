@@ -17,7 +17,10 @@
 <p>This is a simplified guide to installing a minimal version of Arch on VirtualBox with i3 using an EFI bootloader.</p>
 <p>Do your best to simply follow the <a href="https://wiki.archlinux.org/index.php/installation_guide">installation guide</a> on the Arch Wiki (and other Arch Wiki pages). Everyone in the community is just going to point you back there anyways - a splendid group I tell ya. Learn, embrace, and submit to the Arch install.</p>
 <ol>
-<li>Download latest Arch ISO from one of the mirrors <a href="https://www.archlinux.org/download/">here</a>.</li>
+<li>Download latest Arch ISO from one of the mirrors <a href="https://www.archlinux.org/download/">here</a>.<ul>
+<li>If you are on Windows, then you can verify the signature using <a href="https://www.gpg4win.org">Gpg4win</a>.</li>
+</ul>
+</li>
 <li>
 <p>Setup your virtual machine.</p>
 <ul>
@@ -30,7 +33,13 @@
 </ul>
 </li>
 <li>
-<p>Next Step</p>
+<p>For non-US users, set the keyboard layout.</p>
+<ul>
+<li>List available layouts:
+<code>ls /usr/share/kbd/keymaps/**/*.map.gz</code></li>
+<li>Example of setting layout for Germany:
+<code>loadkeys de-latin1</code></li>
+</ul>
 </li>
 </ol>
 <p>References:</p>
