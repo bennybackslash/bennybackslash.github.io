@@ -33,8 +33,6 @@
                 var hash = location.hash;
                 if(hash)
                 {
-                    //alert(hash);
-                    //alert(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                     $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                     $('.content').css("background", "white");
                 }
@@ -45,8 +43,7 @@
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
-                    //alert(encodeURIComponent($(this).text()));
-                    // window.history.pushState({href: href}, '', href);
+                    window.history.pushState({href: href}, '', href);
                 return false;
             });
             
