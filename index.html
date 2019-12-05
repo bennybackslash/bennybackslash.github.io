@@ -24,16 +24,17 @@
             }
         }
 
+        function onkeypressed(evt, input) {
+                var code = evt.charCode || evt.keyCode;
+                if (code == 27) {
+                    input.value = '';
+                }
+            }
+
         var initialLoad = true;
         var current = '';
 
         $(document).ready(function () {
-
-            $('input[type="text"]').keyup(function (e) {
-                if (e.keyCode == 27) {
-                    $(this).val('');
-                }
-            });
 
             $(window).on('popstate', function () {
                 if (current != location.hash) {
@@ -171,7 +172,7 @@
     <div class="header">
         <a href="https://bennybackslash.github.io/"><img id=logo
                 src="https://bennybackslash.github.io/images/logo.gif"></a>
-        <input type="text" id="searchbox" onkeyup="search()" placeholder="search posts" size="10" spellcheck="false">
+        <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()" placeholder="search posts" size="10" spellcheck="false">
         <hr>
     </div>
     <div class="content">
