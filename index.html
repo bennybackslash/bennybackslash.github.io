@@ -28,6 +28,9 @@
 
         $(document).ready(function () {
 
+            $(window).on('popstate', function() {
+      alert('Back button was pressed.');
+    });
             if (initialLoad)
             {
                 var hash = location.hash;
