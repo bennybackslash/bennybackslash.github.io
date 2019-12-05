@@ -25,12 +25,14 @@
         }
 
         var initialLoad = true;
+        var current = '';
 
         $(document).ready(function () {
 
             $(window).on('popstate', function() {
-      alert('Back button was pressed.');
-    });
+                alert(current);
+                alert(location.hash);
+            });
             if (initialLoad)
             {
                 var hash = location.hash;
@@ -42,6 +44,7 @@
                 initialLoad=false;
             }
             $("div.links a").click(function () {
+                    current = $(this).attr('href');
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
