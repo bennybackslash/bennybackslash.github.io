@@ -32,7 +32,12 @@
             $(window).on('popstate', function() {
                 if(current!=location.hash)
                 {
-                    initialLoad=true;
+                    var hash = location.hash;
+                    if(hash)
+                    {
+                        $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
+                        $('.content').css("background", "white");
+                    }
                 }
             });
             if (initialLoad)
