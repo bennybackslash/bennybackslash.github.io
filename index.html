@@ -42,8 +42,8 @@
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
-                    window.history.pushState({href: href}, '', location);
-                return false;
+                    window.history.pushState(null, null, location.hash);
+                    return false;
             });
             
             $("div.header a").click(function () {
