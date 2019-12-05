@@ -37,6 +37,7 @@
                     {
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         $('.content').css("background", "white");
+                        current = location.hash;
                     }
                 }
             });
