@@ -42,6 +42,7 @@
                     else
                     {
                         $('.content').empty();
+                        current = location.hash;
                     }
                 }
             });
@@ -56,6 +57,7 @@
                 initialLoad=false;
             }
             $("div.links a").click(function () {
+                    alert('dsaf');
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
