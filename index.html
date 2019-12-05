@@ -30,9 +30,7 @@
 
             if (initialLoad)
             {
-                var hash = location.hash;//.split('+').join(' ');
-                //alert(hash);
-                //alert(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
+                var hash = location.hash;
                 if(hash)
                 {
                     $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
@@ -41,10 +39,9 @@
                 initialLoad=false;
             }
             $("div.links a").click(function () {
-                    //alert($(this).attr('href').substr(7));
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
-                    location.hash = $(this).attr('id');//.split(' ').join('+');
+                    location.hash = $(this).attr('id');
                 return false;
             });
             
