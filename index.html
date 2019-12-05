@@ -33,16 +33,20 @@
                 var hash = location.hash;
                 if(hash)
                 {
-                    $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
+                    alert(hash);
+                    alert(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
+                    $('.content').load(encodeURIComponent('/posts/' + hash.substr(1) + '.html'));
                     $('.content').css("background", "white");
                 }
                 initialLoad=false;
             }
             $("div.links a").click(function () {
+                    alert($(this).attr('href'));
                     $('.content').load($(this).attr('href'));
                     $('.content').css("background", "white");
                     location.hash = encodeURIComponent($(this).text()); //attr('id');
-                    window.history.pushState({href: href}, '', href);
+                    alert(encodeURIComponent($(this).text()));
+                    // window.history.pushState({href: href}, '', href);
                 return false;
             });
             
