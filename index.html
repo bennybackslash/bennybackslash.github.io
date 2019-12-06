@@ -115,7 +115,7 @@
                 location.hash = '';
             });
 
-            document.querySelector('img.base64image').addEventListener('load', function(){
+            document.querySelector('img.base64image').addEventListener('error', function(){
             // The image is ready!
             var images = $("img.base64image").map(function () {
                 return $(this).attr('src');
