@@ -41,12 +41,16 @@
 
         $(window).on('load', function () {
             //alert($('img.base64image').attr('src'));
-            $("img.base64image").map(function () {
-                alert($(this).attr('src'));
-                $.get($(this).attr('src'), function( data ){
-                $(this).attr('src',"data:image/png;base64," +data);
-            }, 'html');
+            var images = $("img.base64image").map(function () {
+                return $(this).attr('src');
             }).get();
+            alert(images);
+            // $("img.base64image").map(function () {
+            //     alert($(this).attr('src'));
+            //     $.get($(this).attr('src'), function( data ){
+            //     $(this).attr('src',"data:image/png;base64," +data);
+            // }, 'html');
+            // }).get();
             // $.get($('img.base64image').attr('src'), function( data ){
             //     $('img.base64image').attr('src',"data:image/png;base64," +data);
             // }, 'html');
