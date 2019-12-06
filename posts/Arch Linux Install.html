@@ -3,7 +3,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        $(document).load(function () {
+        $(document).ready(function () {
             jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
             $.get(document.getElementById("imageId").src, function (my_var) {
                 document.getElementById("imageId").src = "data:image/png;base64," + my_var;
