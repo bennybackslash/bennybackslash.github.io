@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            document.querySelector('img.base64image').addEventListener('error', function(){
+            // The image is ready!
+            var images = $("img.base64image").map(function () {
+                return $(this).attr('src');
+            }).get();
+            alert(images);
+        });
+
+        });
+        //  $(window).bind("load", function () {
+        //     var images = $("img.base64image").map(function () {
+        //         return $(this).attr('src');
+        //     }).get();
+        //     alert(images);
+            
+        // });
+        // $('postScript').one('postImages', function () {
+        //     var images = $("img.base64image").map(function () {
+        //         return $(this).attr('src');
+        //     }).get();
+        //     alert(images);
+        //     });
+        // $(document).ready(function () {
+        //     jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
+        //     $.get(document.getElementById("imageId").src, function (my_var) {
+        //         document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+        //     }, 'html');
+        // });
+        // $(document).ready(function () {
+        //     //alert($('img.base64image').attr('src'));
+        //     var images = $("img.base64image").map(function () {
+        //         return $(this).attr('src');
+        //     }).get();
+        //     alert(images);
+        // });
+        
+    </script>
+</head>
+
+<body>
+<h1>Arch Linux Install - VirtualBox/EFI/i3</h1>
+<p>This is a simplified guide to installing a minimal version of Arch on VirtualBox with i3 using an EFI bootloader.</p>
+<p>Do your best to simply follow the <a href="https://wiki.archlinux.org/index.php/installation_guide">installation guide</a> on the Arch Wiki (and other Arch Wiki pages). Everyone in the community is just going to point you back there anyways - a splendid group I tell ya. Learn, embrace, and submit to the Arch install.</p>
+<ol>
+<li>Download latest Arch ISO from one of the mirrors <a href="https://www.archlinux.org/download/">here</a>.<ul>
+<li>If you are on Windows, then you can verify the signature using <a href="https://www.gpg4win.org">Gpg4win</a>.</li>
+</ul>
+</li>
+<li>
+<p>Setup your virtual machine.</p>
+<ul>
+<li>Set name, memory, storage, and other settings as you see fit. I typically dedicate half of my system memory and processors, use a dynamically allocated drive with a generous amount of space (~50 GB), max out the video memory, enable 3D acceleration, set the graphics controller to VBoxSVGA, set the Shared Clipboard and Drag'n'Drop to Bidirectional, and enable USB 2.0 (this requires the extension pack).</li>
+<li>Check the Enable EFI (special OSes only) box in the System tab.</li>
+</ul>
+<p><img class="base64image" src="https://bennybackslash.github.io/images/vbox_efi.PNG"></p>
+<p><img class="base64image" src="https://bennybackslash.github.io/images/avatar.gif"></p>
+<ul>
+<li>Run machine and select downloaded ISO when prompted.</li>
+</ul>
+</li>
+<li>
+<p>For non-US users, set the keyboard layout.</p>
+<ul>
+<li>List available layouts:</li>
+</ul>
+<p><code>ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
+<ul>
+<li>Example of setting layout for Germany:</li>
+</ul>
+<p><code>loadkeys de-latin1</code></p>
+</li>
+</ol>
+<p>References:</p>
+<p>Arch Wiki - Installation Guide:</p>
+<p><a href="https://wiki.archlinux.org/index.php/installation_guide">https://wiki.archlinux.org/index.php/installation_guide</a></p>
+<p>GRUB Reference:</p>
+<p><a href="https://wiki.archlinux.org/index.php/GRUB">https://wiki.archlinux.org/index.php/GRUB</a></p>
+<p>Virtualbox Reference:</p>
+<p><a href="https://wiki.archlinux.org/index.php/VirtualBox">https://wiki.archlinux.org/index.php/VirtualBox</a></p>
+<p>Decent Arch Install Guides:</p>
+<p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
+<p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
+<p>run this before pacstrap:</p>
+<pre><code>pacman-key --init
+pacman-key --populate archlinux
+pacman-key --refresh-keys
+</code></pre>
+
+<p>pacstrap include:</p>
+<p>base linux linux-firmware vim xorg-server xorg-xinit i3 dmenu (needed?) grub efibootmgr sudo netctl wpa_supplicant dhcpcd dialog ttf-dejavu</p>
+<p>if forget something, can arch-chroot into system</p>
+<p>need --removable on grub cfg for EFI Boot on VBox</p>
+<p>i3 needs ttf-dejavu font package</p>
+<p>add 'exec i3' to ~/.xinitrc</p>
+<pre><code>pacman -S package --overwrite='*'
+</code></pre>
+
+<p>this installs and overwrites all files, be careful, but this solved sudoers problem</p>
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function ()
+{
+this.page.url = 'https://bennybackslash.github.io/posts/Arch Linux Install.html';
+this.page.identifier ='636b4c40ea15e3a129bf6c0609cf2c2c';
+};
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://bennybackslash.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+</body>
+</html>
