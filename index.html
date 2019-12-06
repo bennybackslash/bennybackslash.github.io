@@ -42,6 +42,7 @@
         $(window).on('load', function () {
             //alert($('img.base64image').attr('src'));
             $("img.base64image").map(function () {
+                alert($(this).attr('src'));
                 $.get($(this).attr('src'), function( data ){
                 $(this).attr('src',"data:image/png;base64," +data);
             }, 'html');
