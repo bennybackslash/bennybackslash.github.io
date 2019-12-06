@@ -48,10 +48,11 @@
         // });
         $(window).on('load', function () {
             //alert($('img.base64image').attr('src'));
-            var images = $("p>img.base64image").map(function () {
+            var images = $("img.base64image").map(function () {
                 return $(this).attr('src');
             }).get();
             alert(images);
+            $('.content').find('#postScript').trigger('postImages');
             // $("img.base64image").map(function () {
             //     alert($(this).attr('src'));
             //     $.get($(this).attr('src'), function( data ){
