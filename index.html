@@ -35,20 +35,24 @@
         var initialLoad = true;
         var current = '';
 
-        // $(window).on('load', function () {
-        //     $.get(document.getElementById("logo").src, function (my_var) {
+        // $.get(document.getElementById("logo").src, function (my_var) {
         //         document.getElementById("logo").src = "data:image/png;base64," + my_var;
         //     }, 'html');
-        //     try {
-        //         jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-        //         $.get(document.getElementById("imageId").src, function (my_var) {
-        //             document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-        //         }, 'html');
-        //     }
-        //     catch (error) {
-        //         console.error(error);
-        //     }
-        // });
+
+        $(window).on('load', function () {
+            $.get($('.base64image').src, function (my_var) {
+                $('.base64image').src = "data:image/png;base64," + my_var;
+            }, 'html');
+            // try {
+            //     jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
+            //     $.get(document.getElementById("imageId").src, function (my_var) {
+            //         document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+            //     }, 'html');
+            // }
+            // catch (error) {
+            //     console.error(error);
+            // }
+        });
 
         $(document).ready(function () {
 
@@ -184,7 +188,7 @@
 
 <body>
     <div class="header">
-        <a href="https://bennybackslash.github.io/"><img id=logo
+        <a href="https://bennybackslash.github.io/"><img class="base64image"
                 src="https://bennybackslash.github.io/images/logo.gif"></a>
         <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()"
             placeholder="search posts" size="10" spellcheck="false">
