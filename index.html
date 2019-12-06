@@ -40,10 +40,6 @@
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
-            
-            $.get(document.getElementById("imageId").src, function (my_var) {
-                document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-            }, 'html');
 
             $(window).on('popstate', function () {
                 if (current != location.hash) {
