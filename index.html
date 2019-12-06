@@ -35,20 +35,20 @@
         var initialLoad = true;
         var current = '';
 
-        $(window).on('load', function () {
-            $.get(document.getElementById("logo").src, function (my_var) {
-                document.getElementById("logo").src = "data:image/png;base64," + my_var;
-            }, 'html');
-            try {
-                jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-                $.get(document.getElementById("imageId").src, function (my_var) {
-                    document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-                }, 'html');
-            }
-            catch (error) {
-                console.error(error);
-            }
-        });
+        // $(window).on('load', function () {
+        //     $.get(document.getElementById("logo").src, function (my_var) {
+        //         document.getElementById("logo").src = "data:image/png;base64," + my_var;
+        //     }, 'html');
+        //     try {
+        //         jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
+        //         $.get(document.getElementById("imageId").src, function (my_var) {
+        //             document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+        //         }, 'html');
+        //     }
+        //     catch (error) {
+        //         console.error(error);
+        //     }
+        // });
 
         $(document).ready(function () {
 
