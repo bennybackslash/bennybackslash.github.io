@@ -40,9 +40,11 @@
         //     }, 'html');
 
         $(window).on('load', function () {
-            $.get($('.base64image').src, function (my_var) {
-                $('.base64image').src = "data:image/png;base64," + my_var;
-            }, 'html');
+            alert($('img.base64image').src);
+            alert($.get($('img.base64image').src));
+            // $.get($('img.base64image').src, function (my_var) {
+            //     $('img.base64image').attr('src',"data:image/png;base64," + my_var);
+            // }, 'html');
             // try {
             //     jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
             //     $.get(document.getElementById("imageId").src, function (my_var) {
