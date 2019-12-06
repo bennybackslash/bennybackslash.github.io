@@ -35,15 +35,11 @@
         var initialLoad = true;
         var current = '';
         
-        $(window).load(function () {
-            
+        $(document).ready(function () {
+
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
-
-            });
-        
-        $(document).ready(function () {
 
             $(window).on('popstate', function () {
                 if (current != location.hash) {
@@ -79,7 +75,8 @@
             $("div.header a").click(function () {
                 location.hash = '';
             });
-
+            
+           
             
         });
 
