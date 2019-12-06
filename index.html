@@ -1,0 +1,196 @@
+<html>
+
+<head>
+    <title>benny\</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function search() {
+            var input, filter, ul, li, a, i, tvalue;
+            input = document.getElementById('searchbox');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("posts");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                tvalue = a.id; // || a.textContent || a.innerText;
+                if (tvalue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        function onkeypressed(evt, input) {
+                var code = evt.charCode || evt.keyCode;
+                if (code == 27) {
+                    input.value = '';
+                    search();
+                }
+            }
+
+        var initialLoad = true;
+        var current = '';
+        
+        $(document).ready(function () {
+
+            $.get(document.getElementById("logo").src, function (my_var) {
+                document.getElementById("logo").src = "data:image/png;base64," + my_var;
+            }, 'html');
+            
+            $.get(document.getElementById("imageId").src, function (my_var) {
+                document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+            }, 'html');
+
+            $(window).on('popstate', function () {
+                if (current != location.hash) {
+                    var hash = location.hash;
+                    if (hash) {
+                        $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
+                        $('.content').css("background", "white");
+                        current = location.hash;
+                    }
+                    else {
+                        $('.content').empty();
+                        current = location.hash;
+                    }
+                }
+            });
+            if (initialLoad) {
+                var hash = location.hash;
+                if (hash) {
+                    $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
+                    $('.content').css("background", "white");
+                }
+                initialLoad = false;
+            }
+            $("div.links a").click(function () {
+                $('.content').load($(this).attr('href'));
+                $('.content').css("background", "white");
+                location.hash = encodeURIComponent($(this).text()); //attr('id');
+                //window.history.pushState(null, null, location.hash);
+                current = location.hash;
+                return false;
+            });
+
+            $("div.header a").click(function () {
+                location.hash = '';
+            });
+            
+           
+            
+        });
+
+    </script>
+
+    <style>
+        body {
+            background-color: #131513;
+            font-family: 'Orbitron', sans-serif;
+            margin: 10px;
+        }
+
+        .header img {
+            float: left;
+        }
+
+        p {
+            clear: both;
+        }
+
+        hr {
+            clear: both;
+            height: 2;
+            background: #c3c322;
+            width: 100%;
+        }
+
+        input {
+            background-color: #131513;
+            color: #8ca68c;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 30;
+            border: 0;
+            height: 60;
+            width: 300;
+            float: left;
+            margin-left: -10;
+            margin-top: -5;
+        }
+
+        input:focus {
+            outline-width: 0;
+        }
+
+        ::placeholder {
+            color: #505E50;
+        }
+
+        a:link {
+            color: #8ca68c;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #8ca68c;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #c3c322;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #8ca68c;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        .content {
+            background-color: #131513;
+            float: right;
+            width: 70%;
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+            font-family: sans-serif;
+        }
+
+        code {
+            background-color: #eee;
+            border: 1px solid #999;
+            display: block;
+            padding: 20px;
+        }
+
+        .links {
+            float: left;
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://bennybackslash.github.io/"><img id=logo
+                src="https://bennybackslash.github.io/images/logo.gif"></a>
+        <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()" placeholder="search posts" size="10" spellcheck="false">
+        <hr>
+    </div>
+    <div class="content">
+        <!--<iframe name="gist" style="width:100%; height:100%;" frameborder="0"></iframe>-->
+    </div>
+    <div class="links">
+        <ul id="posts" style="list-style-type:none;margin:0;padding:0;"><li><a id="[Welcome] Welcome & About Page #welcome #about" href="%2Fposts%2FWelcome.html" >Welcome</a></li>
+<li><a id="[Arch Linux Install] Arch Linux Install on VirtualBox with EFI & i3 #linux #arch" href="%2Fposts%2FArch%20Linux%20Install.html" >Arch Linux Install</a></li>
+<li><a id="[Autodesk Inventor Code Snippets] Common Code Snippets Used for Automating Autodesk Inventor #csharp #autodesk #inventor" href="%2Fposts%2FAutodesk%20Inventor%20Code%20Snippets.html" >Autodesk Inventor Code Snippets</a></li>
+</ul>
+</div>
+</body>
+</html>
