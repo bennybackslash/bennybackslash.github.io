@@ -77,8 +77,8 @@
             //     console.error(error);
             // }
         // });
-
-        $(window).bind("load", function () {
+        
+        $(document).ready(function () {
             
             $(window).on('popstate', function () {
                 if (current != location.hash) {
@@ -115,11 +115,14 @@
                 location.hash = '';
             });
 
+            document.querySelector('img.base64image').addEventListener('load', function(){
+            // The image is ready!
             var images = $("img.base64image").map(function () {
                 return $(this).attr('src');
             }).get();
             alert(images);
-            
+        });
+
         });
 
 
