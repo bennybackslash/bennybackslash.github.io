@@ -40,8 +40,8 @@
         //     }, 'html');
 
         $(window).on('load', function () {
-            alert($('img.base64image').src);
-            alert($.get($('img.base64image').src));
+            alert($('img.base64image').attr('src'));
+            alert($.get($('img.base64image').src, 'html'));
             // $.get($('img.base64image').src, function (my_var) {
             //     $('img.base64image').attr('src',"data:image/png;base64," + my_var);
             // }, 'html');
