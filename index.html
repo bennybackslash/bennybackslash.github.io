@@ -25,40 +25,33 @@
         }
 
         function onkeypressed(evt, input) {
-                var code = evt.charCode || evt.keyCode;
-                if (code == 27) {
-                    input.value = '';
-                    search();
-                }
+            var code = evt.charCode || evt.keyCode;
+            if (code == 27) {
+                input.value = '';
+                search();
             }
+        }
 
         var initialLoad = true;
         var current = '';
-        
-        $(window).on('load',function () {
+
+        $(window).on('load', function () {
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
+            try {
+                jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
+                $.get(document.getElementById("imageId").src, function (my_var) {
+                    document.getElementById("imageId").src = "data:image/png;base64," + my_var;
+                }, 'html');
+            }
+            catch (error) {
+                console.error(error);
+            }
         });
-
-        // $('.content').load(function () {
-        //         try {
-        //             jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-        //             $.get(document.getElementById("imageId").src, function (my_var) {
-        //                 document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-        //             }, 'html');
-        //         }
-        //         catch(error){
-        //             console.error(error);
-        //          }
-        //     });
 
         $(document).ready(function () {
 
-            // $.get(document.getElementById("logo").src, function (my_var) {
-            //     document.getElementById("logo").src = "data:image/png;base64," + my_var;
-            // }, 'html');
-            
             $(window).on('popstate', function () {
                 if (current != location.hash) {
                     var hash = location.hash;
@@ -66,10 +59,6 @@
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         $('.content').css("background", "white");
                         current = location.hash;
-                        jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-                    $.get(document.getElementById("imageId").src, function (my_var) {
-                        document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-                    }, 'html');
                     }
                     else {
                         $('.content').empty();
@@ -82,10 +71,6 @@
                 if (hash) {
                     $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                     $('.content').css("background", "white");
-                    jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-                    $.get(document.getElementById("imageId").src, function (my_var) {
-                        document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-                    }, 'html');
                 }
                 initialLoad = false;
             }
@@ -95,22 +80,16 @@
                 location.hash = encodeURIComponent($(this).text()); //attr('id');
                 //window.history.pushState(null, null, location.hash);
                 current = location.hash;
-                jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-                    $.get(document.getElementById("imageId").src, function (my_var) {
-                        document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-                    }, 'html');
                 return false;
             });
 
             $("div.header a").click(function () {
                 location.hash = '';
             });
-            
-           
-            
+
         });
 
-        
+
     </script>
 
     <style>
@@ -207,7 +186,8 @@
     <div class="header">
         <a href="https://bennybackslash.github.io/"><img id=logo
                 src="https://bennybackslash.github.io/images/logo.gif"></a>
-        <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()" placeholder="search posts" size="10" spellcheck="false">
+        <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()"
+            placeholder="search posts" size="10" spellcheck="false">
         <hr>
     </div>
     <div class="content">
