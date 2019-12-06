@@ -41,7 +41,7 @@
             }, 'html');
         });
 
-        $('.content').on('load', function () {
+        $('.content').load(function () {
                 try {
                     jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
                     $.get(document.getElementById("imageId").src, function (my_var) {
