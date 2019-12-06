@@ -79,7 +79,7 @@
         // });
 
         $(window).bind("load", function () {
-
+            
             $(window).on('popstate', function () {
                 if (current != location.hash) {
                     var hash = location.hash;
@@ -115,6 +115,11 @@
                 location.hash = '';
             });
 
+            var images = $("img.base64image").map(function () {
+                return $(this).attr('src');
+            }).get();
+            alert(images);
+            
         });
 
 
