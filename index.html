@@ -41,7 +41,7 @@
 
         $(window).on('load', function () {
             alert($('img.base64image').attr('src'));
-            $.get($('img.base64image').src, function( data ){alert(data);});
+            $.get($('img.base64image').src, function( data ){alert(data);}, 'html');
 
             
             // $.get($('img.base64image').src, function (my_var) {
