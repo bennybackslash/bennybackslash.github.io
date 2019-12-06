@@ -38,13 +38,20 @@
         // $.get(document.getElementById("logo").src, function (my_var) {
         //         document.getElementById("logo").src = "data:image/png;base64," + my_var;
         //     }, 'html');
-
-        $(window).on('load', function () {
+        
+        $('.content').on('load', function () {
             //alert($('img.base64image').attr('src'));
             var images = $("img.base64image").map(function () {
                 return $(this).attr('src');
             }).get();
-            alert(images[1]);
+            alert(images);
+        });
+        $(window).on('load', function () {
+            //alert($('img.base64image').attr('src'));
+            // var images = $("img.base64image").map(function () {
+            //     return $(this).attr('src');
+            // }).get();
+            // alert(images[1]);
             // $("img.base64image").map(function () {
             //     alert($(this).attr('src'));
             //     $.get($(this).attr('src'), function( data ){
