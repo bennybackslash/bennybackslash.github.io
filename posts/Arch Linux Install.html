@@ -2,7 +2,18 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script id="postScript">
+    <script>
+        $(document).ready(function () {
+
+            document.querySelector('img.base64image').addEventListener('error', function(){
+            // The image is ready!
+            var images = $("img.base64image").map(function () {
+                return $(this).attr('src');
+            }).get();
+            alert(images);
+        });
+
+        });
         //  $(window).bind("load", function () {
         //     var images = $("img.base64image").map(function () {
         //         return $(this).attr('src');
