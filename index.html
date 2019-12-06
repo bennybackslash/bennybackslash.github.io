@@ -35,11 +35,17 @@
         var initialLoad = true;
         var current = '';
         
-        $(document).ready(function () {
-
+        $(window).on('load',function () {
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
             }, 'html');
+        });
+
+        $(document).ready(function () {
+
+            // $.get(document.getElementById("logo").src, function (my_var) {
+            //     document.getElementById("logo").src = "data:image/png;base64," + my_var;
+            // }, 'html');
             
             $(window).on('popstate', function () {
                 if (current != location.hash) {
@@ -80,12 +86,7 @@
             
         });
 
-        $(window).on('load',function () {
-            jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-            $.get(document.getElementById("imageId").src, function (my_var) {
-                document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-            }, 'html');
-        });
+        
     </script>
 
     <style>
