@@ -46,13 +46,13 @@
         //     }).get();
         //     alert(images);
         // });
-        $(window).on('load', function () {
-            //alert($('img.base64image').attr('src'));
-            var images = $("img.base64image").map(function () {
-                return $(this).attr('src');
-            }).get();
-            alert(images);
-            $('.content').find('#postScript').trigger('postImages');
+        // $(window).on('load', function () {
+        //     //alert($('img.base64image').attr('src'));
+        //     var images = $("img.base64image").map(function () {
+        //         return $(this).attr('src');
+        //     }).get();
+        //     alert(images);
+        //     $('.content').find('#postScript').trigger('postImages');
             // $("img.base64image").map(function () {
             //     alert($(this).attr('src'));
             //     $.get($(this).attr('src'), function( data ){
@@ -76,9 +76,9 @@
             // catch (error) {
             //     console.error(error);
             // }
-        });
+        // });
 
-        $(document).ready(function () {
+        $(window).bind("load", function () {
 
             $(window).on('popstate', function () {
                 if (current != location.hash) {
