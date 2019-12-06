@@ -35,7 +35,7 @@
         var initialLoad = true;
         var current = '';
         
-        $(document).ready(function () {
+        $(window).load(function () {
 
             $.get(document.getElementById("logo").src, function (my_var) {
                 document.getElementById("logo").src = "data:image/png;base64," + my_var;
