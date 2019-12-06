@@ -48,7 +48,9 @@
                         document.getElementById("imageId").src = "data:image/png;base64," + my_var;
                     }, 'html');
                 }
-                catch{ }
+                catch(error){
+                    console.error(error);
+                 }
             });
 
         $(document).ready(function () {
