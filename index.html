@@ -132,7 +132,8 @@
             for (var i = 0; i < base64images.length; i++) {
                 $.get(base64images[i].getAttribute('src'), function (my_var) {
                     base64images[i].setAttribute('src', "data:image/png;base64," + my_var);
-                }, 'html');;
+                }, 'html');
+                alert(base64images[i].getAttribute('src'));
             }
             
             // $(function () {
