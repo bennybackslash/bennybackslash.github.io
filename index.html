@@ -129,10 +129,12 @@
             
             var base64images = document.querySelectorAll(".base64image");
             //alert(base64images);
-	for (var i = 0; i < base64images.length; i++) {
-	 alert(base64images[i].getAttribute('src'));
-    }
-    
+            for (var i = 0; i < base64images.length; i++) {
+                $.get(base64images[i].getAttribute('src'), function (my_var) {
+                    base64images[i].setAttribute('src', "data:image/png;base64," + my_var);
+                }, 'html');;
+            }
+            
             // $(function () {
             //     var images = document.images;
             //     alert(images);
