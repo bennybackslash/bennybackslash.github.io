@@ -51,22 +51,22 @@
             //     };
             //     img.src = url;
             // }
-            function getBase64Image(img) {
-                    var canvas = document.createElement("canvas");
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    var ctx = canvas.getContext("2d");
-                    ctx.drawImage(img, 0, 0);
-                    var dataURL = canvas.toDataURL("image/png");
-                    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-                }
+            // function getBase64Image(img) {
+            //         var canvas = document.createElement("canvas");
+            //         canvas.width = img.width;
+            //         canvas.height = img.height;
+            //         var ctx = canvas.getContext("2d");
+            //         ctx.drawImage(img, 0, 0);
+            //         var dataURL = canvas.toDataURL("image/png");
+            //         return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+            //     }
 
-        $(window).on('load', $(function () {
-                jQuery('.element img').each(function () {
-                    getBase64Image(jQuery(this));
-                    //jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
-                });
-            }));
+        // $(window).on('load', $(function () {
+        //         jQuery('.element img').each(function () {
+        //             getBase64Image(jQuery(this));
+        //             //jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
+        //         });
+        //     }));
 
         $(document).ready(function () {
             
@@ -105,6 +105,10 @@
                 location.hash = '';
             });
 
+            $("img").each(function (index, element) {
+                $.get($(element).attr('src'), function (data) {
+                    alert(data);
+                });
 //             $("[data-image]").each(function (index, element) {
 //                 convertImgToBase64($(this).data('image'), function (base64Img) {
 //                     $(element).attr('src', base64Img);
