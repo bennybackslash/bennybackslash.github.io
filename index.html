@@ -35,52 +35,22 @@
         var initialLoad = true;
         var current = '';
 
-        // $.get(document.getElementById("logo").src, function (my_var) {
-        //         document.getElementById("logo").src = "data:image/png;base64," + my_var;
-        //     }, 'html');
-        
-        // $('.content').on('load', function () {
-        //     //alert($('img.base64image').attr('src'));
-        //     var images = $("img.base64image").map(function () {
-        //         return $(this).attr('src');
-        //     }).get();
-        //     alert(images);
-        // });
-        // $(window).on('load', function () {
-        //     //alert($('img.base64image').attr('src'));
-        //     var images = $("img.base64image").map(function () {
-        //         return $(this).attr('src');
-        //     }).get();
-        //     alert(images);
-        //     $('.content').find('#postScript').trigger('postImages');
-            // $("img.base64image").map(function () {
-            //     alert($(this).attr('src'));
-            //     $.get($(this).attr('src'), function( data ){
-            //     $(this).attr('src',"data:image/png;base64," +data);
-            // }, 'html');
-            // }).get();
-            // $.get($('img.base64image').attr('src'), function( data ){
-            //     $('img.base64image').attr('src',"data:image/png;base64," +data);
-            // }, 'html');
-
-            
-            // $.get($('img.base64image').src, function (my_var) {
-            //     $('img.base64image').attr('src',"data:image/png;base64," + my_var);
-            // }, 'html');
-            // try {
-            //     jQuery(document.links).filter(function () { return this.hostname != window.location.hostname; }).attr('target', '_blank');
-            //     $.get(document.getElementById("imageId").src, function (my_var) {
-            //         document.getElementById("imageId").src = "data:image/png;base64," + my_var;
-            //     }, 'html');
-            // }
-            // catch (error) {
-            //     console.error(error);
-            // }
-        // });
-
-        // function convertImgToBase64(url, callback, outputFormat) {
-                
-        //     }
+            function convertImgToBase64(url, callback, outputFormat) {
+                var canvas = document.createElement('CANVAS');
+                var ctx = canvas.getContext('2d');
+                var img = new Image;
+                img.crossOrigin = 'Anonymous';
+                img.onload = function () {
+                    canvas.height = img.height;
+                    canvas.width = img.width;
+                    ctx.drawImage(img, 0, 0);
+                    var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+                    callback.call(this, dataURL);
+                    // Clean up
+                    canvas = null;
+                };
+                img.src = url;
+            }
 
         $(document).ready(function () {
             
@@ -119,56 +89,13 @@
                 location.hash = '';
             });
 
-            // $("img.base64image").map(function (theImage) {
-            //     alert($(this).attr('src'));
-            //     $.get($(this).attr('src'), function (my_var) {
-            //         $(this).attr('src', "data:image/png;base64," + my_var);
-            //     }, 'html');
-            //     //return $(this).attr('src');
-            // }).get();
-            
-            var base64images = document.querySelectorAll(".base64image");
-            //alert(base64images);
-            for (var i = 0; i < base64images.length; i++) {
-                $.get(base64images[i].getAttribute('src'), function (my_var) {
-                    base64images[i].setAttribute('src', "data:image/png;base64," + my_var);
-                }, 'html');
-                alert(base64images[i].getAttribute('src'));
-            }
-            
-            // $(function () {
-            //     var images = document.images;
-            //     alert(images);
-            // });
-            // $(function () {
-            //     $('.element img').each(function () {
-            //         alert($(this).attr('src'));
-            //         $.get($(this).attr('src'), function (my_var) {
-            //             $(this).attr('src', "data:image/png;base64," + my_var);
-            //     }, 'html');
-            //         // jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
-            //     });
-            // });
-            
-            // $("img.base64image").each(function () {
-            //     $.get($(this).attr('src'), function (my_var) {
-            //         $('img.base64image').attr('src', "data:image/png;base64," + my_var);
-            //     }, 'html');
-            //     // alert($(this).attr('src'));
-            //     // convertImgToBase64($(this).data('image'), function (base64Img) {
-            //     //     $(element).attr('src', base64Img);
-            //     // });
+            $("[data-image]").each(function (index, element) {
+                convertImgToBase64($(this).data('image'), function (base64Img) {
+                    $(element).attr('src', base64Img);
+    });
 
-            // });
-
-        //     document.querySelector('img.base64image').addEventListener('error', function(){
-        //     // The image is ready!
-        //     var images = $("img.base64image").map(function () {
-        //         return $(this).attr('src');
-        //     }).get();
-        //     alert(images);
-        // });
-
+});
+            
         });
 
 
@@ -267,7 +194,7 @@
 <body>
     <div class="header">
         <a href="https://bennybackslash.github.io/"><img class="base64image"
-                src="https://bennybackslash.github.io/images/logo.gif"></a>
+                data-image="https://bennybackslash.github.io/images/logo.gif"></a>
         <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()"
             placeholder="search posts" size="10" spellcheck="false">
         <hr>
