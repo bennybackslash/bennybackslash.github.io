@@ -133,7 +133,7 @@
             });
             
             $("img.base64image").each(function (index, element) {
-                alert($(this).data('base64image'));
+                alert($(this).data());
                 convertImgToBase64($(this).data('base64image'), function (base64Img) {
                     $(element).attr('src', base64Img);
                 });
