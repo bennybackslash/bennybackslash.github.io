@@ -132,7 +132,8 @@
                 location.hash = '';
             });
             
-            $("[data-image]").each(function (index, element) {
+            $("img.base64image").each(function (index, element) {
+                alert($(this).data('image'));
                 convertImgToBase64($(this).data('image'), function (base64Img) {
                     $(element).attr('src', base64Img);
                 });
