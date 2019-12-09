@@ -133,6 +133,7 @@
             });
             
             $("img.base64image").map(function (theImage) {
+                alert($(theImage).attr('src'));
                 $.get($(theImage).attr('src'), function (my_var) {
                     $(theImage).attr('src', "data:image/png;base64," + my_var);
                 }, 'html');
