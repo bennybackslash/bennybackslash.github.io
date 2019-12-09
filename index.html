@@ -80,7 +80,7 @@
 
         });
 
-        $(document).bind('load', function () {
+        $(window).bind('load', function () {
             $("img").each(function (index, element) {
                 $.get($(element).attr('src'), function (data) {
                     $(element).attr('src', 'data:image/png;base64,' + data);
