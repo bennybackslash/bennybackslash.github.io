@@ -132,22 +132,29 @@
                 location.hash = '';
             });
 
-            $(function () {
-                $('.element img').each(function () {
-                    alert($(this).attr('src'));
-                    $.get($(this).attr('src'), function (my_var) {
-                        $(this).attr('src', "data:image/png;base64," + my_var);
+            $("img.base64image").map(function (theImage) {
+                alert($(this).attr('src'));
+                $.get($(this).attr('src'), function (my_var) {
+                    $(this).attr('src', "data:image/png;base64," + my_var);
                 }, 'html');
-                    // jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
-                });
+                //return $(this).attr('src');
+            }).get();
+            
+            var images = $("img.base64image").map(function () {
+                return $(this).attr('src');
             });
-            // $("img.base64image").map(function (theImage) {
-            //     alert($(this).attr('src'));
-            //     $.get($(this).attr('src'), function (my_var) {
-            //         $(this).attr('src', "data:image/png;base64," + my_var);
+            alert(images);
+
+            // $(function () {
+            //     $('.element img').each(function () {
+            //         alert($(this).attr('src'));
+            //         $.get($(this).attr('src'), function (my_var) {
+            //             $(this).attr('src', "data:image/png;base64," + my_var);
             //     }, 'html');
-            //     //return $(this).attr('src');
-            // }).get();
+            //         // jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
+            //     });
+            // });
+            
             // $("img.base64image").each(function () {
             //     $.get($(this).attr('src'), function (my_var) {
             //         $('img.base64image').attr('src', "data:image/png;base64," + my_var);
