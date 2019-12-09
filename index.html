@@ -78,22 +78,9 @@
             // }
         // });
 
-        function convertImgToBase64(url, callback, outputFormat) {
-                var canvas = document.createElement('CANVAS');
-                var ctx = canvas.getContext('2d');
-                var img = new Image;
-                img.crossOrigin = 'Anonymous';
-                img.onload = function () {
-                    canvas.height = img.height;
-                    canvas.width = img.width;
-                    ctx.drawImage(img, 0, 0);
-                    var dataURL = canvas.toDataURL(outputFormat || 'image/png');
-                    callback.call(this, dataURL);
-                    // Clean up
-                    canvas = null;
-                };
-                img.src = url;
-            }
+        // function convertImgToBase64(url, callback, outputFormat) {
+                
+        //     }
 
         $(document).ready(function () {
             
@@ -132,20 +119,23 @@
                 location.hash = '';
             });
 
-            $("img.base64image").map(function (theImage) {
-                alert($(this).attr('src'));
-                $.get($(this).attr('src'), function (my_var) {
-                    $(this).attr('src', "data:image/png;base64," + my_var);
-                }, 'html');
-                //return $(this).attr('src');
-            }).get();
+            // $("img.base64image").map(function (theImage) {
+            //     alert($(this).attr('src'));
+            //     $.get($(this).attr('src'), function (my_var) {
+            //         $(this).attr('src', "data:image/png;base64," + my_var);
+            //     }, 'html');
+            //     //return $(this).attr('src');
+            // }).get();
             
-            $(function () {
-                var images = $("img.base64image").map(function () {
-                    return $(this).attr('src');
-                });
-                alert(images);
-            });
+            var base64images = document.querySelectorAll(".base64image");
+	for (var i = 0; i < base64images.length; i++) {
+	  alert('base64image: ', base64images[i]);
+    }
+    
+            // $(function () {
+            //     var images = document.images;
+            //     alert(images);
+            // });
             // $(function () {
             //     $('.element img').each(function () {
             //         alert($(this).attr('src'));
