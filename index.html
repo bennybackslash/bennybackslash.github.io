@@ -72,7 +72,7 @@
                 location.hash = '';
             });
 
-            $("img").each(function (index, element) {
+            $(".base64image").each(function (index, element) {
                 $.get($(element).attr('src'), function (data) {
                     $(element).attr('src', 'data:image/png;base64,' + data);
                 });
