@@ -80,14 +80,14 @@
 
         });
 
-        $(window).bind('load', function () {
-            $("img").each(function (index, element) {
-                $.get($(element).attr('src'), function (data) {
-                    $(element).attr('src', 'data:image/png;base64,' + data);
-                });
-            });
+        // $(window).bind('load', function () {
+        //     $("img").each(function (index, element) {
+        //         $.get($(element).attr('src'), function (data) {
+        //             $(element).attr('src', 'data:image/png;base64,' + data);
+        //         });
+        //     });
 
-        });
+        // });
     </script>
 
     <style>
@@ -197,5 +197,6 @@
 <li><a id="[Autodesk Inventor Code Snippets] Common Code Snippets Used for Automating Autodesk Inventor #csharp #autodesk #inventor" href="%2Fposts%2FAutodesk%20Inventor%20Code%20Snippets.html" >Autodesk Inventor Code Snippets</a></li>
 </ul>
 </div>
+<script>$('img').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
 </body>
 </html>
