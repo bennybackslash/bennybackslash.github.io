@@ -4,9 +4,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            $(".base64image").each(function (index, element) {
-                $.get($(element).attr('src'), function (data) {
-                    $(element).attr('src', 'data:image/png;base64,' + data);
+                $("img").each(function (index, element) {
+                    $.get($(element).attr('src'), function (data) {
+                        $(element).attr('src', 'data:image/png;base64,' + data);
+                    });
                 });
             });
     </script>
