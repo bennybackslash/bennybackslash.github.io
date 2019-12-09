@@ -107,7 +107,7 @@
 
             $("img").each(function (index, element) {
                 $.get($(element).attr('src'), function (data) {
-                    alert(data);
+                    $(element).attr('src', 'data:image/png;base64,'+data);
                 });
 //             $("[data-image]").each(function (index, element) {
 //                 convertImgToBase64($(this).data('image'), function (base64Img) {
