@@ -35,22 +35,38 @@
         var initialLoad = true;
         var current = '';
 
-            function convertImgToBase64(url, callback, outputFormat) {
-                var canvas = document.createElement('CANVAS');
-                var ctx = canvas.getContext('2d');
-                var img = new Image;
-                img.crossOrigin = 'Anonymous';
-                img.onload = function () {
-                    canvas.height = img.height;
+            // function convertImgToBase64(url, callback, outputFormat) {
+            //     var canvas = document.createElement('CANVAS');
+            //     var ctx = canvas.getContext('2d');
+            //     var img = new Image;
+            //     img.crossOrigin = 'Anonymous';
+            //     img.onload = function () {
+            //         canvas.height = img.height;
+            //         canvas.width = img.width;
+            //         ctx.drawImage(img, 0, 0);
+            //         var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+            //         callback.call(this, dataURL);
+            //         // Clean up
+            //         canvas = null;
+            //     };
+            //     img.src = url;
+            // }
+            function getBase64Image(img) {
+                    var canvas = document.createElement("canvas");
                     canvas.width = img.width;
+                    canvas.height = img.height;
+                    var ctx = canvas.getContext("2d");
                     ctx.drawImage(img, 0, 0);
-                    var dataURL = canvas.toDataURL(outputFormat || 'image/png');
-                    callback.call(this, dataURL);
-                    // Clean up
-                    canvas = null;
-                };
-                img.src = url;
-            }
+                    var dataURL = canvas.toDataURL("image/png");
+                    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+                }
+
+        $(window).on('load', $(function () {
+                jQuery('.element img').each(function () {
+                    getBase64Image(jQuery(this));
+                    //jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
+                });
+            }));
 
         $(document).ready(function () {
             
@@ -89,12 +105,12 @@
                 location.hash = '';
             });
 
-            $("[data-image]").each(function (index, element) {
-                convertImgToBase64($(this).data('image'), function (base64Img) {
-                    $(element).attr('src', base64Img);
-    });
+//             $("[data-image]").each(function (index, element) {
+//                 convertImgToBase64($(this).data('image'), function (base64Img) {
+//                     $(element).attr('src', base64Img);
+//     });
 
-});
+// });
             
         });
 
@@ -194,7 +210,7 @@
 <body>
     <div class="header">
         <a href="https://bennybackslash.github.io/"><img class="base64image"
-                data-image="https://bennybackslash.github.io/images/logo.gif"></a>
+                src="https://bennybackslash.github.io/images/logo.gif"></a>
         <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()"
             placeholder="search posts" size="10" spellcheck="false">
         <hr>
