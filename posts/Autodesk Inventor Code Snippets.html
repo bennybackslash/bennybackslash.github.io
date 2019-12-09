@@ -3,7 +3,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).on('load', Sfunction () {
             $(".base64image").each(function (index, element) {
                 $.get($(element).attr('src'), function (data) {
                     $(element).attr('src', 'data:image/png;base64,' + data);
