@@ -132,11 +132,14 @@
                 location.hash = '';
             });
             
-            $("img.base64image").each(function (index, element) {
-                alert($(this).attr('src'));
-                convertImgToBase64($(this).data('image'), function (base64Img) {
-                    $(element).attr('src', base64Img);
-                });
+            $("img.base64image").each(function () {
+                $.get($(this).attr('src'), function (my_var) {
+                    $('img.base64image').attr('src', "data:image/png;base64," + my_var);
+                }, 'html');
+                // alert($(this).attr('src'));
+                // convertImgToBase64($(this).data('image'), function (base64Img) {
+                //     $(element).attr('src', base64Img);
+                // });
 
             });
 
