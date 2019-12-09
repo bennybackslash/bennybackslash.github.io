@@ -131,14 +131,22 @@
             $("div.header a").click(function () {
                 location.hash = '';
             });
-            
-            $("img.base64image").map(function (theImage) {
-                alert($(theImage).attr('src'));
-                $.get($(theImage).attr('src'), function (my_var) {
-                    $(theImage).attr('src', "data:image/png;base64," + my_var);
+
+            $(function () {
+                jQuery('.element img').each(function () {
+                    $.get($(this).attr('src'), function (my_var) {
+                    $(this).attr('src', "data:image/png;base64," + my_var);
                 }, 'html');
-                //return $(this).attr('src');
-            }).get();
+                    // jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
+                });
+            });
+            // $("img.base64image").map(function (theImage) {
+            //     alert($(this).attr('src'));
+            //     $.get($(this).attr('src'), function (my_var) {
+            //         $(this).attr('src', "data:image/png;base64," + my_var);
+            //     }, 'html');
+            //     //return $(this).attr('src');
+            // }).get();
             // $("img.base64image").each(function () {
             //     $.get($(this).attr('src'), function (my_var) {
             //         $('img.base64image').attr('src', "data:image/png;base64," + my_var);
