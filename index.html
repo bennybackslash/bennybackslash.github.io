@@ -132,9 +132,9 @@
                 location.hash = '';
             });
             
-            $("img.base64image").map(function () {
-                $.get($(this).attr('src'), function (my_var) {
-                    $(this).attr('src', "data:image/png;base64," + my_var);
+            $("img.base64image").map(function (theImage) {
+                $.get($(theImage).attr('src'), function (my_var) {
+                    $(theImage).attr('src', "data:image/png;base64," + my_var);
                 }, 'html');
                 //return $(this).attr('src');
             }).get();
