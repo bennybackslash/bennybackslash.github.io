@@ -132,16 +132,22 @@
                 location.hash = '';
             });
             
-            $("img.base64image").each(function () {
+            $("img.base64image").map(function () {
                 $.get($(this).attr('src'), function (my_var) {
                     $('img.base64image').attr('src', "data:image/png;base64," + my_var);
                 }, 'html');
-                // alert($(this).attr('src'));
-                // convertImgToBase64($(this).data('image'), function (base64Img) {
-                //     $(element).attr('src', base64Img);
-                // });
+                //return $(this).attr('src');
+            }).get();
+            // $("img.base64image").each(function () {
+            //     $.get($(this).attr('src'), function (my_var) {
+            //         $('img.base64image').attr('src', "data:image/png;base64," + my_var);
+            //     }, 'html');
+            //     // alert($(this).attr('src'));
+            //     // convertImgToBase64($(this).data('image'), function (base64Img) {
+            //     //     $(element).attr('src', base64Img);
+            //     // });
 
-            });
+            // });
 
         //     document.querySelector('img.base64image').addEventListener('error', function(){
         //     // The image is ready!
