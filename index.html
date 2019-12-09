@@ -140,11 +140,12 @@
                 //return $(this).attr('src');
             }).get();
             
-            var images = $("img.base64image").map(function () {
-                return $(this).attr('src');
+            $(function () {
+                var images = $("img.base64image").map(function () {
+                    return $(this).attr('src');
+                });
+                alert(images);
             });
-            alert(images);
-
             // $(function () {
             //     $('.element img').each(function () {
             //         alert($(this).attr('src'));
