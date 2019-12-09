@@ -133,9 +133,10 @@
             });
 
             $(function () {
-                jQuery('.element img').each(function () {
+                $('.element img').each(function () {
+                    alert($(this).attr('src'));
                     $.get($(this).attr('src'), function (my_var) {
-                    $(this).attr('src', "data:image/png;base64," + my_var);
+                        $(this).attr('src', "data:image/png;base64," + my_var);
                 }, 'html');
                     // jQuery(this).attr('src', jQuery(this).attr('src').replace("old/directory", "new/directory"));
                 });
