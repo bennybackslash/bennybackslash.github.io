@@ -182,7 +182,7 @@
 
 <body>
     <div class="header">
-        <a href="https://bennybackslash.github.io/"><img class="base64image"
+        <a href="https://bennybackslash.github.io/"><img class="indexImage"
                 src="https://bennybackslash.github.io/images/logo.gif"></a>
         <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()"
             placeholder="search posts" size="10" spellcheck="false">
@@ -197,6 +197,6 @@
 <li><a id="[Autodesk Inventor Code Snippets] Common Code Snippets Used for Automating Autodesk Inventor #csharp #autodesk #inventor" href="%2Fposts%2FAutodesk%20Inventor%20Code%20Snippets.html" >Autodesk Inventor Code Snippets</a></li>
 </ul>
 </div>
-<script>$('img').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
+<script>$('.indexImage').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
 </body>
 </html>
