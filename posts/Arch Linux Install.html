@@ -35,11 +35,11 @@
 <ul>
 <li>List available layouts:</li>
 </ul>
-<p><pre><code># ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</code></pre></p>
+<p><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
 <ul>
 <li>Example of setting layout for Germany:</li>
 </ul>
-<p><pre><code># loadkeys de-latin1</code></pre></p>
+<p><code>`# loadkeys de-latin1</code></p>
 </li>
 <li>
 <p>Verify the boot mode (you should see a list of files).
@@ -50,15 +50,15 @@
 <ul>
 <li>List network interfaces - make note of the interface name (e.g., enp0s3):</li>
 </ul>
-<p><pre><code># ip link</code></pre></p>
+<p><code># ip link</code></p>
 <ul>
 <li>Ping a website to test connection:</li>
 </ul>
-<p><pre><code># ping -c1 archlinux.org</code></pre></p>
+<p><code># ping -c1 archlinux.org</code></p>
 </li>
 <li>
 <p>Update the system clock.</p>
-<p><pre><code># timedatectl set-ntp true</code></pre></p>
+<p><code># timedatectl set-ntp true</code></p>
 </li>
 <li>
 <p>Partition Drive</p>
