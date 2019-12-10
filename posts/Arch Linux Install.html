@@ -13,47 +13,39 @@
 <li>If you are on Windows, then you can verify the signature using <a href="https://www.gpg4win.org">Gpg4win</a>.</li>
 </ul>
 </li>
-<li>Setup your virtual machine.<ul>
+<li>
+<p>Setup your virtual machine.</p>
+<ul>
 <li>Set name, memory, storage, and other settings as you see fit. I typically dedicate half of my system memory and processors, use a dynamically allocated drive with a generous amount of space (~50 GB), max out the video memory, enable 3D acceleration, set the graphics controller to VBoxSVGA, set the Shared Clipboard and Drag'n'Drop to Bidirectional, and enable USB 2.0 (this requires the extension pack).</li>
-<li>Check the Enable EFI (special OSes only) box in the System tab.
-<img class="postImage" src="https://bennybackslash.github.io/images/vbox_efi.PNG"></li>
-<li>Run machine and select downloaded ISO when prompted.</li>
-</ul>
+<li>
+<p>Check the Enable EFI (special OSes only) box in the System tab.
+<img class="postImage" src="https://bennybackslash.github.io/images/vbox_efi.PNG"></p>
 </li>
-<li>For non-US users, set the keyboard layout.<ul>
+<li>
+<p>Run machine and select downloaded ISO when prompted.</p>
+</li>
+<li>For non-US users, set the keyboard layout.</li>
 <li>List available layouts:
 <pre><code># ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</code></pre></li>
 <li>Example of setting layout for Germany:
 <pre><code># loadkeys de-latin1</code></pre></li>
-</ul>
-</li>
 <li>Verify the boot mode (you should see a list of files).
 <pre><code># ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</code></pre></li>
-<li>Verify internet connection.<ul>
+<li>Verify internet connection.</li>
 <li>List network interfaces - make note of the interface name (e.g., enp0s3):
 <pre><code># ip link</code></pre></li>
 <li>Ping a website to test connection:
 <pre><code># ping -c1 archlinux.org</code></pre></li>
+<li>Update the system clock.
+<pre><code># timedatectl set-ntp true</code></pre></li>
+<li>Partition Drive</li>
+<li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):
+<pre><code># ls /dev</code></pre></li>
+<li>Use gdisk to partition drive:
+<pre><code># gdisk /dev/sd#</code></pre></li>
+<li>Table of common settings I use for partition drives:
+<p></p></li>
 </ul>
-</li>
-<li>
-<p>Update the system clock.
-    <pre><code># timedatectl set-ntp true</code></pre></p>
-</li>
-<li>
-<p>Partition Drive</p>
-<ul>
-<li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):</li>
-</ul>
-<p><pre><code># ls /dev</code></pre></p>
-<ul>
-<li>Use gdisk to partition drive:</li>
-</ul>
-<p><pre><code># gdisk /dev/sd#</code></pre></p>
-<ul>
-<li>Table of common settings I use for partition drives:</li>
-</ul>
-<p><p></p></p>
 <table>
 <thead>
 <tr>
@@ -82,13 +74,15 @@
 <td>home</td>
 <td>Personal Files, Remaining Space, 8300</td>
 </tr>
+<tr>
+<td><p></p></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p><p></p></p>
 <ul>
-<li>Setup your partitions:</li>
-</ul>
-<p><pre><code>
+<li>Setup your partitions:
+<pre><code>
 // EFI BOOT PARTITION
 &#35; p
 ::RETURN::
@@ -98,7 +92,8 @@
 ::RETURN::
 &#35; +500MB
 ::RETURN::
-::RETURN::</p>
+::RETURN::</li>
+</ul>
 <p>// SWAP PARTITION
 &#35; n
 ::RETURN::
@@ -165,15 +160,9 @@ y
 &#35; mount /dev/sd#4 home
 </code></pre></p>
 <ol>
-<li>
-<p>Update Keys</p>
-</li>
-<li>
-<p>Update Mirrors</p>
-</li>
-<li>
-<p>Install Arch</p>
-</li>
+<li>Update Keys</li>
+<li>Update Mirrors</li>
+<li>Install Arch</li>
 </ol>
 <p>References:</p>
 <p>Arch Wiki - Installation Guide:</p>
