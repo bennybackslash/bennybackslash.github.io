@@ -45,15 +45,16 @@
 <p>Verify the boot mode (you should see a list of files).</p>
 </li>
 </ol>
-<pre><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></pre>
-
+<p><pre><code># ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</code></pre></p>
 <ol>
 <li>
 <p>Verify internet connection.</p>
 <ul>
 <li>List network interfaces - make note of the interface name (e.g., enp0s3):</li>
 </ul>
-<p><pre><code># ip link</code></pre></p>
+<p><pre><code></p>
+<h1>ip link</h1>
+<p></code></pre></p>
 <ul>
 <li>Ping a website to test connection:</li>
 </ul>
@@ -61,7 +62,9 @@
 </li>
 <li>
 <p>Update the system clock.</p>
-<p><pre><code># timedatectl set-ntp true</code></pre></p>
+<p><pre><code></p>
+<h1>timedatectl set-ntp true</h1>
+<p></code></pre></p>
 </li>
 <li>
 <p>Partition Drive</p>
@@ -160,43 +163,33 @@ y
 <p>Format Partitions (update drive letter and partition number as necessary).</p>
 </li>
 </ol>
-<pre><code>
-&#47;&#47; EFI BOOTLOADER PARTITION
-&#35; mkfs.fat -F32 /dev/sd#1
-
-&#47;&#47; SWAP PARTITION
-&#35; mkswap /dev/sd#2
-
-&#47;&#47; ROOT PARTITION
-&#35; mkfs -t ext4 /dev/sd#3
-
-&#47;&#47; HOME PARTITION
-&#35; mkfs -t ext4 /dev/sd#4
-</code></pre>
-
+<p><pre><code>
+   &#47;&#47; EFI BOOTLOADER PARTITION
+   &#35; mkfs.fat -F32 /dev/sd#1</p>
+<p>&#47;&#47; SWAP PARTITION
+   &#35; mkswap /dev/sd#2</p>
+<p>&#47;&#47; ROOT PARTITION
+   &#35; mkfs -t ext4 /dev/sd#3</p>
+<p>&#47;&#47; HOME PARTITION
+   &#35; mkfs -t ext4 /dev/sd#4
+   </code></pre></p>
 <ol>
 <li>Mount Partitions (update drive letter and partition number as necessary).</li>
 </ol>
-<pre><code>
-&#47;&#47; TURN SWAP ON
-&#35; swapon /dev/sd#2
-
-&#47;&#47; MOUNT ROOT
-&#35; mount /dev/sd#3 /mnt
-
-&#47;&#47; CD INTO /MNT
-&#35; cd /mnt
-
-&#47;&#47; CREATE BOOT AND HOME DIRECTORIES
-&#35; mkdir boot home
-
-&#47;&#47; MOUNT BOOT
-&#35; mount /dev/sd#1 boot
-
-&#47;&#47; MOUNT HOME
-&#35; mount /dev/sd#4 home
-</code></pre>
-
+<p><pre><code>
+   &#47;&#47; TURN SWAP ON
+   &#35; swapon /dev/sd#2</p>
+<p>&#47;&#47; MOUNT ROOT
+   &#35; mount /dev/sd#3 /mnt</p>
+<p>&#47;&#47; CD INTO /MNT
+   &#35; cd /mnt</p>
+<p>&#47;&#47; CREATE BOOT AND HOME DIRECTORIES
+   &#35; mkdir boot home</p>
+<p>&#47;&#47; MOUNT BOOT
+   &#35; mount /dev/sd#1 boot</p>
+<p>&#47;&#47; MOUNT HOME
+   &#35; mount /dev/sd#4 home
+   </code></pre></p>
 <ol>
 <li>
 <p>Update Keys</p>
