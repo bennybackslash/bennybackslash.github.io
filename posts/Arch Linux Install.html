@@ -71,9 +71,9 @@
 </ul>
 <p><pre><code># gdisk /dev/sd#</code></pre></p>
 <ul>
-<li>Table of common settings I use for partition drives:
-  <p></p></li>
+<li>Table of common settings I use for partition drives:</li>
 </ul>
+<p><p></p></p>
 <table>
 <thead>
 <tr>
@@ -145,8 +145,54 @@
 ::RETURN::</p>
 <p>// CREATE PARTITIONS
 &#35; p
-::RETURN::</p>
+::RETURN::
+// NOTE WHAT PARTITION NUMBERS CORRESPOND TO WHAT PARTITIONS FOR FORMATTING
+w
+::RETURN::
+y
+::RETURN::
+</code></pre></p>
+</li>
+<li>
+<p>Format Partitions (update drive letter and partition number as necessary).
+<pre><code>
+// EFI BOOTLOADER PARTITION</p>
+</li>
+</ol>
+<h1>mkfs.fat -F32 /dev/sd#1</h1>
+<p>// SWAP PARTITION</p>
+<h1>mkswap /dev/sd#2</h1>
+<p>// ROOT PARTITION:</p>
+<h1>mkfs -t ext4 /dev/sd#3</h1>
+<p>// HOME PARTITION:</p>
+<h1>mkfs -t ext4 /dev/sd#4</h1>
 <p></code></pre></p>
+<ol>
+<li>Mount Partitions (update drive letter and partition number as necessary).
+<pre><code>
+// TURN SWAP ON</li>
+</ol>
+<h1>swapon /dev/sd#2</h1>
+<p>// MOUNT ROOT</p>
+<h1>mount /dev/sd#3 /mnt</h1>
+<p>// CD INTO /MNT</p>
+<h1>cd /mnt</h1>
+<p>// CREATE BOOT AND HOME DIRECTORIES</p>
+<h1>mkdir boot home</h1>
+<p>// MOUNT BOOT</p>
+<h1>mount /dev/sd#1 boot</h1>
+<p>// MOUNT HOME</p>
+<h1>mount /dev/sd#4 home</h1>
+<p></code></pre></p>
+<ol>
+<li>
+<p>Update Keys</p>
+</li>
+<li>
+<p>Update Mirrors</p>
+</li>
+<li>
+<p>Install Arch</p>
 </li>
 </ol>
 <p>References:</p>
