@@ -33,16 +33,13 @@
 <ul>
 <li>Example of setting layout for Germany:</li>
 </ul>
-<p>```</p>
-<h1>loadkeys de-latin1</h1>
-<p>```</p>
+<p><pre><code># loadkeys de-latin1</code></pre></p>
 </li>
 <li>
 <p>Verify the boot mode (you should see a list of files).</p>
 </li>
 </ol>
-<pre><code># ls /usr/share/kbd/keymaps/**/*.map.gz
-</code></pre>
+<pre><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></pre>
 
 <ol>
 <li>
@@ -50,18 +47,17 @@
 <ul>
 <li>List network interfaces - make note of the interface name (e.g., enp0s3):</li>
 </ul>
-<p><code>\# ip link</code></p>
+<p><pre><code># ip link</code></pre></p>
 <ul>
 <li>Ping a website to test connection:</li>
 </ul>
-<p><code>\# ping -c1 archlinux.org</code></p>
+<p><pre><code># ping -c1 archlinux.org</code></pre></p>
 </li>
 <li>
 <p>Update the system clock.</p>
 </li>
 </ol>
-<pre><code>\# timedatectl set-ntp true
-</code></pre>
+<pre><code># timedatectl set-ntp true</code></pre>
 
 <ol>
 <li>
@@ -69,11 +65,11 @@
 <ul>
 <li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):</li>
 </ul>
-<p><code>\# ls /dev</code></p>
+<p><pre><code># ls /dev</code></pre></p>
 <ul>
 <li>Use gdisk to partition drive:</li>
 </ul>
-<p><code>\# gdisk /dev/sd#</code></p>
+<p><pre><code># gdisk /dev/sd#</code></pre></p>
 <ul>
 <li>Table of common settings I use for partition drives:</li>
 </ul>
@@ -110,45 +106,45 @@
 <ul>
 <li>Setup your partitions:</li>
 </ul>
-<p>```
-// EFI BOOT PARTITION
-# p
-::RETURN::
-# n
-::RETURN::
-::RETURN::
-::RETURN::
-# +500MB
+<p><pre><code>
+// EFI BOOT PARTITION</p>
+<h1>p</h1>
+<p>::RETURN::</p>
+<h1>n</h1>
+<p>::RETURN::
 ::RETURN::
 ::RETURN::</p>
-<p>// SWAP PARTITION
-# n
-::RETURN::
-::RETURN::
-::RETURN::
-# +2G
-::RETURN::
-# 8200
+<h1>+500MB</h1>
+<p>::RETURN::
 ::RETURN::</p>
-<p>// ROOT PARTITION
-# n
-::RETURN::
-::RETURN::
-::RETURN::
-# +15G
+<p>// SWAP PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::
 ::RETURN::
 ::RETURN::</p>
-<p>// HOME PARTITION
-# n
+<h1>+2G</h1>
+<p>::RETURN::</p>
+<h1>8200</h1>
+<p>::RETURN::</p>
+<p>// ROOT PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::
 ::RETURN::
+::RETURN::</p>
+<h1>+15G</h1>
+<p>::RETURN::
+::RETURN::</p>
+<p>// HOME PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::
 ::RETURN::
 ::RETURN::
 ::RETURN::
 ::RETURN::</p>
-<p>// CREATE PARTITIONS
-# p
-::RETURN::
-```</p>
+<p>// CREATE PARTITIONS</p>
+<h1>p</h1>
+<p>::RETURN::
+</code></pre></p>
 </li>
 </ol>
 <p>References:</p>
@@ -161,22 +157,22 @@
 <p>Decent Arch Install Guides:</p>
 <p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
 <p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
-<p>run this before pacstrap:</p>
-<pre><code># pacman-key --init
-# pacman-key --populate archlinux
-# pacman-key --refresh-keys
-</code></pre>
-
-<p>pacstrap include:</p>
+<p>run this before pacstrap:
+<pre><code></p>
+<h1>pacman-key --init</h1>
+<h1>pacman-key --populate archlinux</h1>
+<h1>pacman-key --refresh-keys</h1>
+<p></pre></code>
+pacstrap include:</p>
 <p>base linux linux-firmware vim xorg-server xorg-xinit i3 dmenu (needed?) grub efibootmgr sudo netctl wpa_supplicant dhcpcd dialog ttf-dejavu</p>
 <p>if forget something, can arch-chroot into system</p>
 <p>need --removable on grub cfg for EFI Boot on VBox</p>
 <p>i3 needs ttf-dejavu font package</p>
-<p>add 'exec i3' to ~/.xinitrc</p>
-<pre><code># pacman -S package --overwrite='*'
-</code></pre>
-
-<p>this installs and overwrites all files, be careful, but this solved sudoers problem</p>
+<p>add 'exec i3' to ~/.xinitrc
+<pre><code></p>
+<h1>pacman -S package --overwrite='*'</h1>
+<p></pre></code>
+this installs and overwrites all files, be careful, but this solved sudoers problem</p>
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function ()
