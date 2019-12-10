@@ -154,36 +154,36 @@ y
 </code></pre></p>
 </li>
 <li>
-<p>Format Partitions (update drive letter and partition number as necessary).</p>
+<p>Format Partitions (update drive letter and partition number as necessary).
+<pre><code>
+&#47;&#47; EFI BOOTLOADER PARTITION
+&#35; mkfs.fat -F32 /dev/sd#1</p>
 </li>
 </ol>
-<p><pre><code>
-   &#47;&#47; EFI BOOTLOADER PARTITION
-   &#35; mkfs.fat -F32 /dev/sd#1</p>
 <p>&#47;&#47; SWAP PARTITION
-   &#35; mkswap /dev/sd#2</p>
+&#35; mkswap /dev/sd#2</p>
 <p>&#47;&#47; ROOT PARTITION
-   &#35; mkfs -t ext4 /dev/sd#3</p>
+&#35; mkfs -t ext4 /dev/sd#3</p>
 <p>&#47;&#47; HOME PARTITION
-   &#35; mkfs -t ext4 /dev/sd#4
-   </code></pre></p>
+&#35; mkfs -t ext4 /dev/sd#4
+</code></pre></p>
 <ol>
-<li>Mount Partitions (update drive letter and partition number as necessary).</li>
+<li>Mount Partitions (update drive letter and partition number as necessary).
+<pre><code>
+&#47;&#47; TURN SWAP ON
+&#35; swapon /dev/sd#2</li>
 </ol>
-<p><pre><code>
-   &#47;&#47; TURN SWAP ON
-   &#35; swapon /dev/sd#2</p>
 <p>&#47;&#47; MOUNT ROOT
-   &#35; mount /dev/sd#3 /mnt</p>
+&#35; mount /dev/sd#3 /mnt</p>
 <p>&#47;&#47; CD INTO /MNT
-   &#35; cd /mnt</p>
+&#35; cd /mnt</p>
 <p>&#47;&#47; CREATE BOOT AND HOME DIRECTORIES
-   &#35; mkdir boot home</p>
+&#35; mkdir boot home</p>
 <p>&#47;&#47; MOUNT BOOT
-   &#35; mount /dev/sd#1 boot</p>
+&#35; mount /dev/sd#1 boot</p>
 <p>&#47;&#47; MOUNT HOME
-   &#35; mount /dev/sd#4 home
-   </code></pre></p>
+&#35; mount /dev/sd#4 home
+</code></pre></p>
 <ol>
 <li>
 <p>Update Keys</p>
