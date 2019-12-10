@@ -23,27 +23,50 @@
 <ul>
 <li>Run machine and select downloaded ISO when prompted.</li>
 <li>For non-US users, set the keyboard layout.</li>
-<li>List available layouts:
-<pre><code># ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</code></pre></li>
-<li>Example of setting layout for Germany:
-<pre><code># loadkeys de-latin1</code></pre></li>
-<li>Verify the boot mode (you should see a list of files).
-<pre><code># ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</code></pre></li>
-<li>Verify internet connection.</li>
-<li>List network interfaces - make note of the interface name (e.g., enp0s3):
-<pre><code># ip link</code></pre></li>
-<li>Ping a website to test connection:
-<pre><code># ping -c1 archlinux.org</code></pre></li>
-<li>Update the system clock.
-<pre><code># timedatectl set-ntp true</code></pre></li>
-<li>Partition Drive</li>
-<li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):
-<pre><code># ls /dev</code></pre></li>
-<li>Use gdisk to partition drive:
-<pre><code># gdisk /dev/sd#</code></pre></li>
-<li>Table of common settings I use for partition drives:
-<p></p></li>
+<li>List available layouts:</li>
 </ul>
+<p><pre><code># ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</code></pre></p>
+<ul>
+<li>Example of setting layout for Germany:</li>
+</ul>
+<p><pre><code># loadkeys de-latin1</code></pre></p>
+</li>
+<li>
+<p>Verify the boot mode (you should see a list of files).</p>
+</li>
+</ol>
+<pre><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></pre>
+
+<ol>
+<li>
+<p>Verify internet connection.</p>
+<ul>
+<li>List network interfaces - make note of the interface name (e.g., enp0s3):</li>
+</ul>
+<p><pre><code># ip link</code></pre></p>
+<ul>
+<li>Ping a website to test connection:</li>
+</ul>
+<p><pre><code># ping -c1 archlinux.org</code></pre></p>
+</li>
+<li>
+<p>Update the system clock.</p>
+<p><pre><code># timedatectl set-ntp true</code></pre></p>
+</li>
+<li>
+<p>Partition Drive</p>
+<ul>
+<li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):</li>
+</ul>
+<p><pre><code># ls /dev</code></pre></p>
+<ul>
+<li>Use gdisk to partition drive:</li>
+</ul>
+<p><pre><code># gdisk /dev/sd#</code></pre></p>
+<ul>
+<li>Table of common settings I use for partition drives:</li>
+</ul>
+<p><p></p></p>
 <table>
 <thead>
 <tr>
@@ -72,16 +95,14 @@
 <td>home</td>
 <td>Personal Files, Remaining Space, 8300</td>
 </tr>
-<tr>
-<td><p></p></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p><p></p></p>
 <ul>
-<li>Setup your partitions:
-<pre><code>
-// EFI BOOT PARTITION
+<li>Setup your partitions:</li>
+</ul>
+<p><pre><code>
+&#47;&#47; EFI BOOT PARTITION
 &#35; p
 ::RETURN::
 &#35; n
@@ -90,9 +111,8 @@
 ::RETURN::
 &#35; +500MB
 ::RETURN::
-::RETURN::</li>
-</ul>
-<p>// SWAP PARTITION
+::RETURN::</p>
+<p>&#47;&#47; SWAP PARTITION
 &#35; n
 ::RETURN::
 ::RETURN::
@@ -101,7 +121,7 @@
 ::RETURN::
 &#35; 8200
 ::RETURN::</p>
-<p>// ROOT PARTITION
+<p>&#47;&#47; ROOT PARTITION
 &#35; n
 ::RETURN::
 ::RETURN::
@@ -109,17 +129,17 @@
 &#35; +15G
 ::RETURN::
 ::RETURN::</p>
-<p>// HOME PARTITION
+<p>&#47;&#47; HOME PARTITION
 &#35; n
 ::RETURN::
 ::RETURN::
 ::RETURN::
 ::RETURN::
 ::RETURN::</p>
-<p>// CREATE PARTITIONS
+<p>&#47;&#47; CREATE PARTITIONS
 &#35; p
 ::RETURN::
-// NOTE WHAT PARTITION NUMBERS CORRESPOND TO WHAT PARTITIONS FOR FORMATTING
+&#47;&#47; NOTE WHAT PARTITION NUMBERS CORRESPOND TO WHAT PARTITIONS FOR FORMATTING
 w
 ::RETURN::
 y
@@ -127,36 +147,46 @@ y
 </code></pre></p>
 </li>
 <li>
-<p>Format Partitions (update drive letter and partition number as necessary).
-<pre><code>
-// EFI BOOTLOADER PARTITION
-&#35; mkfs.fat -F32 /dev/sd#1</p>
+<p>Format Partitions (update drive letter and partition number as necessary).</p>
 </li>
 </ol>
-<p>// SWAP PARTITION
-&#35; mkswap /dev/sd#2</p>
-<p>// ROOT PARTITION
-&#35; mkfs -t ext4 /dev/sd#3</p>
-<p>// HOME PARTITION
-&#35; mkfs -t ext4 /dev/sd#4
-</code></pre></p>
-<ol>
-<li>Mount Partitions (update drive letter and partition number as necessary).
 <pre><code>
-// TURN SWAP ON
-&#35; swapon /dev/sd#2</li>
+&#47;&#47; EFI BOOTLOADER PARTITION
+&#35; mkfs.fat -F32 /dev/sd#1
+
+&#47;&#47; SWAP PARTITION
+&#35; mkswap /dev/sd#2
+
+&#47;&#47; ROOT PARTITION
+&#35; mkfs -t ext4 /dev/sd#3
+
+&#47;&#47; HOME PARTITION
+&#35; mkfs -t ext4 /dev/sd#4
+</code></pre>
+
+<ol>
+<li>Mount Partitions (update drive letter and partition number as necessary).</li>
 </ol>
-<p>// MOUNT ROOT
-&#35; mount /dev/sd#3 /mnt</p>
-<p>// CD INTO /MNT
-&#35; cd /mnt</p>
-<p>// CREATE BOOT AND HOME DIRECTORIES
-&#35; mkdir boot home</p>
-<p>// MOUNT BOOT
-&#35; mount /dev/sd#1 boot</p>
-<p>// MOUNT HOME
+<pre><code>
+&#47;&#47; TURN SWAP ON
+&#35; swapon /dev/sd#2
+
+&#47;&#47; MOUNT ROOT
+&#35; mount /dev/sd#3 /mnt
+
+&#47;&#47; CD INTO /MNT
+&#35; cd /mnt
+
+&#47;&#47; CREATE BOOT AND HOME DIRECTORIES
+&#35; mkdir boot home
+
+&#47;&#47; MOUNT BOOT
+&#35; mount /dev/sd#1 boot
+
+&#47;&#47; MOUNT HOME
 &#35; mount /dev/sd#4 home
-</code></pre></p>
+</code></pre>
+
 <ol>
 <li>Update Keys</li>
 <li>Update Mirrors</li>
@@ -172,20 +202,24 @@ y
 <p>Decent Arch Install Guides:</p>
 <p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
 <p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
-<p>run this before pacstrap:
+<p>run this before pacstrap:</p>
 <pre><code>
 &#35; pacman-key --init
 &#35; pacman-key --populate archlinux
 &#35; pacman-key --refresh-keys
-</pre></code>
-pacstrap include:</p>
+</pre>
+
+<p></code></p>
+<p>pacstrap include:</p>
 <p>base linux linux-firmware vim xorg-server xorg-xinit i3 dmenu (needed?) grub efibootmgr sudo netctl wpa_supplicant dhcpcd dialog ttf-dejavu</p>
 <p>if forget something, can arch-chroot into system</p>
 <p>need --removable on grub cfg for EFI Boot on VBox</p>
 <p>i3 needs ttf-dejavu font package</p>
-<p>add 'exec i3' to ~/.xinitrc
-<pre><code># pacman -S package --overwrite='*'</pre></code>
-this installs and overwrites all files, be careful, but this solved sudoers problem</p>
+<p>add 'exec i3' to ~/.xinitrc</p>
+<pre><code># pacman -S package --overwrite='*'</pre>
+
+<p></code></p>
+<p>this installs and overwrites all files, be careful, but this solved sudoers problem</p>
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function ()
