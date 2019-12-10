@@ -20,7 +20,6 @@
 <li>Check the Enable EFI (special OSes only) box in the System tab.</li>
 </ul>
 <p><img class="postImage" src="https://bennybackslash.github.io/images/vbox_efi.PNG"></p>
-<p><img class="postImage" src="https://bennybackslash.github.io/images/avatar.gif"></p>
 <ul>
 <li>Run machine and select downloaded ISO when prompted.</li>
 </ul>
@@ -30,11 +29,136 @@
 <ul>
 <li>List available layouts:</li>
 </ul>
-<p><code>ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
+<p>```</p>
+<h1>ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</h1>
+<p>```</p>
 <ul>
 <li>Example of setting layout for Germany:</li>
 </ul>
-<p><code>loadkeys de-latin1</code></p>
+<p>```</p>
+<h1>loadkeys de-latin1</h1>
+<p>```</p>
+</li>
+<li>
+<p>Verify the boot mode (you should see a list of files).</p>
+</li>
+</ol>
+<pre><code># ls /usr/share/kbd/keymaps/**/*.map.gz
+</code></pre>
+
+<ol>
+<li>
+<p>Verify internet connection.</p>
+<ul>
+<li>List network interfaces - make note of the interface name (e.g., enp0s3):</li>
+</ul>
+<p>```</p>
+<h1>ip link</h1>
+<p>```</p>
+<ul>
+<li>Ping a website to test connection:</li>
+</ul>
+<p>```</p>
+<h1>ping -c1 archlinux.org</h1>
+<p>```</p>
+</li>
+<li>
+<p>Update the system clock.</p>
+</li>
+</ol>
+<pre><code># timedatectl set-ntp true
+</code></pre>
+
+<ol>
+<li>
+<p>Partition Drive</p>
+<ul>
+<li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):</li>
+</ul>
+<p>```</p>
+<h1>ls /dev</h1>
+<p>```</p>
+<ul>
+<li>Use gdisk to partition drive:</li>
+</ul>
+<p>```</p>
+<h1>gdisk /dev/sd</h1>
+<p>```</p>
+<ul>
+<li>Table of common settings I use for partition drives:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Partition Drive</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\BIOS</td>
+<td>Bootloader, +10MB, EF02</td>
+</tr>
+<tr>
+<td>\EFI</td>
+<td>Bootloader, +500MB, EF00</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>+2GB, 8200</td>
+</tr>
+<tr>
+<td>root</td>
+<td>System Files, +15GB (Minimum), 8300</td>
+</tr>
+<tr>
+<td>home</td>
+<td>Personal Files, Remaining Space, 8300</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Setup your partitions:</li>
+</ul>
+<p>```
+// EFI BOOT PARTITION</p>
+<h1>p</h1>
+<p>::RETURN::</p>
+<h1>n</h1>
+<p>::RETURN::
+::RETURN::
+::RETURN::</p>
+<h1>+500MB</h1>
+<p>::RETURN::
+::RETURN::</p>
+<p>// SWAP PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::
+::RETURN::
+::RETURN::</p>
+<h1>+2G</h1>
+<p>::RETURN::</p>
+<h1>8200</h1>
+<p>::RETURN::</p>
+<p>// ROOT PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::
+::RETURN::
+::RETURN::</p>
+<h1>+15G</h1>
+<p>::RETURN::
+::RETURN::</p>
+<p>// HOME PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::
+::RETURN::
+::RETURN::
+::RETURN::
+::RETURN::</p>
+<p>// CREATE PARTITIONS</p>
+<h1>p</h1>
+<p>::RETURN::
+```</p>
 </li>
 </ol>
 <p>References:</p>
@@ -48,9 +172,9 @@
 <p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
 <p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
 <p>run this before pacstrap:</p>
-<pre><code>pacman-key --init
-pacman-key --populate archlinux
-pacman-key --refresh-keys
+<pre><code># pacman-key --init
+# pacman-key --populate archlinux
+# pacman-key --refresh-keys
 </code></pre>
 
 <p>pacstrap include:</p>
@@ -59,7 +183,7 @@ pacman-key --refresh-keys
 <p>need --removable on grub cfg for EFI Boot on VBox</p>
 <p>i3 needs ttf-dejavu font package</p>
 <p>add 'exec i3' to ~/.xinitrc</p>
-<pre><code>pacman -S package --overwrite='*'
+<pre><code># pacman -S package --overwrite='*'
 </code></pre>
 
 <p>this installs and overwrites all files, be careful, but this solved sudoers problem</p>
