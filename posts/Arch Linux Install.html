@@ -42,9 +42,11 @@
 <p><code># loadkeys de-latin1</code></p>
 </li>
 <li>
-<p>Verify the boot mode (you should see a list of files).
-<code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
+<p>Verify the boot mode (you should see a list of files).</p>
 </li>
+</ol>
+<p><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
+<ol>
 <li>
 <p>Verify internet connection.</p>
 <ul>
@@ -65,11 +67,11 @@
 <ul>
 <li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):</li>
 </ul>
-<p><pre><code># ls /dev</code></pre></p>
+<p><code># ls /dev</code></p>
 <ul>
 <li>Use gdisk to partition drive:</li>
 </ul>
-<p><pre><code># gdisk /dev/sd#</code></pre></p>
+<p><code># gdisk /dev/sd#</code></p>
 <ul>
 <li>Table of common settings I use for partition drives:</li>
 </ul>
@@ -108,7 +110,7 @@
 <ul>
 <li>Setup your partitions:</li>
 </ul>
-<p><pre><code>
+<p>```
 &#47;&#47; EFI BOOT PARTITION
 &#35; p
 ::RETURN::
@@ -151,39 +153,47 @@ w
 ::RETURN::
 y
 ::RETURN::
-</code></pre></p>
+```</p>
 </li>
 <li>
-<p>Format Partitions (update drive letter and partition number as necessary).
-<pre><code>
-&#47;&#47; EFI BOOTLOADER PARTITION
-&#35; mkfs.fat -F32 /dev/sd#1</p>
+<p>Format Partitions (update drive letter and partition number as necessary).</p>
 </li>
 </ol>
-<p>&#47;&#47; SWAP PARTITION
-&#35; mkswap /dev/sd#2</p>
-<p>&#47;&#47; ROOT PARTITION
-&#35; mkfs -t ext4 /dev/sd#3</p>
-<p>&#47;&#47; HOME PARTITION
-&#35; mkfs -t ext4 /dev/sd#4
-</code></pre></p>
+<pre><code>&amp;#47;&amp;#47; EFI BOOTLOADER PARTITION
+&amp;#35; mkfs.fat -F32 /dev/sd#1
+
+&amp;#47;&amp;#47; SWAP PARTITION
+&amp;#35; mkswap /dev/sd#2
+
+&amp;#47;&amp;#47; ROOT PARTITION
+&amp;#35; mkfs -t ext4 /dev/sd#3
+
+&amp;#47;&amp;#47; HOME PARTITION
+&amp;#35; mkfs -t ext4 /dev/sd#4
+</code></pre>
+
 <ol>
-<li>Mount Partitions (update drive letter and partition number as necessary).
-<pre><code>
-&#47;&#47; TURN SWAP ON
-&#35; swapon /dev/sd#2</li>
+<li>Mount Partitions (update drive letter and partition number as necessary).</li>
 </ol>
-<p>&#47;&#47; MOUNT ROOT
-&#35; mount /dev/sd#3 /mnt</p>
-<p>&#47;&#47; CD INTO /MNT
-&#35; cd /mnt</p>
-<p>&#47;&#47; CREATE BOOT AND HOME DIRECTORIES
-&#35; mkdir boot home</p>
-<p>&#47;&#47; MOUNT BOOT
-&#35; mount /dev/sd#1 boot</p>
-<p>&#47;&#47; MOUNT HOME
-&#35; mount /dev/sd#4 home
-</code></pre></p>
+<pre><code>&amp;#47;&amp;#47; TURN SWAP ON
+&amp;#35; swapon /dev/sd#2
+
+&amp;#47;&amp;#47; MOUNT ROOT
+&amp;#35; mount /dev/sd#3 /mnt
+
+&amp;#47;&amp;#47; CD INTO /MNT
+&amp;#35; cd /mnt
+
+&amp;#47;&amp;#47; CREATE BOOT AND HOME DIRECTORIES
+&amp;#35; mkdir boot home
+
+&amp;#47;&amp;#47; MOUNT BOOT
+&amp;#35; mount /dev/sd#1 boot
+
+&amp;#47;&amp;#47; MOUNT HOME
+&amp;#35; mount /dev/sd#4 home
+</code></pre>
+
 <ol>
 <li>
 <p>Update Keys</p>
