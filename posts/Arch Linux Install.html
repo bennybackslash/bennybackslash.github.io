@@ -29,21 +29,17 @@
 <ul>
 <li>List available layouts:</li>
 </ul>
-<p>```</p>
-<h1>ls /usr/share/kbd/keymaps/*<em>/</em>.map.gz</h1>
-<p>```</p>
+<p><code>\# ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
 <ul>
 <li>Example of setting layout for Germany:</li>
 </ul>
-<p>```</p>
-<h1>loadkeys de-latin1</h1>
-<p>```</p>
+<p><code>\# loadkeys de-latin1</code></p>
 </li>
 <li>
 <p>Verify the boot mode (you should see a list of files).</p>
 </li>
 </ol>
-<pre><code># ls /usr/share/kbd/keymaps/**/*.map.gz
+<pre><code>\# ls /usr/share/kbd/keymaps/**/*.map.gz
 </code></pre>
 
 <ol>
@@ -52,21 +48,17 @@
 <ul>
 <li>List network interfaces - make note of the interface name (e.g., enp0s3):</li>
 </ul>
-<p>```</p>
-<h1>ip link</h1>
-<p>```</p>
+<p><code>\# ip link</code></p>
 <ul>
 <li>Ping a website to test connection:</li>
 </ul>
-<p>```</p>
-<h1>ping -c1 archlinux.org</h1>
-<p>```</p>
+<p><code>\# ping -c1 archlinux.org</code></p>
 </li>
 <li>
 <p>Update the system clock.</p>
 </li>
 </ol>
-<pre><code># timedatectl set-ntp true
+<pre><code>\# timedatectl set-ntp true
 </code></pre>
 
 <ol>
@@ -75,15 +67,11 @@
 <ul>
 <li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):</li>
 </ul>
-<p>```</p>
-<h1>ls /dev</h1>
-<p>```</p>
+<p><code>\# ls /dev</code></p>
 <ul>
 <li>Use gdisk to partition drive:</li>
 </ul>
-<p>```</p>
-<h1>gdisk /dev/sd</h1>
-<p>```</p>
+<p><code>\# gdisk /dev/sd#</code></p>
 <ul>
 <li>Table of common settings I use for partition drives:</li>
 </ul>
@@ -121,43 +109,43 @@
 <li>Setup your partitions:</li>
 </ul>
 <p>```
-// EFI BOOT PARTITION</p>
-<h1>p</h1>
-<p>::RETURN::</p>
-<h1>n</h1>
-<p>::RETURN::
+// EFI BOOT PARTITION
+# p
 ::RETURN::
-::RETURN::</p>
-<h1>+500MB</h1>
-<p>::RETURN::
-::RETURN::</p>
-<p>// SWAP PARTITION</p>
-<h1>n</h1>
-<p>::RETURN::
-::RETURN::
-::RETURN::</p>
-<h1>+2G</h1>
-<p>::RETURN::</p>
-<h1>8200</h1>
-<p>::RETURN::</p>
-<p>// ROOT PARTITION</p>
-<h1>n</h1>
-<p>::RETURN::
-::RETURN::
-::RETURN::</p>
-<h1>+15G</h1>
-<p>::RETURN::
-::RETURN::</p>
-<p>// HOME PARTITION</p>
-<h1>n</h1>
-<p>::RETURN::
+# n
 ::RETURN::
 ::RETURN::
 ::RETURN::
+# +500MB
+::RETURN::
 ::RETURN::</p>
-<p>// CREATE PARTITIONS</p>
-<h1>p</h1>
-<p>::RETURN::
+<p>// SWAP PARTITION
+# n
+::RETURN::
+::RETURN::
+::RETURN::
+# +2G
+::RETURN::
+# 8200
+::RETURN::</p>
+<p>// ROOT PARTITION
+# n
+::RETURN::
+::RETURN::
+::RETURN::
+# +15G
+::RETURN::
+::RETURN::</p>
+<p>// HOME PARTITION
+# n
+::RETURN::
+::RETURN::
+::RETURN::
+::RETURN::
+::RETURN::</p>
+<p>// CREATE PARTITIONS
+# p
+::RETURN::
 ```</p>
 </li>
 </ol>
