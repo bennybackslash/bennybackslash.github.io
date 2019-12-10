@@ -55,11 +55,8 @@
 </li>
 <li>
 <p>Update the system clock.</p>
+<p><pre><code># timedatectl set-ntp true</code></pre></p>
 </li>
-</ol>
-<pre><code># timedatectl set-ntp true</code></pre>
-
-<ol>
 <li>
 <p>Partition Drive</p>
 <ul>
@@ -162,9 +159,9 @@ y
 </ol>
 <p>// SWAP PARTITION
 &#35; mkswap /dev/sd#2</p>
-<p>// ROOT PARTITION:
+<p>// ROOT PARTITION
 &#35; mkfs -t ext4 /dev/sd#3</p>
-<p>// HOME PARTITION:
+<p>// HOME PARTITION
 &#35; mkfs -t ext4 /dev/sd#4
 </code></pre></p>
 <ol>
