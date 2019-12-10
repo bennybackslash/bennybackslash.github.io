@@ -82,11 +82,11 @@
 </thead>
 <tbody>
 <tr>
-<td>\BIOS</td>
+<td>BIOS</td>
 <td>Bootloader, +10MB, EF02</td>
 </tr>
 <tr>
-<td>\EFI</td>
+<td>EFI</td>
 <td>Bootloader, +500MB, EF00</td>
 </tr>
 <tr>
@@ -107,43 +107,43 @@
 <li>Setup your partitions:</li>
 </ul>
 <p><pre><code>
-// EFI BOOT PARTITION</p>
-<h1>p</h1>
-<p>::RETURN::</p>
-<h1>n</h1>
-<p>::RETURN::
+// EFI BOOT PARTITION
+&#35; p
 ::RETURN::
-::RETURN::</p>
-<h1>+500MB</h1>
-<p>::RETURN::
-::RETURN::</p>
-<p>// SWAP PARTITION</p>
-<h1>n</h1>
-<p>::RETURN::
-::RETURN::
-::RETURN::</p>
-<h1>+2G</h1>
-<p>::RETURN::</p>
-<h1>8200</h1>
-<p>::RETURN::</p>
-<p>// ROOT PARTITION</p>
-<h1>n</h1>
-<p>::RETURN::
-::RETURN::
-::RETURN::</p>
-<h1>+15G</h1>
-<p>::RETURN::
-::RETURN::</p>
-<p>// HOME PARTITION</p>
-<h1>n</h1>
-<p>::RETURN::
+&#35; n
 ::RETURN::
 ::RETURN::
 ::RETURN::
+&#35; +500MB
+::RETURN::
 ::RETURN::</p>
-<p>// CREATE PARTITIONS</p>
-<h1>p</h1>
-<p>::RETURN::
+<p>// SWAP PARTITION
+&#35; n
+::RETURN::
+::RETURN::
+::RETURN::
+&#35; +2G
+::RETURN::
+&#35; 8200
+::RETURN::</p>
+<p>// ROOT PARTITION
+&#35; n
+::RETURN::
+::RETURN::
+::RETURN::
+&#35; +15G
+::RETURN::
+::RETURN::</p>
+<p>// HOME PARTITION
+&#35; n
+::RETURN::
+::RETURN::
+::RETURN::
+::RETURN::
+::RETURN::</p>
+<p>// CREATE PARTITIONS
+&#35; p
+::RETURN::
 </code></pre></p>
 </li>
 </ol>
@@ -158,20 +158,18 @@
 <p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
 <p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
 <p>run this before pacstrap:
-<pre><code></p>
-<h1>pacman-key --init</h1>
-<h1>pacman-key --populate archlinux</h1>
-<h1>pacman-key --refresh-keys</h1>
-<p></pre></code>
+<pre><code>
+&#35; pacman-key --init
+&#35; pacman-key --populate archlinux
+&#35; pacman-key --refresh-keys
+</pre></code>
 pacstrap include:</p>
 <p>base linux linux-firmware vim xorg-server xorg-xinit i3 dmenu (needed?) grub efibootmgr sudo netctl wpa_supplicant dhcpcd dialog ttf-dejavu</p>
 <p>if forget something, can arch-chroot into system</p>
 <p>need --removable on grub cfg for EFI Boot on VBox</p>
 <p>i3 needs ttf-dejavu font package</p>
 <p>add 'exec i3' to ~/.xinitrc
-<pre><code></p>
-<h1>pacman -S package --overwrite='*'</h1>
-<p></pre></code>
+<pre><code># pacman -S package --overwrite='*'</pre></code>
 this installs and overwrites all files, be careful, but this solved sudoers problem</p>
 <div id="disqus_thread"></div>
 <script>
