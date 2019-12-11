@@ -67,7 +67,6 @@
                 $('.content').css("background", "white");
                 location.hash = encodeURIComponent('Welcome');
                 current = location.hash;
-                alert(current);
                 return false;
             });
 
@@ -78,10 +77,6 @@
                 //window.history.pushState(null, null, location.hash);
                 current = location.hash;
                 return false;
-            });
-
-            $("div.header a").click(function () {
-                location.hash = '';
             });
 
         });
