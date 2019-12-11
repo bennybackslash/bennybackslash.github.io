@@ -52,7 +52,6 @@
             }
 
             $(window).on('popstate', function () {
-                if (!initialLoad) {
                     var hash = location.hash;
                     if (hash) {
                         if (current != location.hash) {
@@ -61,11 +60,14 @@
                             current = location.hash;
                         }
                     }
-                }
             });
 
             $("div.header a").click(function () {
-                initialLoad=true;
+                $('.content').load(encodeURIComponent('/posts/Welcome.html'));
+                $('.content').css("background", "white");
+                location.hash = 'Welcome';
+                current = location.hash;
+                return false;
             });
 
             $("div.links a").click(function () {
