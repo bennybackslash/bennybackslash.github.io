@@ -3,16 +3,13 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
-        body {
+        .innerContent {
             background-color:white;
             font-family: 'Orbitron', sans-serif;
             margin: 10px;
         }
 
-        .header img {
-            float: left;
-        }
-
+        
         p {
             clear: both;
         }
@@ -22,27 +19,6 @@
             height: 2;
             background: #c3c322;
             width: 100%;
-        }
-
-        input {
-            background-color: #131513;
-            color: #8ca68c;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 30;
-            border: 0;
-            height: 60;
-            width: 300;
-            float: left;
-            margin-left: -10;
-            margin-top: -5;
-        }
-
-        input:focus {
-            outline-width: 0;
-        }
-
-        ::placeholder {
-            color: #505E50;
         }
 
         a:link {
@@ -69,15 +45,6 @@
             text-decoration: underline;
         }
 
-        .content {
-            background-color: #131513;
-            float: right;
-            width: 70%;
-            padding-left: 2.5%;
-            padding-right: 2.5%;
-            font-family: sans-serif;
-        }
-
         pre {
             overflow-x: auto;
             white-space: pre-wrap;
@@ -93,11 +60,6 @@
             display: block;
             padding: 20px;
 
-        }
-
-        .links {
-            float: left;
-            width: 25%;
         }
 
         table {
@@ -123,6 +85,8 @@
 </head>
 
 <body>
+    <div>
+        
 <h1>Autodesk Inventor Code Snippets</h1>
 <p>Any common code snippets I use for Autodesk Inventor I will post here.</p>
 <p>Connect to open instance of Autodesk Inventor:</p>
@@ -142,5 +106,6 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <script>$('img:not(.indexImage)').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
+</div>
 </body>
 </html>
