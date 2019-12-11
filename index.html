@@ -38,6 +38,11 @@
         $(document).ready(function () {
 
             $(window).on('popstate', function () {
+                if(location.hash=="")
+                {
+                    alert('dsfsa');
+                    return false;
+                }
                 if (current != location.hash) {
                     var hash = location.hash;
                     if (hash) {
