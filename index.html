@@ -65,7 +65,7 @@
             $("div.header a").click(function () {
                 $('.content').load(encodeURIComponent('/posts/Welcome.html'));
                 $('.content').css("background", "white");
-                //location.hash = encodeURIComponent('Welcome');
+                location.hash = encodeURIComponent('Welcome');
                 current = location.hash;
                 alert(current);
                 return false;
