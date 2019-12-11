@@ -38,11 +38,11 @@
         $(document).ready(function () {
 
             $(window).on('popstate', function () {
-                if(location.hash=="")
-                {
-                    alert('dsfsa');
-                    return false;
-                }
+                // if(location.hash=="")
+                // {
+                //     alert('dsfsa');
+                //     return false;
+                // }
                 if (current != location.hash) {
                     var hash = location.hash;
                     if (hash) {
@@ -68,7 +68,7 @@
                 else {
                     $('.content').load(encodeURIComponent('/posts/Welcome.html'));
                     $('.content').css("background", "white");
-                    location.hash = encodeURIComponent('Welcome');
+                    location.replace = encodeURIComponent('https://bennybackslash.github.io/#Welcome');
                     current = location.hash;
                 }
                 initialLoad = false;
