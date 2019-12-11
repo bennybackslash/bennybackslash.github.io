@@ -9,39 +9,68 @@
 <p>This is a simplified guide to installing a minimal version of Arch on VirtualBox with i3 using an EFI bootloader.</p>
 <p>Do your best to simply follow the <a href="https://wiki.archlinux.org/index.php/installation_guide">installation guide</a> on the Arch Wiki (and other Arch Wiki pages). Everyone in the community is just going to point you back there anyways - a splendid group I tell ya. Learn, embrace, and submit to the Arch install.</p>
 <ol>
-<li>Download latest Arch ISO from one of the mirrors <a href="https://www.archlinux.org/download/">here</a>.<ul>
+<li>
+<p>Download latest Arch ISO from one of the mirrors <a href="https://www.archlinux.org/download/">here</a>.</p>
+<ul>
 <li>If you are on Windows, then you can verify the signature using <a href="https://www.gpg4win.org">Gpg4win</a>.</li>
 </ul>
 </li>
 <li>
 <p>Setup your virtual machine.</p>
 <ul>
-<li>Set name, memory, storage, and other settings as you see fit. I typically dedicate half of my system memory and processors, use a dynamically allocated drive with a generous amount of space (~50 GB), max out the video memory, enable 3D acceleration, set the graphics controller to VBoxSVGA, set the Shared Clipboard and Drag'n'Drop to Bidirectional, and enable USB 2.0 (this requires the extension pack).</li>
-<li>Check the Enable EFI (special OSes only) box in the System tab.</li>
+<li>
+<p>Set name, memory, storage, and other settings as you see fit. I typically dedicate half of my system memory and processors, use a dynamically allocated drive with a generous amount of space (~50 GB), max out the video memory, enable 3D acceleration, set the graphics controller to VBoxSVGA, set the Shared Clipboard and Drag'n'Drop to Bidirectional, and enable USB 2.0 (this requires the extension pack).</p>
+</li>
+<li>
+<p>Check the Enable EFI (special OSes only) box in the System tab.</p>
+</li>
 </ul>
 <p><img alt="" src="https://bennybackslash.github.io/images/vbox_efi.PNG" /></p>
-<p><img class="postImage" src="https://bennybackslash.github.io/images/vbox_efi.PNG"></p>
 <ul>
 <li>Run machine and select downloaded ISO when prompted.</li>
-<li>For non-US users, set the keyboard layout.</li>
-<li>List available layouts:<br />
-<code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></li>
-<li>Example of setting layout for Germany:<br />
-<code># loadkeys de-latin1</code></li>
-<li>Verify the boot mode (you should see a list of files).<br />
-<code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></li>
-<li>Verify internet connection.</li>
-<li>List network interfaces - make note of the interface name (e.g., enp0s3):<br />
-<code># ip link</code></li>
-<li>Ping a website to test connection:<br />
-<code># ping -c1 archlinux.org</code></li>
-<li>Update the system clock.<br />
-<code># timedatectl set-ntp true</code></li>
-<li>Partition Drive</li>
-<li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):<br />
-<code># ls /dev</code></li>
-<li>Use gdisk to partition drive:<br />
-<code># gdisk /dev/sd#</code></li>
+</ul>
+</li>
+<li>
+<p>For non-US users, set the keyboard layout.</p>
+<ul>
+<li>List available layouts:</li>
+</ul>
+<p><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
+<ul>
+<li>Example of setting layout for Germany:</li>
+</ul>
+<p><code># loadkeys de-latin1</code></p>
+</li>
+<li>
+<p>Verify the boot mode (you should see a list of files).</p>
+<p><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
+</li>
+<li>
+<p>Verify internet connection.</p>
+<ul>
+<li>List network interfaces - make note of the interface name (e.g., enp0s3):</li>
+</ul>
+<p><code># ip link</code></p>
+<ul>
+<li>Ping a website to test connection:</li>
+</ul>
+<p><code># ping -c1 archlinux.org</code></p>
+</li>
+<li>
+<p>Update the system clock.</p>
+<p><code># timedatectl set-ntp true</code></p>
+</li>
+<li>
+<p>Partition Drive</p>
+<ul>
+<li>List drives (generally looking for sd#, where '#' is a given letter, replace '#' in the commands below as required):  </li>
+</ul>
+<p><code># ls /dev</code></p>
+<ul>
+<li>Use gdisk to partition drive:  </li>
+</ul>
+<p><code># gdisk /dev/sd#</code></p>
+<ul>
 <li>Table of common settings I use for partition drives:</li>
 </ul>
 <table>
@@ -75,8 +104,9 @@
 </tbody>
 </table>
 <ul>
-<li>Setup your partitions:<br />
-   ```<br />
+<li>Setup your partitions:</li>
+</ul>
+<p>```<br />
    // EFI BOOT PARTITION<br />
    # p<br />
    ::RETURN::<br />
@@ -86,8 +116,7 @@
    ::RETURN::<br />
    # +500MB<br />
    ::RETURN::<br />
-   ::RETURN::</li>
-</ul>
+   ::RETURN::</p>
 <p>// SWAP PARTITION<br />
    # n<br />
    ::RETURN::<br />
@@ -120,18 +149,26 @@
    ::RETURN::<br />
    y<br />
    ::RETURN::<br />
-<code>8. Format Partitions (update drive letter and partition number as necessary).</code><br />
-   // EFI BOOTLOADER PARTITION<br />
-   # mkfs.fat -F32 /dev/sd#1</p>
+   ```</p>
+</li>
+<li>
+<p>Format Partitions (update drive letter and partition number as necessary).</p>
 </li>
 </ol>
+<p>```<br />
+   // EFI BOOTLOADER PARTITION<br />
+   # mkfs.fat -F32 /dev/sd#1</p>
 <p>// SWAP PARTITION<br />
    # mkswap /dev/sd#2</p>
 <p>// ROOT PARTITION<br />
    # mkfs -t ext4 /dev/sd#3</p>
 <p>// HOME PARTITION<br />
    # mkfs -t ext4 /dev/sd#4<br />
-<code>9. Mount Partitions (update drive letter and partition number as necessary).</code><br />
+   ```</p>
+<ol>
+<li>Mount Partitions (update drive letter and partition number as necessary).</li>
+</ol>
+<p>```<br />
    // TURN SWAP ON<br />
    # swapon /dev/sd#2</p>
 <p>// MOUNT ROOT<br />
@@ -144,10 +181,18 @@
    # mount /dev/sd#1 boot</p>
 <p>// MOUNT HOME<br />
    # mount /dev/sd#4 home<br />
-   ```<br />
-10. Update Keys<br />
-11. Update Mirrors<br />
-12. Install Arch</p>
+   ```</p>
+<ol>
+<li>
+<p>Update Keys</p>
+</li>
+<li>
+<p>Update Mirrors</p>
+</li>
+<li>
+<p>Install Arch</p>
+</li>
+</ol>
 <p>References:</p>
 <p>Arch Wiki - Installation Guide:</p>
 <p><a href="https://wiki.archlinux.org/index.php/installation_guide">https://wiki.archlinux.org/index.php/installation_guide</a></p>
