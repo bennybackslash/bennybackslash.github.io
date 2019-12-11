@@ -65,7 +65,7 @@
             $("div.header a").click(function () {
                 $('.content').load(encodeURIComponent('/posts/Welcome.html'));
                 $('.content').css("background", "white");
-                location.hash = 'Welcome';
+                location.hash = encodeURIComponent('Welcome');
                 current = location.hash;
                 return false;
             });
@@ -73,6 +73,7 @@
             $("div.links a").click(function () {
                 $('.content').load($(this).attr('href'));
                 $('.content').css("background", "white");
+                alert($(this).text());
                 location.hash = encodeURIComponent($(this).text()); //attr('id');
                 //window.history.pushState(null, null, location.hash);
                 current = location.hash;
