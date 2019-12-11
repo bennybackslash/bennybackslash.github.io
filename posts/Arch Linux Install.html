@@ -107,81 +107,89 @@
 <li>Setup your partitions:</li>
 </ul>
 <p>```<br />
-   // EFI BOOT PARTITION<br />
-   # p<br />
-   ::RETURN::<br />
-   # n<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   # +500MB<br />
-   ::RETURN::<br />
-   ::RETURN::</p>
-<p>// SWAP PARTITION<br />
-   # n<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   # +2G<br />
-   ::RETURN::<br />
-   # 8200<br />
-   ::RETURN::</p>
-<p>// ROOT PARTITION<br />
-   # n<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   # +15G<br />
-   ::RETURN::<br />
-   ::RETURN::</p>
-<p>// HOME PARTITION<br />
-   # n<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   ::RETURN::<br />
-   ::RETURN::</p>
-<p>// CREATE PARTITIONS<br />
-   # p<br />
-   ::RETURN::<br />
-   // NOTE WHAT PARTITION NUMBERS CORRESPOND TO WHAT PARTITIONS FOR FORMATTING<br />
-   w<br />
-   ::RETURN::<br />
-   y<br />
-   ::RETURN::<br />
-   ```</p>
+// EFI BOOT PARTITION</p>
+<h1>p</h1>
+<p>::RETURN::</p>
+<h1>n</h1>
+<p>::RETURN::<br />
+::RETURN::<br />
+::RETURN::</p>
+<h1>+500MB</h1>
+<p>::RETURN::<br />
+::RETURN::</p>
+<p>// SWAP PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::<br />
+::RETURN::<br />
+::RETURN::</p>
+<h1>+2G</h1>
+<p>::RETURN::</p>
+<h1>8200</h1>
+<p>::RETURN::</p>
+<p>// ROOT PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::<br />
+::RETURN::<br />
+::RETURN::</p>
+<h1>+15G</h1>
+<p>::RETURN::<br />
+::RETURN::</p>
+<p>// HOME PARTITION</p>
+<h1>n</h1>
+<p>::RETURN::<br />
+::RETURN::<br />
+::RETURN::<br />
+::RETURN::<br />
+::RETURN::</p>
+<p>// CREATE PARTITIONS</p>
+<h1>p</h1>
+<p>::RETURN::<br />
+// NOTE WHAT PARTITION NUMBERS CORRESPOND TO WHAT PARTITIONS FOR FORMATTING<br />
+w<br />
+::RETURN::<br />
+y<br />
+::RETURN::<br />
+```</p>
 </li>
 <li>
 <p>Format Partitions (update drive letter and partition number as necessary).</p>
 </li>
 </ol>
-<p>```<br />
-   // EFI BOOTLOADER PARTITION<br />
-   # mkfs.fat -F32 /dev/sd#1</p>
-<p>// SWAP PARTITION<br />
-   # mkswap /dev/sd#2</p>
-<p>// ROOT PARTITION<br />
-   # mkfs -t ext4 /dev/sd#3</p>
-<p>// HOME PARTITION<br />
-   # mkfs -t ext4 /dev/sd#4<br />
-   ```</p>
+<pre class="highlight"><code>// EFI BOOTLOADER PARTITION
+# mkfs.fat -F32 /dev/sd#1
+
+// SWAP PARTITION
+# mkswap /dev/sd#2
+
+// ROOT PARTITION
+# mkfs -t ext4 /dev/sd#3
+
+// HOME PARTITION
+# mkfs -t ext4 /dev/sd#4</code></pre>
+
+
 <ol>
 <li>Mount Partitions (update drive letter and partition number as necessary).</li>
 </ol>
-<p>```<br />
-   // TURN SWAP ON<br />
-   # swapon /dev/sd#2</p>
-<p>// MOUNT ROOT<br />
-   # mount /dev/sd#3 /mnt</p>
-<p>// CD INTO /MNT<br />
-   # cd /mnt</p>
-<p>// CREATE BOOT AND HOME DIRECTORIES<br />
-   # mkdir boot home</p>
-<p>// MOUNT BOOT<br />
-   # mount /dev/sd#1 boot</p>
-<p>// MOUNT HOME<br />
-   # mount /dev/sd#4 home<br />
-   ```</p>
+<pre class="highlight"><code>// TURN SWAP ON
+# swapon /dev/sd#2
+
+// MOUNT ROOT
+# mount /dev/sd#3 /mnt
+
+// CD INTO /MNT
+# cd /mnt
+
+// CREATE BOOT AND HOME DIRECTORIES
+# mkdir boot home
+
+// MOUNT BOOT
+# mount /dev/sd#1 boot
+
+// MOUNT HOME
+# mount /dev/sd#4 home</code></pre>
+
+
 <ol>
 <li>
 <p>Update Keys</p>
