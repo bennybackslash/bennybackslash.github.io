@@ -36,10 +36,8 @@
         var current = '';
 
         $(document).ready(function () {
-            
+
             if (initialLoad) {
-                alert('3');
-                alert('location.hash:'+location.hash);
                 var hash = location.hash;
                 if (hash) {
                     $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
@@ -55,12 +53,10 @@
             }
 
             $(window).on('popstate', function () {
-                alert('2');
-                alert('current:'+current);
-                alert('location.hash:'+location.hash);
-                if (current != location.hash) {
-                    var hash = location.hash;
-                    if (hash) {
+                var hash = location.hash;
+                if (hash) {
+                    if (current != location.hash) {
+
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         $('.content').css("background", "white");
                         current = location.hash;
@@ -168,7 +164,7 @@
             white-space: -pre-wrap;
             white-space: -o-pre-wrap;
             word-wrap: break-word;
-         }
+        }
 
         code {
             background-color: #eee;
