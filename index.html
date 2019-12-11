@@ -39,6 +39,7 @@
 
             if (initialLoad) {
                 var hash = location.hash;
+                alert('initial: hash='+hash+' current='+current);
                 if (hash) {
                     $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                     $('.content').css("background", "white");
@@ -54,6 +55,7 @@
 
             $(window).on('popstate', function () {
                 var hash = location.hash;
+                alert('popstate: hash='+hash+' current='+current);
                 if (hash) {
                     if (current != location.hash) {
 
