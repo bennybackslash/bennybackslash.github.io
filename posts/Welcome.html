@@ -2,13 +2,24 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('div.innerContent a').each(function() {
+        var a = new RegExp('/' + window.location.host + '/');
+        if(!a.test(this.href)) {
+            $(this).click(function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                window.open(this.href, '_blank');
+            });
+        }
+        });
+    </script>
     <style>
         .innerContent {
             background-color:white;
             font-family: 'Orbitron', sans-serif;
             margin: 10px;
         }
-
         
         p {
             clear: both;
@@ -85,7 +96,7 @@
 </head>
 
 <body>
-    <div>
+    <div id="innerContent">
         
 <h1>Welcome to benny\</h1>
 <p><strong>What?</strong></p>
