@@ -110,56 +110,56 @@
 <ul>
 <li>Setup your partitions:</li>
 </ul>
-<p>```
-&#47;&#47; EFI BOOT PARTITION
-&#35; p
-::RETURN::
-&#35; n
-::RETURN::
-::RETURN::
-::RETURN::
-&#35; +500MB
-::RETURN::
+<p>```<br />
+&#47;&#47; EFI BOOT PARTITION<br />
+&#35; p<br />
+::RETURN::<br />
+&#35; n<br />
+::RETURN::<br />
+::RETURN::<br />
+::RETURN::<br />
+&#35; +500MB<br />
+::RETURN::<br />
 ::RETURN::</p>
-<p>&#47;&#47; SWAP PARTITION
-&#35; n
-::RETURN::
-::RETURN::
-::RETURN::
-&#35; +2G
-::RETURN::
-&#35; 8200
+<p>&#47;&#47; SWAP PARTITION<br />
+&#35; n<br />
+::RETURN::<br />
+::RETURN::<br />
+::RETURN::<br />
+&#35; +2G<br />
+::RETURN::<br />
+&#35; 8200<br />
 ::RETURN::</p>
-<p>&#47;&#47; ROOT PARTITION
-&#35; n
-::RETURN::
-::RETURN::
-::RETURN::
-&#35; +15G
-::RETURN::
+<p>&#47;&#47; ROOT PARTITION<br />
+&#35; n<br />
+::RETURN::<br />
+::RETURN::<br />
+::RETURN::<br />
+&#35; +15G<br />
+::RETURN::<br />
 ::RETURN::</p>
-<p>&#47;&#47; HOME PARTITION
-&#35; n
-::RETURN::
-::RETURN::
-::RETURN::
-::RETURN::
+<p>&#47;&#47; HOME PARTITION<br />
+&#35; n<br />
+::RETURN::<br />
+::RETURN::<br />
+::RETURN::<br />
+::RETURN::<br />
 ::RETURN::</p>
-<p>&#47;&#47; CREATE PARTITIONS
-&#35; p
-::RETURN::
-&#47;&#47; NOTE WHAT PARTITION NUMBERS CORRESPOND TO WHAT PARTITIONS FOR FORMATTING
-w
-::RETURN::
-y
-::RETURN::
+<p>&#47;&#47; CREATE PARTITIONS<br />
+&#35; p<br />
+::RETURN::<br />
+&#47;&#47; NOTE WHAT PARTITION NUMBERS CORRESPOND TO WHAT PARTITIONS FOR FORMATTING<br />
+w<br />
+::RETURN::<br />
+y<br />
+::RETURN::<br />
 ```</p>
 </li>
 <li>
 <p>Format Partitions (update drive letter and partition number as necessary).</p>
 </li>
 </ol>
-<pre><code>&amp;#47;&amp;#47; EFI BOOTLOADER PARTITION
+<pre class="highlight"><code>&amp;#47;&amp;#47; EFI BOOTLOADER PARTITION
 &amp;#35; mkfs.fat -F32 /dev/sd#1
 
 &amp;#47;&amp;#47; SWAP PARTITION
@@ -169,13 +169,13 @@ y
 &amp;#35; mkfs -t ext4 /dev/sd#3
 
 &amp;#47;&amp;#47; HOME PARTITION
-&amp;#35; mkfs -t ext4 /dev/sd#4
-</code></pre>
+&amp;#35; mkfs -t ext4 /dev/sd#4</code></pre>
+
 
 <ol>
 <li>Mount Partitions (update drive letter and partition number as necessary).</li>
 </ol>
-<pre><code>&amp;#47;&amp;#47; TURN SWAP ON
+<pre class="highlight"><code>&amp;#47;&amp;#47; TURN SWAP ON
 &amp;#35; swapon /dev/sd#2
 
 &amp;#47;&amp;#47; MOUNT ROOT
@@ -191,8 +191,8 @@ y
 &amp;#35; mount /dev/sd#1 boot
 
 &amp;#47;&amp;#47; MOUNT HOME
-&amp;#35; mount /dev/sd#4 home
-</code></pre>
+&amp;#35; mount /dev/sd#4 home</code></pre>
+
 
 <ol>
 <li>
