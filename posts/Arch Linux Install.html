@@ -25,7 +25,7 @@
 <p>Check the Enable EFI (special OSes only) box in the System tab.</p>
 </li>
 </ul>
-<p><img alt="" src="https://bennybackslash.github.io/images/vbox_efi.PNG" /></p>
+<p>!(<a href="https://bennybackslash.github.io/images/vbox_efi.PNG">https://bennybackslash.github.io/images/vbox_efi.PNG</a>)</p>
 <ul>
 <li>Run machine and select downloaded ISO when prompted.</li>
 </ul>
@@ -73,7 +73,6 @@
 <ul>
 <li>Table of common settings I use for partition drives:</li>
 </ul>
-<p></br></p>
 <table>
 <thead>
 <tr>
@@ -212,11 +211,10 @@ y
 <p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
 <p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
 <p>run this before pacstrap:</p>
-<pre class="highlight"><code># pacman-key --init
+<pre><code># pacman-key --init
 # pacman-key --populate archlinux
-# pacman-key --refresh-keys</code></pre>
-
-
+# pacman-key --refresh-keys
+</code></pre>
 <p>pacstrap include:</p>
 <p>base linux linux-firmware vim xorg-server xorg-xinit i3 dmenu (needed?) grub efibootmgr sudo netctl wpa_supplicant dhcpcd dialog ttf-dejavu</p>
 <p>if forget something, can arch-chroot into system</p>
