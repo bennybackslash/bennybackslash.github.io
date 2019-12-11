@@ -54,6 +54,7 @@
 
             $(window).on('popstate', function () {
                 if (!initialLoad) {
+                    alert('not initial load in popstate');
                     var hash = location.hash;
                     if (hash) {
                         if (current != location.hash) {
