@@ -46,7 +46,10 @@
                         current = location.hash;
                     }
                     else {
-                        $('.content').empty();
+                        $('.content').load(encodeURIComponent('/posts/#Welcome.html'));
+                        $('.content').css("background", "white");
+                        location.hash = encodeURIComponent('Welcome');
+                        //$('.content').empty();
                         current = location.hash;
                     }
                 }
