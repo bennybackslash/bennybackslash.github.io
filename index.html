@@ -36,7 +36,6 @@
         var current = '';
 
         $(document).ready(function () {
-
             if (initialLoad) {
                 var hash = location.hash;
                 if (hash) {
@@ -54,7 +53,6 @@
 
             $(window).on('popstate', function () {
                 if (!initialLoad) {
-                    alert('not initial load in popstate');
                     var hash = location.hash;
                     if (hash) {
                         if (current != location.hash) {
@@ -64,6 +62,10 @@
                         }
                     }
                 }
+            });
+
+            $("div.header a").click(function () {
+                initialLoad=true;
             });
 
             $("div.links a").click(function () {
