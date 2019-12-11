@@ -57,8 +57,9 @@
                 var hash = location.hash;
                 alert('popstate: hash='+hash+' current='+current);
                 if (hash) {
+                    alert('hash exists');
                     if (current != location.hash) {
-
+                        alert('mismatch');
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         $('.content').css("background", "white");
                         current = location.hash;
