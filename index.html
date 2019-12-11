@@ -68,8 +68,9 @@
                 else {
                     $('.content').load(encodeURIComponent('/posts/Welcome.html'));
                     $('.content').css("background", "white");
-                    location.replace = encodeURIComponent('https://bennybackslash.github.io/#Welcome');
-                    location.hash = 'Welcome';
+                    history.replaceState(undefined, undefined, "#Welcome")
+                    //location.replace = encodeURIComponent('https://bennybackslash.github.io/#Welcome');
+                    //location.hash = 'Welcome';
                     current = location.hash;
                 }
                 initialLoad = false;
