@@ -181,6 +181,11 @@
             clear: both;
         }
 
+        .logo{
+            color: var(--main-text);
+            size: 10;
+        }
+
         hr {
             clear: both;
             height: 2;
@@ -274,8 +279,10 @@
 
 <body>
     <div class="header">
-        <a href="https://bennybackslash.github.io/#Welcome"><img class="indexImage"
-                src="https://bennybackslash.github.io/images/logo.gif"></a>
+        <a href="https://bennybackslash.github.io/#Welcome"><p class="logo">benny\</p>
+            <!-- <img class="indexImage"
+                src="https://bennybackslash.github.io/images/logo.gif"> -->
+            </a>
         <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()"
             placeholder="search posts" size="10" spellcheck="false">
         <hr>
