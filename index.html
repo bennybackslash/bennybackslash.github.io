@@ -35,14 +35,14 @@
         function divider(img) {
             if (collapsed) {
                 $('.links').show();
-                    $.get("https://bennybackslash.github.io/images/logo.gif", function (data) { 
+                    $.get("https://bennybackslash.github.io/images/avatar.gif", function (data) { 
                         img.src='data:image/png;base64,' + data; 
                         });
                 collapsed=false;
             }
             else{
                 $('.links').hide();
-                $.get("https://bennybackslash.github.io/images/avatar.gif", function (data) { 
+                $.get("https://bennybackslash.github.io/images/logo.gif", function (data) { 
                         img.src='data:image/png;base64,' + data; 
                         });
                 collapsed=true;
