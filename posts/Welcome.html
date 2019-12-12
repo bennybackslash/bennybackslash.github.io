@@ -4,7 +4,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
     $(document).ready( function () {
-            $("div.innerContent a").click(function () {
+            $("div.innerContent a:not([href*=bennybackslash]").click(function () {
                 $(this).attr('target','_blank');
             });
         });
@@ -100,7 +100,7 @@
 </ul>
 <p></br></p>
 <ul>
-<li><strong>Use the search in the top left corner to filter posts - the 'Esc' key clears it.</strong></li>
+<li>Use the search in the top left corner to filter posts - the 'Esc' key clears it.</li>
 </ul>
 <p></br></p>
 <div id="disqus_thread"></div>
