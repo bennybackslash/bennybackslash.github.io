@@ -60,11 +60,11 @@
                 var hash = location.hash;
                 if (hash) {
                     $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
-                    $('.content').css("background", "white");
+                    // $('.content').css("background", "white");
                 }
                 else {
                     $('.content').load(encodeURIComponent('/posts/Welcome.html'));
-                    $('.content').css("background", "white");
+                    // $('.content').css("background", "white");
                     history.replaceState(undefined, undefined, "#Welcome");
                     current = location.hash;
                 }
@@ -76,7 +76,7 @@
                 if (hash) {
                     if (current != location.hash) {
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
-                        $('.content').css("background", "white");
+                        // $('.content').css("background", "white");
                         current = location.hash;
                     }
                 }
@@ -84,7 +84,7 @@
 
             $("div.header a").click(function () {
                 $('.content').load(encodeURIComponent('/posts/Welcome.html'));
-                $('.content').css("background", "white");
+                // $('.content').css("background", "white");
                 location.hash = encodeURIComponent('Welcome');
                 current = location.hash;
                 return false;
@@ -92,7 +92,7 @@
 
             $("div.links a").click(function () {
                 $('.content').load($(this).attr('href'));
-                $('.content').css("background", "white");
+                // $('.content').css("background", "white");
                 location.hash = encodeURIComponent($(this).text()); //attr('id');
                 //window.history.pushState(null, null, location.hash);
                 current = location.hash;
@@ -109,7 +109,6 @@
 
     <style>
         body {
-            /* background-color: #131513; */
             font-family: 'Orbitron', sans-serif;
             margin: 0;
             overflow: hidden;
@@ -128,6 +127,7 @@
             width: 25%;
             height: 100%;
             overflow-y: auto;
+            background-color: #131513;
         }
 
         .divider {
@@ -142,7 +142,7 @@
 
         .content {
             margin-top: 64px;
-            background-color: #131513;
+            /* background-color: #131513; */
             float: left;
             width: 67%;
             height: 100%;
