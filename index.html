@@ -79,7 +79,10 @@
                 return false;
             });
 
-            $("div.innerContent a").attr('target','_blank');
+            $("div.innerContent a").click(function () {
+                alert('index');
+                $(this).attr('target','_blank');
+            });
 
         });
 
