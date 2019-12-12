@@ -34,11 +34,11 @@
 
         function divider(img) {
             if (collapsed) {
-                
                     $.get("https://bennybackslash.github.io/images/logo.gif", function (data) { 
                         img.attr('src', 'data:image/png;base64,' + data); 
                         });
                 alert('expanded');
+                alert(img.attr('src'));
                 collapsed=false;
             }
             else{
@@ -46,6 +46,7 @@
                         img.attr('src', 'data:image/png;base64,' + data); 
                         });
                 alert('collapsed');
+                alert(img.attr('src'));
                 collapsed=true;
             }
         }
