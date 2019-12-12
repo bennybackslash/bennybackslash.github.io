@@ -91,7 +91,32 @@
         body {
             background-color: #131513;
             font-family: 'Orbitron', sans-serif;
-            /* margin: 10px; */
+        }
+
+        .header {
+            position: fixed;
+            width:100%;
+            height:62px;
+            background-color: #131513;
+            z-index: 10;
+        }
+
+        .links {
+            position: relative;
+            margin-top: 62px;
+            float: left;
+            width: 25%;
+        }
+
+        .content {
+            position: relative;
+            margin-top: 62px;
+            background-color: #131513;
+            float: right;
+            width: 70%;
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+            font-family: sans-serif;
         }
 
         .header img {
@@ -152,33 +177,6 @@
             color: #8ca68c;
             background-color: transparent;
             text-decoration: underline;
-        }
-
-        .header {
-            position: fixed;
-            width:100%;
-            height:62px;
-            background-color: #131513;
-            z-index: 10;
-        }
-
-        .links {
-            position: relative;
-            margin-top: 72px;
-            float: left;
-            width: 25%;
-        }
-
-        .content {
-            position: relative;
-            margin-top: 72px;
-            background-color: #131513;
-            float: right;
-            width: 70%;
-            padding-left: 2.5%;
-            padding-right: 2.5%;
-            font-family: sans-serif;
-            /* overflow-y:auto; */
         }
 
         pre {
