@@ -35,6 +35,7 @@
         function divider(img) {
             if (collapsed) {
                 $('.links').show();
+                $('.content').css('width', '65%');
                     $.get("https://bennybackslash.github.io/images/avatar.gif", function (data) { 
                         img.src='data:image/png;base64,' + data; 
                         });
@@ -42,6 +43,7 @@
             }
             else{
                 $('.links').hide();
+                $('.content').css('width', '90%');
                 $.get("https://bennybackslash.github.io/images/logo.gif", function (data) { 
                         img.src='data:image/png;base64,' + data; 
                         });
