@@ -36,7 +36,7 @@
             if (collapsed) {
                 $('.links').show();
                 $('.content').css('width', '65%');
-                    $.get("https://bennybackslash.github.io/images/expand.png", function (data) { 
+                    $.get("https://bennybackslash.github.io/images/collapse.png", function (data) { 
                         img.src='data:image/png;base64,' + data; 
                         });
                 collapsed=false;
@@ -44,7 +44,7 @@
             else{
                 $('.links').hide();
                 $('.content').css('width', '90%');
-                $.get("https://bennybackslash.github.io/images/collapse.png", function (data) { 
+                $.get("https://bennybackslash.github.io/images/expand.png", function (data) { 
                         img.src='data:image/png;base64,' + data; 
                         });
                 collapsed=true;
