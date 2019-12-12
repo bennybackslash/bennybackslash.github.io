@@ -35,7 +35,7 @@
         function divider() {
             if (collapsed) {
                 $('.links').show();
-                $('.content').css('width', '68%');
+                $('.content').css('width', '67%');
                 $.get("https://bennybackslash.github.io/images/collapse.png", function (data) {
                     $('#dividerImage').attr('src', 'data:image/png;base64,' + data);
                 });
@@ -43,7 +43,7 @@
             }
             else {
                 $('.links').hide();
-                $('.content').css('width', '93%');
+                $('.content').css('width', '92%');
                 $.get("https://bennybackslash.github.io/images/expand.png", function (data) {
                     $('#dividerImage').attr('src', 'data:image/png;base64,' + data);
                 });
@@ -155,7 +155,7 @@
             background-color: var(--content-background);
             margin-top: 64px;
             float: left;
-            width: 68%;
+            width: 67%;
             height: 100%;
             padding-left: 2.5%;
             padding-right: 2.5%;
