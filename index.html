@@ -35,18 +35,18 @@
         function divider(img) {
             if (collapsed) {
                     $.get("https://bennybackslash.github.io/images/logo.gif", function (data) { 
-                        img.attr('src', 'data:image/png;base64,' + data); 
+                        img.src='src', 'data:image/png;base64,' + data; 
                         });
                 alert('expanded');
-                alert(img.attr('src'));
+                alert(img.src);
                 collapsed=false;
             }
             else{
                 $.get("https://bennybackslash.github.io/images/avatar.gif", function (data) { 
-                        img.attr('src', 'data:image/png;base64,' + data); 
+                        img.src='src', 'data:image/png;base64,' + data; 
                         });
                 alert('collapsed');
-                alert(img.attr('src'));
+                alert(img.src);
                 collapsed=true;
             }
         }
