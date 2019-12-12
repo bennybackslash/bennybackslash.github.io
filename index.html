@@ -34,10 +34,17 @@
 
         function divider(img) {
             if (collapsed) {
+                
+                    $.get("https://bennybackslash.github.io/images/logo.gif", function (data) { 
+                        img.attr('src', 'data:image/png;base64,' + data); 
+                        });
                 alert('expanded');
                 collapsed=false;
             }
             else{
+                $.get("https://bennybackslash.github.io/images/avatar.gif", function (data) { 
+                        img.attr('src', 'data:image/png;base64,' + data); 
+                        });
                 alert('collapsed');
                 collapsed=true;
             }
