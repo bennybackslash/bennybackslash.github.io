@@ -108,22 +108,32 @@
     </script>
 
     <style>
+        :root {
+            --main-text: #8ca68c;
+            --ref-text: #505E50;
+            --link-hover: #c3c322;
+            --divider: darkgray;
+            --hr: #c3c322;
+            --background: #131513;
+            --content-background: white;
+        }
+
         body {
-            background-color: #131513;
+            background-color: var(--background);
             font-family: 'Orbitron', sans-serif;
             margin: 0;
             overflow: hidden;
         }
 
         .header {
-            background-color: #131513;
+            background-color: var(--background);
             position: fixed;
             width: 100%;
             height: 64px;
         }
 
         .links {
-            background-color: #131513;
+            background-color: var(--background);
             margin-top: 74px;
             float: left;
             width: 25%;
@@ -133,7 +143,7 @@
         }
 
         .divider {
-            background-color: darkgray;
+            background-color: var(--divider);
             position: relative;
             margin-top: 64px;
             float: left;
@@ -142,7 +152,7 @@
         }
 
         .content {
-            background-color: white;
+            background-color: var(--content-background);
             margin-top: 64px;
             float: left;
             width: 68%;
@@ -174,13 +184,13 @@
         hr {
             clear: both;
             height: 2;
-            background: #c3c322;
+            background: var(--hr);
             width: 100%;
         }
 
         input {
-            background-color: #131513;
-            color: #8ca68c;
+            background-color: var(--background);
+            color: var(--main-text);
             font-family: 'Orbitron', sans-serif;
             font-size: 30;
             border: 0;
@@ -196,29 +206,29 @@
         }
 
         ::placeholder {
-            color: #505E50;
+            color: var(--ref-text);
         }
 
         a:link {
-            color: #8ca68c;
+            color: var(--main-text);
             background-color: transparent;
             text-decoration: none;
         }
 
         a:visited {
-            color: #8ca68c;
+            color: var(--main-text);;
             background-color: transparent;
             text-decoration: none;
         }
 
         a:hover {
-            color: #c3c322;
+            color: var(--link-hover);;
             background-color: transparent;
             text-decoration: underline;
         }
 
         a:active {
-            color: #8ca68c;
+            color: var(--main-text);;
             background-color: transparent;
             text-decoration: underline;
         }
