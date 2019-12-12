@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready( function () {
+            $("div.innerContent a").click(function () {
+                $(this).attr('target','_blank');
+            });
+        });
+    </script>
+    <style>
+        .innerContent {
+            background-color:white;
+            font-family: sans-serif;
+            margin: 10px;
+        }
+        
+        p {
+            clear: both;
+        }
+
+        hr {
+            clear: both;
+            height: 2;
+            background: #c3c322;
+            width: 100%;
+        }
+
+        a:link {
+            color: #8ca68c;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #8ca68c;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #c3c322;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #8ca68c;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        pre {
+            overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+
+        code {
+            background-color: #eee;
+            border: 1px solid #999;
+            display: block;
+            padding: 20px;
+
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="innerContent">
+        
+<h1>Autodesk Inventor Code Snippets</h1>
+<p>Any common code snippets I use for Autodesk Inventor I will post here.</p>
+<p>Connect to open instance of Autodesk Inventor:</p>
+<p><code>Inventor.Application instance = (Inventor.Application)Marshal.GetActiveObject("Inventor.Application");</code></p>
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function ()
+{
+this.page.url = 'https://bennybackslash.github.io/posts/Autodesk Inventor Code Snippets.html';
+this.page.identifier ='77c0a355cc3783abe9948caacedfb24d';
+};
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://bennybackslash.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<script>$('img:not(.indexImage)').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
+</div>
+</body>
+</html>
