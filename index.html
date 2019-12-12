@@ -79,7 +79,7 @@
                 return false;
             });
 
-            $("div.innerContent a").click(function () {
+            $("div.innerContent a:not([href*=bennybackslash]").click(function () {
                 $(this).attr('target','_blank');
             });
 
