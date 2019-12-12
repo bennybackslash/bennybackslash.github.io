@@ -32,8 +32,15 @@
             }
         }
 
+        function divider() {
+            if(collapsed){
+
+            }
+        }
+
         var initialLoad = true;
         var current = '';
+        var collapsed = false;
 
         $(document).ready(function () {
             if (initialLoad) {
@@ -100,11 +107,9 @@
             width: 100%;
             height: 62px;
             background-color: #131513;
-            /* z-index: 10; */
         }
 
         .links {
-            /* position: relative; */
             margin-top: 72px;
             float: left;
             width: 25%;
@@ -112,17 +117,27 @@
             overflow-y: auto;
         }
 
+        .divider {
+            margin-top: 62px;
+            margin-left: 25%;
+            float:left;
+            width: 5%;
+            height: 100%;
+        }
+
         .content {
-            /* position: relative; */
             margin-top: 62px;
             background-color: #131513;
             float: right;
-            width: 70%;
+            width: 65%;
             height: 100%;
             padding-left: 2.5%;
             padding-right: 2.5%;
             font-family: sans-serif;
             overflow-y: auto;
+        }
+        .divider img {
+            vertical-align: middle;
         }
 
         .header img {
@@ -231,6 +246,9 @@
         <input type="text" id="searchbox" onkeydown="onkeypressed(event, this);" onkeyup="search()"
             placeholder="search posts" size="10" spellcheck="false">
         <hr>
+    </div>
+    <div class="divider">
+        <img src="https://bennybackslash.github.io/images/avatar.gif" onclick="divider()">
     </div>
     <div class="content">
         <!--<iframe name="gist" style="width:100%; height:100%;" frameborder="0"></iframe>-->
