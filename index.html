@@ -142,6 +142,12 @@
             padding-left: 1%;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        .links::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
         }
 
         .divider {
@@ -164,6 +170,12 @@
             font-family: sans-serif;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .content::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
         }
 
         .divider img {
