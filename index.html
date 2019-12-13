@@ -67,9 +67,8 @@
                     // $('.content').css("background", "white");
                     history.replaceState(undefined, undefined, "#Welcome");
                     current = location.hash;
-                    $('.indexImage').css({"visibility":"hidden"});
-                    alert($(current).attr('src'));
-                    $("[id='"+current+"']").css({"visibility":"visible"});
+                    $('.indexImage').hide();
+                    $(current.substr(1)).show();
                 }
                 initialLoad = false;
             }
@@ -81,9 +80,8 @@
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         // $('.content').css("background", "white");
                         current = location.hash;
-                        $('.indexImage').css({"visibility":"hidden"});
-                        alert($(current).attr('src'));
-                        $("[id='"+current+"']").css({"visibility":"visible"});
+                        $('.indexImage').hide();
+                        $(current.substr(1)).show();
                     }
                 }
             });
