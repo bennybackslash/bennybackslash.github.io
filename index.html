@@ -68,6 +68,7 @@
                     history.replaceState(undefined, undefined, "#Welcome");
                     current = location.hash;
                     $('.indexImage').hide();
+                    alert(current);
                     $(current).show();
                 }
                 initialLoad = false;
@@ -80,8 +81,9 @@
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         // $('.content').css("background", "white");
                         current = location.hash;
-                        // $('.indexImage').hide();
-                        // $(current).show();
+                        $('.indexImage').hide();
+                        alert(current);
+                        $(current).show();
                     }
                 }
             });
