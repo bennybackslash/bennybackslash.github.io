@@ -67,9 +67,9 @@
                     // $('.content').css("background", "white");
                     history.replaceState(undefined, undefined, "#Welcome");
                     current = location.hash;
-                    $('.indexImage').hide();
+                    $('.indexImage').css({"visibility":"hidden"});
                     alert(current);
-                    $(current).show();
+                    $(current).css({"visibility":"visible"});
                 }
                 initialLoad = false;
             }
@@ -81,9 +81,9 @@
                         $('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');
                         // $('.content').css("background", "white");
                         current = location.hash;
-                        $('.indexImage').hide();
-                        alert('popstate'+current);
-                        $(current).show();
+                        $('.indexImage').css({"visibility":"hidden"});
+                        alert(current);
+                        $(current).css({"visibility":"visible"});
                     }
                 }
             });
