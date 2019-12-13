@@ -36,7 +36,7 @@
             if (collapsed) {
                 $('.links').show();
                 $('.content').css('width', '67%');
-                $.get("https://bennybackslash.github.io/images/collapse.png", function (data) {
+                $.get("https://bennybackslash.github.io/images/collapse-red.png", function (data) {
                     $('#dividerImage').attr('src', 'data:image/png;base64,' + data);
                 });
                 collapsed = false;
@@ -311,7 +311,7 @@
 <li><a id="[Autodesk Inventor Code Snippets] Common Code Snippets Used for Automating Autodesk Inventor #csharp #autodesk #inventor" href="%2Fposts%2FAutodesk%20Inventor%20Code%20Snippets.html" >Autodesk Inventor Code Snippets</a></li>
 </ul>
 </div>
-<div class="divider" onclick="divider()"><img class="indexImage" id="dividerImage" src="https://bennybackslash.github.io/images/collapse.png"></div>
+<div class="divider" onclick="divider()"><img class="indexImage" id="dividerImage" src="https://bennybackslash.github.io/images/collapse-red.png"></div>
 <div class="content"></div>
 <script>$('.indexImage').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
 </body>
