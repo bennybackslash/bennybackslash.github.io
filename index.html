@@ -68,7 +68,7 @@
                     history.replaceState(undefined, undefined, "#Welcome");
                     current = location.hash;
                     $('.indexImage').css({"visibility":"hidden"});
-                    alert($(current));
+                    alert($(current).attr('src'));
                     $(current).css({"visibility":"visible"});
                 }
                 initialLoad = false;
@@ -82,7 +82,7 @@
                         // $('.content').css("background", "white");
                         current = location.hash;
                         $('.indexImage').css({"visibility":"hidden"});
-                        alert($(current));
+                        alert($(current).attr('src'));
                         $(current).css({"visibility":"visible"});
                     }
                 }
