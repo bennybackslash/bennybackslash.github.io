@@ -119,7 +119,7 @@
 </ul>
 <p><img alt="" src="https://bennybackslash.github.io/images/vbox_efi.PNG" /></p>
 <ul>
-<li>Run machine and select downloaded ISO when prompted.</li>
+<li>Run machine and select downloaded ISO when prompted. SHA256 validated screen sticks for a bit.</li>
 </ul>
 </li>
 <li>
@@ -134,8 +134,8 @@
 <p><code># loadkeys de-latin1</code></p>
 </li>
 <li>
-<p>Verify the boot mode (you should see a list of files).</p>
-<p><code># ls /usr/share/kbd/keymaps/**/*.map.gz</code></p>
+<p>Verify the boot mode (this should spit out a list).</p>
+<p><code># ls /sys/firmware/efi/efivars</code></p>
 </li>
 <li>
 <p>Verify internet connection.</p>
@@ -161,7 +161,7 @@
 <ul>
 <li>Use gdisk to partition drive:  </li>
 </ul>
-<p><code># gdisk /dev/sd#</code></p>
+<p><code># gdisk /dev/sda</code></p>
 <ul>
 <li>Table of common settings I use for partition drives:</li>
 </ul>
@@ -203,8 +203,9 @@
 ::RETURN::
 ::RETURN::
 ::RETURN::
-# +500MB
+# +500M
 ::RETURN::
+# EF00
 ::RETURN::
 
 // SWAP PARTITION
@@ -247,27 +248,27 @@ y
 </ul>
 </li>
 <li>
-<p>Format Partitions (update drive letter and partition number as necessary).</p>
+<p>Format Partitions (remember to update drive letter and partition number as necessary).</p>
 <pre><code>// EFI BOOTLOADER PARTITION
-# mkfs.fat -F32 /dev/sd#1
+# mkfs.fat -F32 /dev/sda1
 
 // SWAP PARTITION
-# mkswap /dev/sd#2
+# mkswap /dev/sda2
 
 // ROOT PARTITION
-# mkfs -t ext4 /dev/sd#3
+# mkfs -t ext4 /dev/sda3
 
 // HOME PARTITION
-# mkfs -t ext4 /dev/sd#4
+# mkfs -t ext4 /dev/sda4
 </code></pre>
 </li>
 <li>
-<p>Mount Partitions (update drive letter and partition number as necessary).</p>
+<p>Mount Partitions (remember to update drive letter and partition number as necessary).</p>
 <pre><code>// TURN SWAP ON
-# swapon /dev/sd#2
+# swapon /dev/sda2
 
 // MOUNT ROOT
-# mount /dev/sd#3 /mnt
+# mount /dev/sda3 /mnt
 
 // CD INTO /MNT
 # cd /mnt
@@ -276,45 +277,128 @@ y
 # mkdir boot home
 
 // MOUNT BOOT
-# mount /dev/sd#1 boot
+# mount /dev/sda1 boot
 
 // MOUNT HOME
-# mount /dev/sd#4 home
+# mount /dev/sda4 home
 </code></pre>
 </li>
 <li>
-<p>Update Keys</p>
+<p>Update Package Repository (maybe)</p>
+<p><code># pacman -Syy</code></p>
 </li>
 <li>
-<p>Update Mirrors</p>
+<p>Update Mirrors (nah)</p>
+<pre><code># pacman -S reflector
+# reflector --latest 200 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre>
 </li>
 <li>
-<p>Install Arch</p>
-</li>
-</ol>
-<p>References:</p>
-<p>Arch Wiki - Installation Guide:</p>
-<p><a href="https://wiki.archlinux.org/index.php/installation_guide">https://wiki.archlinux.org/index.php/installation_guide</a></p>
-<p>GRUB Reference:</p>
-<p><a href="https://wiki.archlinux.org/index.php/GRUB">https://wiki.archlinux.org/index.php/GRUB</a></p>
-<p>Virtualbox Reference:</p>
-<p><a href="https://wiki.archlinux.org/index.php/VirtualBox">https://wiki.archlinux.org/index.php/VirtualBox</a></p>
-<p>Decent Arch Install Guides:</p>
-<p><a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
-<p><a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
-<p>run this before pacstrap:</p>
+<p>Update Keys (maybe)</p>
 <pre><code># pacman-key --init
 # pacman-key --populate archlinux
 # pacman-key --refresh-keys
 </code></pre>
-<p>pacstrap include:</p>
-<p>base linux linux-firmware vim xorg-server xorg-xinit i3 dmenu (needed?) grub efibootmgr sudo netctl wpa_supplicant dhcpcd dialog ttf-dejavu</p>
-<p>if forget something, can arch-chroot into system</p>
-<p>need --removable on grub cfg for EFI Boot on VBox</p>
-<p>i3 needs ttf-dejavu font package</p>
-<p>add 'exec i3' to ~/.xinitrc</p>
+</li>
+<li>
+<p>Install Arch (If you forget something, then you can chroot back in)</p>
+<p><code># pacstrap /mnt base base-devel linux linux-firmware vim rxvt-unicode firefox thunar xorg-server xorg-xinit i3 dmenu grub efibootmgr netctl wpa_supplicant dhcpcd dialog ttf-dejavu virtualbox-guest-modules-arch virtualbox-guest-utils</code></p>
+</li>
+<li>
+<p>Generate fstab file</p>
+<p><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></p>
+</li>
+<li>
+<p>chroot into system</p>
+<p><code># arch-chroot /mnt</code></p>
+</li>
+<li>
+<p>Set Timezone</p>
+<pre><code># ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+# hwclock --systohc
+</code></pre>
+</li>
+<li>
+<p>Localization</p>
+<ul>
+<li>Uncomment "en_US" locales in /etc/locale.gen</li>
+</ul>
+<p><code># vim /etc/locale.gen</code></p>
+<ul>
+<li>Generate locales</li>
+</ul>
+<p><code># locale-gen</code></p>
+<ul>
+<li>Set locale language (add LANG=en_US.UTF-8 to file below)</li>
+</ul>
+<p><code># vim /etc/locale.conf</code></p>
+</li>
+<li>
+<p>Set root password</p>
+<p><code># passwd</code></p>
+</li>
+<li>
+<p>Add another user and adjust privileges</p>
+<pre><code># useradd --home-dir /home/benny --create-home benny
+# passwd benny
+// ADD "benny ALL=(ALL) ALL" UNDER "root ALL=(ALL) ALL"
+# vim /etc/sudoers
+</code></pre>
+</li>
+<li>
+<p>Setup internet and virtual box services</p>
+<ul>
+<li>Internet (replace enp0s3 as necessary - see Step 5).</li>
+</ul>
+<p><code># systemctl enable dhcpcd@enp0s3.service</code></p>
+<ul>
+<li>Virtual box (auto-load vbox modules)<pre><code># vim /etc/modules-load.d/virtualbox.conf
+// ADD LINES
+vboxguest
+vboxsf
+vboxvideo
+# sudo systemctl enable vboxservice.service
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Install &amp; Configure GRUB</p>
+<pre><code># grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
+# grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+</li>
+<li>
+<p>Shutdown virtual machine, remove ISO file from the Storage tab in Settings, and restart.</p>
+</li>
+<li>
+<p>Login an non-root user</p>
+<pre><code># echo "exec i3" &gt; ~/.xinitrc
+# startx
+</code></pre>
+</li>
+</ol>
+<p>References:</p>
+<ul>
+<li>
+<p>Arch Wiki - Installation Guide: <a href="https://wiki.archlinux.org/index.php/installation_guide">https://wiki.archlinux.org/index.php/installation_guide</a></p>
+</li>
+<li>
+<p>GRUB Reference: <a href="https://wiki.archlinux.org/index.php/GRUB">https://wiki.archlinux.org/index.php/GRUB</a></p>
+</li>
+<li>
+<p>Virtualbox Reference: <a href="https://wiki.archlinux.org/index.php/VirtualBox">https://wiki.archlinux.org/index.php/VirtualBox</a></p>
+</li>
+<li>
+<p>Decent Arch Install Guide: <a href="https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p">https://dev.to/siatwe/install-a-minimal-arch-linux-in-half-an-hour--1l6p</a></p>
+</li>
+<li>
+<p>Another Decent Arch Install Guide: <a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
+</li>
+</ul>
+<p>Random Tip:</p>
+<p>The command below installs and overwrites all files (be careful). This has helped me out when I've messed up an install before.</p>
 <p><code># pacman -S package --overwrite='*'</code></p>
-<p>this installs and overwrites all files, be careful, but this solved sudoers problem</p>
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function ()
