@@ -69,7 +69,7 @@
                     current = location.hash;
                     $('.indexImage').css({"visibility":"hidden"});
                     alert($(current).attr('src'));
-                    $(current).css({"visibility":"visible"});
+                    $("[id='"+current+"']").css({"visibility":"visible"});
                 }
                 initialLoad = false;
             }
@@ -83,7 +83,7 @@
                         current = location.hash;
                         $('.indexImage').css({"visibility":"hidden"});
                         alert($(current).attr('src'));
-                        $(current).css({"visibility":"visible"});
+                        $("[id='"+current+"']").css({"visibility":"visible"});
                     }
                 }
             });
