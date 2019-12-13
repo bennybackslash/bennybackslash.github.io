@@ -35,15 +35,15 @@
         function divider() {
             if (collapsed) {
                 $('.links').show();
-                $('.content').css('width', '67%');
-                $.get("https://bennybackslash.github.io/images/collapse-red.png", function (data) {
+                $('.content').css('width', '72%');
+                $.get("https://bennybackslash.github.io/images/collapse.png", function (data) {
                     $('#dividerImage').attr('src', 'data:image/png;base64,' + data);
                 });
                 collapsed = false;
             }
             else {
                 $('.links').hide();
-                $('.content').css('width', '92%');
+                $('.content').css('width', '97%');
                 $.get("https://bennybackslash.github.io/images/expand.png", function (data) {
                     $('#dividerImage').attr('src', 'data:image/png;base64,' + data);
                 });
@@ -113,10 +113,19 @@
             --ref-text: #484848;
             --link-text: #181818;
             --link-hover: #EE1515;
-            --divider: #BDAEAD;
+            --divider: #484848;
             --hr: #EE1515;
             --background: #F0F0F0;
             --content-background: #F0F0F0;
+
+            /* --main-text: #181818;
+            --ref-text: #484848;
+            --link-text: #181818;
+            --link-hover: #EE1515;
+            --divider: #BDAEAD;
+            --hr: #EE1515;
+            --background: #F0F0F0;
+            --content-background: #F0F0F0; */
 
             /* --main-text: #8ca68c;
             --ref-text: #505E50;
@@ -138,14 +147,14 @@
             background-color: var(--background);
             position: fixed;
             width: 100%;
-            height: 62px;
+            height: 64px;
         }
 
         .links {
             background-color: var(--background);
-            margin-top: 72px;
+            margin-top: 74px;
             float: left;
-            width: 24%;
+            width: 20%;
             height: 100%;
             padding-left: 1%;
             overflow-y: auto;
@@ -154,17 +163,17 @@
         .divider {
             background-color: var(--divider);
             position: relative;
-            margin-top: 62px;
+            margin-top: 64px;
             float: left;
-            width: 3%;
+            width: 2%;
             height: 100%;
         }
 
         .content {
             background-color: var(--content-background);
-            margin-top: 62px;
+            margin-top: 64px;
             float: left;
-            width: 67%;
+            width: 72%;
             height: 100%;
             padding-left: 2.5%;
             padding-right: 2.5%;
@@ -200,7 +209,7 @@
 
         hr {
             clear: both;
-            height: 2;
+            height: 4;
             margin:0;
             border:0;
             background: var(--hr);
@@ -311,7 +320,7 @@
 <li><a id="[Autodesk Inventor Code Snippets] Common Code Snippets Used for Automating Autodesk Inventor #csharp #autodesk #inventor" href="%2Fposts%2FAutodesk%20Inventor%20Code%20Snippets.html" >Autodesk Inventor Code Snippets</a></li>
 </ul>
 </div>
-<div class="divider" onclick="divider()"><img class="indexImage" id="dividerImage" src="https://bennybackslash.github.io/images/collapse-red.png"></div>
+<div class="divider" onclick="divider()"><img class="indexImage" id="dividerImage" src="https://bennybackslash.github.io/images/collapse.png"></div>
 <div class="content"></div>
 <script>$('.indexImage').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
 </body>
