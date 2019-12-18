@@ -111,7 +111,10 @@
 <p>Setup your virtual machine.</p>
 <ul>
 <li>
-<p>Set name, memory, storage, and other settings as you see fit. I typically dedicate half of my system memory and processors, use a dynamically allocated drive with a generous amount of space (~50 GB), max out the video memory, enable 3D acceleration, set the graphics controller to VBoxSVGA, set the Shared Clipboard and Drag'n'Drop to Bidirectional, and enable USB 2.0 (this requires the extension pack).</p>
+<p>Make sure you have the latest version of VirtualBox on your host. Arch will have the latest and if there is a version mismatch, then it can cause issues. Also, download the extension pack if you want USB 2.0 support.</p>
+</li>
+<li>
+<p>Set name, memory, storage, and other settings as you see fit. I typically dedicate half of my system memory and processors, use a dynamically allocated drive with a generous amount of space (~50 GB), max out the video memory, enable 3D acceleration, set the Shared Clipboard and Drag'n'Drop to Bidirectional, and enable USB 2.0 (again, this requires the extension pack).</p>
 </li>
 <li>
 <p>Check the Enable EFI (special OSes only) box in the System tab.</p>
@@ -256,10 +259,10 @@ y
 # mkswap /dev/sda2
 
 // ROOT PARTITION
-# mkfs -t ext4 /dev/sda3
+# mkfs.ext4 /dev/sda3
 
 // HOME PARTITION
-# mkfs -t ext4 /dev/sda4
+# mkfs.ext4 /dev/sda4
 </code></pre>
 </li>
 <li>
@@ -284,25 +287,8 @@ y
 </code></pre>
 </li>
 <li>
-<p>Update Package Repository (maybe)</p>
-<p><code># pacman -Syy</code></p>
-</li>
-<li>
-<p>Update Mirrors (nah)</p>
-<pre><code># pacman -S reflector
-# reflector --latest 200 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-</code></pre>
-</li>
-<li>
-<p>Update Keys (maybe)</p>
-<pre><code># pacman-key --init
-# pacman-key --populate archlinux
-# pacman-key --refresh-keys
-</code></pre>
-</li>
-<li>
 <p>Install Arch (If you forget something, then you can chroot back in)</p>
-<p><code># pacstrap /mnt base base-devel linux linux-firmware vim rxvt-unicode firefox thunar xorg-server xorg-xinit i3 dmenu grub efibootmgr netctl wpa_supplicant dhcpcd dialog ttf-dejavu virtualbox-guest-modules-arch virtualbox-guest-utils</code></p>
+<p><code># pacstrap /mnt base base-devel linux linux-firmware vim rxvt-unicode firefox thunar xorg-server xorg-xinit i3 dmenu grub efibootmgr netctl wpa_supplicant dhcpcd dialog ttf-dejavu virtualbox-guest-modules-arch virtualbox-guest-utils xf86-video-vmware mousepad</code></p>
 </li>
 <li>
 <p>Generate fstab file</p>
@@ -357,7 +343,7 @@ y
 vboxguest
 vboxsf
 vboxvideo
-# sudo systemctl enable vboxservice.service
+# systemctl enable vboxservice.service
 </code></pre>
 </li>
 </ul>
@@ -396,9 +382,11 @@ vboxvideo
 <p>Another Decent Arch Install Guide: <a href="https://wideaperture.net/blog/?p=4503">https://wideaperture.net/blog/?p=4503</a></p>
 </li>
 </ul>
-<p>Random Tip:</p>
+<p>Random Tips:</p>
 <p>The command below installs and overwrites all files (be careful). This has helped me out when I've messed up an install before.</p>
 <p><code># pacman -S package --overwrite='*'</code></p>
+<p>If you land in grub after install, then use the ls command to check filenames. I've had to point to the config file before.</p>
+<p><code>grub&gt; configfile (hd1,gpt1)/boot/grub/grub.cfg.new</code></p>
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function ()
