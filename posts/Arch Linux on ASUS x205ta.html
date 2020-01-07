@@ -102,16 +102,17 @@
 <p>follow instructions for OS Independent Method</p>
 <p>-make sure file extensions are shown for known file types (so you don't end up with grub.cfg.txt)</p>
 <p>-use blkid to identify drives</p>
-<p>grub-install --target=i386-efi --efi-directory=/boot --bootloader-id=grub_uefi</p>
-<p>need this before startx<br />
-pacman -S xf86-video-intel</p>
-<p>connect and create new profile using:<br />
-wifi-menu</p>
-<p>enable at start:<br />
-sudo netctl enable NameOfProfile</p>
-<p>enable tap-to-click:<br />
-sudo pacman -S xorg-xinput<br />
-xinput set-prop "your touchpad devices" "libinput Tapping Enabled" 1</p>
+<p><code>grub-install --target=i386-efi --efi-directory=/boot --bootloader-id=grub_uefi</code></p>
+<p>need this before startx</p>
+<p><code>pacman -S xf86-video-intel</code></p>
+<p>connect and create new profile using:</p>
+<p><code>wifi-menu</code></p>
+<p>enable at start:</p>
+<p><code>sudo netctl enable NameOfProfile</code></p>
+<p>enable tap-to-click:</p>
+<pre><code>sudo pacman -S xorg-xinput
+xinput set-prop "your touchpad devices" "libinput Tapping Enabled" 1
+</code></pre>
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function ()
