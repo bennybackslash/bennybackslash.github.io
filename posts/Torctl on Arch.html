@@ -1,0 +1,132 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready( function () {
+            $("div.innerContent a:not([href*=bennybackslash]").click(function () {
+                $(this).attr('target','_blank');
+            });
+        });
+    </script>
+    <style>
+
+        body {
+            
+            background-color: #F0F0F0;
+        }
+
+        .innerContent {
+            --main-text: #181818;
+            --ref-text: #484848;
+            --link-text: #EE1515;
+            --link-hover: #181818;
+            --background: #F0F0F0;
+            background-color: var(--background);
+            font-family: sans-serif;
+            margin: 10px;
+        }
+        
+        .innerContent p {
+            clear: both;
+        }
+
+        .innerContent a:link {
+            color: var(--link-text);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        .innerContent a:visited {
+            color: var(--link-text);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        .innerContent a:hover {
+            color: var(--link-hover);
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        .innerContent a:active {
+            color: var(--link-text);
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        .innerContent pre {
+            overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .innerContent code {
+            background-color: white;
+            border: 1px solid #181818;
+            display: block;
+            padding: 20px;
+
+        }
+
+        .innerContent table {
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .innerContent table,
+        .innerContent th,
+        .innerContent td {
+            border: 1px solid black;
+        }
+
+        .innerContent th,
+        .innerContent td {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="innerContent">
+        
+<h1>Transparent Torification on Arch Linux</h1>
+<h3>(Using BlackArch Torctl Package)</h3>
+<p># Get Access to BlackArch Repos</p>
+<p># Download Install Script</p>
+<p><code>curl -O https://blackarch.org/strap.sh</code></p>
+<p># Make file executable</p>
+<p><code>chmod +x strap.sh</code></p>
+<p># Run it</p>
+<p><code>sudo ./strap.sh</code></p>
+<p># View BlackArch packages</p>
+<p><code>sudo pacman -Sgg | grep blackarch</code></p>
+<p># Install torctl (route all traffic through tor)</p>
+<p><code>sudo pacman -S torctl</code></p>
+<p># Run it</p>
+<p><code>sudo torctl start</code></p>
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function ()
+{
+this.page.url = 'https://bennybackslash.github.io/posts/Torctl on Arch.html';
+this.page.identifier ='f77d8dd9523590a6675fc9c0c5887a15';
+};
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://bennybackslash.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<script>$('img:not(.indexImage, .dividerImage)').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
+</div>
+</body>
+</html>
