@@ -131,6 +131,17 @@ sudo pacman -S gst-plugins-good
             }
         }
 </code></pre>
+<p>And Footer.qml to change to a 12 hour clock:</p>
+<pre><code>Text {
+                    id: time
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: "#EEE" //Logic.cfgFontColor
+                    text : Qt.formatTime(dateTime, "hh:mm a")
+                    font.pointSize: 12 * Logic.cfgFontScale
+                    font.family: Logic.cfgFontFamily
+                }
+</code></pre>
 <p>I also had an issue with the font base in urxvt after I instaled the theme above. I had to update my font in ~/.Xresources. Need to look into this more...</p>
 <p>Just for the record, font is now:</p>
 <p><code>URxvt.font:      xft:Monospace:size=10</code></p>
