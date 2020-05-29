@@ -105,10 +105,7 @@ sudo systemctl enable sddm.service
 <p>Install "Delicious" theme:</p>
 <p><a href="https://github.com/stuomas/delicious-sddm-theme">https://github.com/stuomas/delicious-sddm-theme</a></p>
 <p>Install Dependencies:</p>
-<pre><code>sudo pacman -S qt5
-sudo pacman -S gstreamer
-sudo pacman -S gst-plugins-good
-</code></pre>
+<p><code>sudo pacman -S qt5 gstreamer gst-libav gst-plugins-good</code></p>
 <p>Test theme:</p>
 <p><code>sddm-greeter --test-mode --theme /usr/share/sddm/themes/delicious</code></p>
 <p>I edited the LoginBox.qml (I had an overlap issue with the password reveal icon):</p>
