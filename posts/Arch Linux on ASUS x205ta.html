@@ -1,102 +1,28 @@
 <html>
-
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-    $(document).ready( function () {
-            $("div.innerContent a:not([href*=bennybackslash]").click(function () {
-                $(this).attr('target','_blank');
-            });
-        });
-    </script>
-    <style>
-
-        body {
-            
-            background-color: #F0F0F0;
-        }
-
-        .innerContent {
-            --main-text: #181818;
-            --ref-text: #484848;
-            --link-text: #EE1515;
-            --link-hover: #181818;
-            --background: #F0F0F0;
-            background-color: var(--background);
-            font-family: sans-serif;
-            margin: 10px;
-        }
-        
-        .innerContent p {
-            clear: both;
-        }
-
-        .innerContent a:link {
-            color: var(--link-text);
-            background-color: transparent;
-            text-decoration: none;
-        }
-
-        .innerContent a:visited {
-            color: var(--link-text);
-            background-color: transparent;
-            text-decoration: none;
-        }
-
-        .innerContent a:hover {
-            color: var(--link-hover);
-            background-color: transparent;
-            text-decoration: underline;
-        }
-
-        .innerContent a:active {
-            color: var(--link-text);
-            background-color: transparent;
-            text-decoration: underline;
-        }
-
-        .innerContent pre {
-            overflow-x: auto;
-            white-space: pre-wrap;
-            white-space: -moz-pre-wrap;
-            white-space: -pre-wrap;
-            white-space: -o-pre-wrap;
-            word-wrap: break-word;
-        }
-
-        .innerContent code {
-            background-color: white;
-            border: 1px solid #181818;
-            display: block;
-            padding: 20px;
-
-        }
-
-        .innerContent table {
-            border-collapse: collapse;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        .innerContent table,
-        .innerContent th,
-        .innerContent td {
-            border: 1px solid black;
-        }
-
-        .innerContent th,
-        .innerContent td {
-            padding-left: 15px;
-            padding-right: 15px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-    </style>
+<title>Arch Linux on ASUS x205ta</title>
+<meta charset="utf-8">
+<meta name="author" content="benny\">
+<meta name="description" content="[Arch Linux on ASUS x205ta] Tips on Installing Arch on ASUS x205ta #linux">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>$(document).ready( function () { $("div.innerContent a:not([href*=bennybackslash]").click(function () { $(this).attr('target','_blank');});});</script>
+<style>
+body {background-color: #F0F0F0;}
+.innerContent {--main-text: #181818;--ref-text: #484848;--link-text: #EE1515;--link-hover: #181818;--background: #F0F0F0;background-color: var(--background);font-family: sans-serif;margin: 10px;}
+.innerContent p {clear: both;}
+.innerContent a:link {color: var(--link-text);background-color: transparent;text-decoration: none;}
+.innerContent a:visited {color: var(--link-text);background-color: transparent;text-decoration: none;}
+.innerContent a:hover {color: var(--link-hover);background-color: transparent;text-decoration: underline;}
+.innerContent a:active {color: var(--link-text);background-color: transparent;text-decoration: underline;}
+.innerContent pre {overflow-x: auto;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+.innerContent code {background-color: white;border: 1px solid #181818;display: block;padding: 20px;}
+.innerContent table {border-collapse: collapse;margin-top: 15px;margin-bottom: 15px;}
+.innerContent table,.innerContent th,.innerContent td {border: 1px solid black;}
+.innerContent th,.innerContent td {padding-left: 15px;padding-right: 15px;padding-top: 5px;padding-bottom: 5px;}
+</style>
 </head>
-
 <body>
-    <div class="innerContent">
-        
+<div class="innerContent">
 <h1>Arch on ASUS x205ta Tips</h1>
 <p>Excellent Arch Wiki page per usual (Follow instructions for OS Independent Method):</p>
 <p><a href="https://wiki.archlinux.org/index.php/ASUS_x205ta">https://wiki.archlinux.org/index.php/ASUS_x205ta</a></p>
