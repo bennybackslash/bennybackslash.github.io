@@ -5,7 +5,7 @@
 <meta name="author" content="benny\">
 <meta name="description" content="[About] About #about">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>if(window.location.href.indexOf("posts") > -1) { $('.returnLink').css('visibility','visible');}else{$('.returnLink').css('visibility','hidden');}$(document).ready( function () { $("div.innerContent a:not([href*=bennybackslash]").click(function () { $(this).attr('target','_blank');});});</script>
+<script>$(document).ready( function () { $("div.innerContent a:not([href*=bennybackslash]").click(function () { $(this).attr('target','_blank');});});</script>
 <style>
 body {background-color: #F0F0F0;}
 .innerContent {--main-text: #181818;--ref-text: #484848;--link-text: #EE1515;--link-hover: #181818;--background: #F0F0F0;background-color: var(--background);font-family: sans-serif;margin: 10px;}
@@ -22,6 +22,8 @@ body {background-color: #F0F0F0;}
 </style>
 </head>
 <body>
+<div class="innerContent">
+<script>if(window.location.href.indexOf("posts") > -1) { $('.returnLink').css('visibility','visible');}else{$('.returnLink').css('visibility','hidden');}</script>
 <div class="shareButton" style="float:right;">
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 <script type="IN/Share" data-url="https://bennybackslash.github.io/posts/About.html"></script>
@@ -29,7 +31,6 @@ body {background-color: #F0F0F0;}
 <div class="returnLink" style="float:right;">
 <a href="https://bennybackslash.github.io/#Welcome" style="text-decoration: none; margin-right:15px;">Return to benny\</a>
 </div>
-<div class="innerContent">
 <h1>About benny\</h1>
 <p><strong>What?</strong></p>
 <p>This site is intended to be a reference, personal portfolio, and simply an avenue to discuss, learn and grow - for both myself and perhaps others as well. Essentially, this will be a personal mind dump, which is/will be comprised mostly of posts about programming, linux, gaming, and whatever else I get mixed up in. The site is relatively new, but I already see the benefits of writing about what I do.</p>
