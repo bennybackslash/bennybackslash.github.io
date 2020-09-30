@@ -47,7 +47,9 @@ a:active {color: var(--link-text);background-color: transparent;text-decoration:
 <div class="header">
 <a href="https://bennybackslash.github.io/#Welcome" style="text-decoration: none;"><div class="logo">benny\</div></a>
 <input type="text" id="searchbox" autocomplete="off" onkeydown="onkeypressed(event, this);" onkeyup="search()"placeholder="search posts" size="10" spellcheck="false">
-<a href="https://github.com/bennybackslash" target="_blank" style="text-decoration: none;"><img src="https://bennybackslash.github.io/images/github.png" style="float:right;margin-right: 1%;margin-bottom:0; height:32px; width:32px;"></a>
+<div class="social" style="float:right;margin-top:16px;margin-right:1%;">
+<a href="https://github.com/bennybackslash" target="_blank" style="text-decoration: none;"><img class="socialImage" src="https://bennybackslash.github.io/images/github.png" style="height:32px; width:32px;"></a>
+</div>
 <hr>
 </div>
 <div class="links">
@@ -69,6 +71,6 @@ a:active {color: var(--link-text);background-color: transparent;text-decoration:
 </div>
 <div class="divider" onclick="divider()"><img class="dividerImage" id="dividerImage" src="https://bennybackslash.github.io/images/collapse.png"></div>
 <div class="content"></div>
-<script>$('.indexImage, .dividerImage').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
+<script>$('.indexImage, .dividerImage, .socialImage').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
 </body>
 </html>
