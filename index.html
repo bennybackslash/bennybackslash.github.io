@@ -17,7 +17,7 @@ var current = '';
 var collapsed = false;
 $(document).ready(function () {if (initialLoad) {var hash = location.hash;if (hash) {$('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');$('.indexImage').css('visibility','hidden');$('*[data-hash="'+hash.substr(1)+'"]').css('visibility','visible');}else {$('.content').load(encodeURIComponent('/posts/Welcome.html'));history.replaceState(undefined, undefined, "#Welcome");current = location.hash;$('.indexImage').css('visibility','hidden');$('*[data-hash="'+current.substr(1)+'"]').css('visibility','visible');}initialLoad = false;}
 $(window).on('popstate', function () {var hash = location.hash;if (hash) {if (current != location.hash) {$('.content').load(encodeURIComponent('/posts/') + hash.substr(1) + '.html');current = location.hash;$('.indexImage').css('visibility','hidden');$('*[data-hash="'+current.substr(1)+'"]').css('visibility','visible');}}});
-$("div.headerLink a").click(function () {$('.content').load(encodeURIComponent('/posts/Welcome.html'));location.hash = encodeURIComponent('Welcome');current = location.hash;return false;});
+$("div.header a.headerLink").click(function () {$('.content').load(encodeURIComponent('/posts/Welcome.html'));location.hash = encodeURIComponent('Welcome');current = location.hash;return false;});
 $("div.links a").click(function () {$('.content').load($(this).attr('href'));location.hash = encodeURIComponent($(this).text());current = location.hash;return false;});
 $("div.innerContent a:not([href*=bennybackslash]").click(function () {$(this).attr('target', '_blank');});});
 </script>
@@ -45,9 +45,7 @@ a:active {color: var(--link-text);background-color: transparent;text-decoration:
 </head>
 <body>
 <div class="header">
-<div class="headerLink">
-<a href="https://bennybackslash.github.io/#Welcome" style="text-decoration: none;"><div class="logo">benny\</div></a>
-</div>
+<a class="headerLink" href="https://bennybackslash.github.io/#Welcome" style="text-decoration: none;"><div class="logo">benny\</div></a>
 <input type="text" id="searchbox" autocomplete="off" onkeydown="onkeypressed(event, this);" onkeyup="search()"placeholder="search posts" size="10" spellcheck="false">
 <div class="social" style="float:right;margin-top:16px;margin-right:1%;">
 <a href="https://github.com/bennybackslash" target="_blank" style="text-decoration: none;"><img class="socialImage" src="https://bennybackslash.github.io/images/github.png" style="height:32px; width:32px;"></a>
