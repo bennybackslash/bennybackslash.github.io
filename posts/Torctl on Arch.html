@@ -61,7 +61,7 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<script>$('img:not(.indexImage, .dividerImage)').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
+<script>$('img:not(.indexImage, .dividerImage, .socialImage)').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
 </div>
 </body>
 </html>
