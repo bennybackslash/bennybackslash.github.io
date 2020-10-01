@@ -4,33 +4,106 @@
 <meta charset="utf-8">
 <meta name="author" content="benny\">
 <meta name="description" content="[Custom Static Site Generator] Custom Static Site Generator Using Gists #python">
+<link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>$(document).ready( function () { $("div.innerContent a:not([href*=bennybackslash]").click(function () { $(this).attr('target','_blank');});});</script>
+<script>
+$(document).ready( function () { 
+    $("div.innerContent a:not([href*=bennybackslash]").click(function () { 
+        $(this).attr('target','_blank');
+    });
+});
+</script>        
 <style>
-body {background-color: #F0F0F0;}
-.innerContent {--main-text: #181818;--ref-text: #484848;--link-text: #EE1515;--link-hover: #181818;--background: #F0F0F0;background-color: var(--background);font-family: sans-serif;margin: 10px;}
-.innerContent p {clear: both;}
-.innerContent a:link {color: var(--link-text);background-color: transparent;text-decoration: none;}
-.innerContent a:visited {color: var(--link-text);background-color: transparent;text-decoration: none;}
-.innerContent a:hover {color: var(--link-hover);background-color: transparent;text-decoration: underline;}
-.innerContent a:active {color: var(--link-text);background-color: transparent;text-decoration: underline;}
-.innerContent pre {overflow-x: auto;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
-.innerContent code {background-color: white;border: 1px solid #181818;display: block;padding: 20px;}
-.innerContent table {border-collapse: collapse;margin-top: 15px;margin-bottom: 15px;}
-.innerContent table,.innerContent th,.innerContent td {border: 1px solid black;}
-.innerContent th,.innerContent td {padding-left: 15px;padding-right: 15px;padding-top: 5px;padding-bottom: 5px;}
+body {
+    background-color: #F0F0F0;
+    }        
+.innerContent {
+    --main-text: #181818;
+    --ref-text: #484848;
+    --link-text: #EE1515;
+    --link-hover: #181818;
+    --background: #F0F0F0;
+    background-color: var(--background);
+    font-family: sans-serif;
+    margin: 10px;
+    }        
+.innerContent p {
+    clear: both;
+    }        
+.innerContent a:link {
+    color: var(--link-text);
+    background-color: transparent;
+    text-decoration: none;
+    }        
+.innerContent a:visited {
+    color: var(--link-text);
+    background-color: transparent;
+    text-decoration: none;
+    }        
+.innerContent a:hover {
+    color: var(--link-hover);
+    background-color: transparent;
+    text-decoration: underline;
+    }        
+.innerContent a:active {
+    color: var(--link-text);
+    background-color: transparent;
+    text-decoration: underline;
+    }        
+.innerContent pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    }        
+.innerContent code {
+    background-color: white;
+    border: 1px solid #181818;
+    display: block;
+    padding: 20px;
+    }        
+.innerContent table {
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }        
+.innerContent table,.innerContent th,.innerContent td {
+    border: 1px solid black;
+    }        
+.innerContent th,.innerContent td {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    }        
+.minilogo{
+    display: inline-block;
+    color: var(--main-text);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15.5;
+    margin-left: 1%;
+    }    
 </style>
 </head>
 <body>
 <div class="innerContent">
-<script>if(window.location.href.indexOf("posts") > -1) { $('.returnLink').css('visibility','visible');}else{$('.returnLink').css('visibility','hidden');}</script>
-<div class="shareButton" style="float:right;">
+<script>
+if (window.location.href.indexOf("posts") > -1) { 
+    $('.returnLink').css('visibility','visible');
+}
+else {
+    $('.returnLink').css('visibility','hidden');
+}
+</script>        
+<div class="returnLink" style="float:right;">
+<a href="https://bennybackslash.github.io/#Welcome" style="text-decoration: none;"><div class="minilogo">benny\</div></a>
+</div>
+<div class="shareButton" style="float:right; margin-right:15px;">
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 <script type="IN/Share" data-url="https://bennybackslash.github.io/posts/Custom%20Static%20Site%20Generator.html"></script>
-</div>
-<div class="returnLink" style="float:right;">
-<a href="https://bennybackslash.github.io/#Welcome" style="text-decoration: none; margin-right:15px;"><img src="https://bennybackslash.github.io/images/logo.gif" style="height:40px; width:40px;"></a>
-</div>
+<a href="https://twitter.com/intent/tweet?url=https://bennybackslash.github.io/posts/Custom%20Static%20Site%20Generator.html"><img class="socialImage" src="https://bennybackslash.github.io/images/twitter.jpg" style="height:32px;width:32px;"></a></div>
 <h1>Custom Static Site Generator</h1>
 <h2>Written in Python, Pulls Content from Github gists</h2>
 <p>This is my setup:</p>
@@ -84,7 +157,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<script>$('img:not(.indexImage, .dividerImage, .socialImage)').each(function (index, element) { $.get($(element).attr('src'), function (data) { $(element).attr('src', 'data:image/png;base64,' + data); });});</script>
+<script>
+$('img:not(.indexImage, .dividerImage, .socialImage)').each(function (index, element) { 
+    $.get($(element).attr('src'), function (data) { 
+        $(element).attr('src', 'data:image/png;base64,' + data); 
+    });
+});
+</script>        
 </div>
 </body>
 </html>
